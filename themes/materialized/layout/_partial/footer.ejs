@@ -1,0 +1,94 @@
+<footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
+  <div class="mdui-p-y-0 mdui-text-center">
+    <% if (theme.sns.twitter) { %>
+      <a href="<%- theme.sns.twitter %>" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe655;</i></a>
+    <% } %>
+    <% if (theme.sns.facebook) { %>
+      <a href="<%- theme.sns.facebook %>" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe66e;</i></a>
+    <% } %>
+    <% if (theme.sns.google_plus) { %>
+      <a href="<%- theme.sns.google_plus %>" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe6a8;</i></a>
+    <% } %>
+    <% if (theme.sns.weibo) { %>
+      <a href="<%- theme.sns.weibo %>" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xec7e;</i></a>
+    <% } %>
+    <% if (theme.sns.instagram) { %>
+      <a href="<%- theme.sns.instagram %>" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe75f;</i></a>
+    <% } %>
+    <% if (theme.sns.tumblr) { %>
+      <a href="<%- theme.sns.tumblr %>" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe849;</i></a>
+    <% } %>
+    <% if (theme.sns.github) { %>
+      <a href="<%- theme.sns.github %>" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe7ab;</i></a>
+    <% } %>
+    <% if (theme.sns.linkedin) { %>
+      <a href="<%- theme.sns.linkedin %>" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe666;</i></a>
+    <% } %>
+    <% if (theme.sns.zhihu) { %>
+      <a href="<%- theme.sns.zhihu %>" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe6c0;</i></a>
+    <% } %>
+    <% if (theme.sns.douban) { %>
+      <a href="<%- theme.sns.douban %>" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe667;</i></a>
+    <% } %>
+    <% if (theme.sns.qq) { %>
+      <a href="<%- theme.sns.qq %>" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe651;</i></a>
+    <% } %>
+    <% if (theme.sns.wechat) { %>
+      <a href="<%- theme.sns.wechat %>" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe6e1;</i></a>
+    <% } %>
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    &copy; <% if (theme.since) { %><%= theme.since %><% } %> | <i class="fa fa-user"></i> <%= config.author || config.title %>
+    <% if (theme.busuanzi.site) { %><br>
+      <span id="busuanzi_container_site_pv" style="display: none;"><i class="iconfont">&#xe7fd;</i> <span id="busuanzi_value_site_pv"></span></span> &nbsp;&nbsp;
+      <span id="busuanzi_container_site_uv" style="display: none;"><i class="iconfont">&#xe601;</i> <span id="busuanzi_value_site_uv"></span></span>
+    <% } %>
+  </div>
+</footer>
+<% if (theme.mermaid.enable) { %>
+<script src='/lib/mermaid.min.js'></script>
+<script>
+  if (window.mermaid) {
+    window.mermaidUri = '/lib/mermaid.min.js';
+    window.loadScript = function(url) {
+      return new window.Promise(function(resolve) {
+        var script = window.document.createElement ("script");
+        script.type = "text/javascript";
+
+        if (script.readyState){ //IE
+          script.onreadystatechange = function() {
+            if (script.readyState === 'loaded' || script.readyState === 'complete'){
+              script.onreadystatechange = null;
+              resolve(script);
+            }
+          };
+        } else { //Others
+          script.onload = function(){
+            resolve(script);
+          };
+        }
+        script.src = url;
+        window.document.getElementsByTagName("head")[0].appendChild(script);
+      });
+    };
+
+    // 存在.mermaid的元素 加载执行 mermaid.js
+    if (window.document.querySelector('.mermaid')) {
+      window.loadScript(window.mermaidUri).then(function () {
+        if (window.mermaid) {
+		  console.log("Hi!")
+          window.mermaid.initialize({
+            startOnLoad: true,
+            flowchart:{
+              useMaxWidth: false,
+              htmlLabels: true
+            }
+          });
+        }
+      });
+    }
+
+    //mermaid.initialize({theme: 'forest'});
+  }
+</script>
+<% } %>
