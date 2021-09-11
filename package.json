@@ -10,13 +10,13 @@
     "backup": "hexo backup"
   },
   "hexo": {
-    "version": "4.0.0"
+    "version": "4.2.1"
   },
   "dependencies": {
     "fontawesome": "^5.6.3",
     "hexo": "^4.0.0",
     "hexo-blog-encrypt": "2.0.*",
-    "hexo-deployer-git": "^2.1.0",
+    "hexo-deployer-git": "^3.0.0",
     "hexo-filter-mermaid-diagrams": "^1.0.5",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
