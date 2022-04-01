@@ -10,25 +10,24 @@ hide_subtitle: true
 hide_tail: true
 ---
 
-```mermaid
-graph LR
-	编程-->语言
-	编程-->框架
-	语言-->C++
-	语言-->Java
-	Java-->Kotlin
-    语言-->C#
-	语言-->Python
-	语言-->JS
-	JS-->TS
-	语言-->Verilog
-	Verilog-->SystemVerilog
-	语言-->LaTeX
-	框架-->Android
-	框架-->React
-    框架-->Django
-	框架-->PlayCanvas
-    框架-->Unity
-    React-->RN
-```
+大家好，我是 UNIDY，现就读于清华大学计算机系，对这个学科有浓厚的兴趣和探索的热情。
 
+我最喜欢的编程语言是 Kotlin 和 TypeScript。我厌恶动态类型语言。
+
+我目前在高性能所 PACMAN 组打工。
+
+我目前担任计算机系学生科协智能体部副主席。
+
+我的主要作品有 [THUInfo](https://thuinfo.net/)，一个旨在提升同学们信息化生活体验的校园 APP。
+
+我目前还参与了 [Saiblo](https://github.com/saiblo) 平台的开发和维护工作。
+
+我最喜欢的游戏是空洞骑士和蔚蓝。我很少接触其他游戏。
+
+我最喜欢的电影是星际穿越。
+
+好听的原声带会大幅增加我对某个游戏或电影的好感度。
+
+我最喜欢的人是 @xyi。
+
+传送门：[个人简历](/about/cv)
