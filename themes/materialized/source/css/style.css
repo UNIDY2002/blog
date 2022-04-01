@@ -101,11 +101,11 @@ body.mdui-appbar-with-toolbar.mdui-appbar-with-tab-larger {
 /* Iconfont */
 @font-face {
     font-family: 'iconfont';
-    src: url('../icons/custom-icons/iconfont.eot');
-    src: url('../icons/custom-icons/iconfont.eot?#iefix') format('embedded-opentype'),
-    url('../icons/custom-icons/iconfont.woff') format('woff'),
-    url('../icons/custom-icons/iconfont.ttf') format('truetype'),
-    url('../icons/custom-icons/iconfont.svg#iconfont') format('svg');
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/fonts/iconfont.eot');
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/fonts/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/fonts/iconfont.woff') format('woff'),
+    url('https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/fonts/iconfont.ttf') format('truetype'),
+    url('https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/fonts/iconfont.svg#iconfont') format('svg');
 }
 
 .iconfont {

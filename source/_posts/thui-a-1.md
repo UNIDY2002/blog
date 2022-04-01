@@ -310,7 +310,7 @@ override fun onSupportNavigateUp() = navController.navigateUp(appBarConfiguratio
 
 我们先来回顾一下`THUInfo`的抽屉。
 
-![THUInfo抽屉布局](https://unidy2002.github.io/articles/thui-a-1/drawer.png)
+![THUInfo抽屉布局](/articles/thui-a-1/drawer.png)
 
 有两个部分。上面是一个渐变色背景的`headerLayout`，下面是`menu`。
 

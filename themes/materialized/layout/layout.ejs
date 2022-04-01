@@ -9,6 +9,6 @@
 <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
   <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>
   <% if (theme.busuanzi.site || theme.busuanzi.page) { %><script async src="<%- theme.busuanzi.busuanzi_js %>"></script><% } %>
-  <%- js(['lib/mdui', 'lib/script']) %>
+  <%- js(['https://unpkg.com/mdui@1.0.1/dist/js/mdui.js', 'lib/script']) %>
 </body>
 </html>

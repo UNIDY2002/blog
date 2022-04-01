@@ -80,7 +80,7 @@ CLion是一款收费产品，不过对学生免费——只要你有自己的学
 
 > 假如出现了异常……首先再次确认自己刚刚MinGW的位置有没有填对，是不是你刚刚安装的MinGW。如果还不行，那就参考下面的截图，自己想办法吧……（无奈脸）（或者……利用一下评论区……？虽然我很可能自己也不知道如何解决这些配置时的异常……）
 
-![Toolchains配置完成截图参考](https://unidy2002.github.io/articles/intro-to-clion/001.png)
+![Toolchains配置完成截图参考](/articles/intro-to-clion/001.png)
 
 ---
 

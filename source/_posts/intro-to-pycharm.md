@@ -217,7 +217,7 @@ excerpt: JetBrains家产品的配置根本不用怕
         帮我一起改进这份教程~<br>
         <small>尚未进行网页的移动端适配（可能这辈子也不会做了……）</small>
     </p>
-    <img src="https://unidy2002.github.io/articles/intro-to-pycharm/arrow.png" alt>
+    <img src="/articles/intro-to-pycharm/arrow.png" alt>
 </div>
 <div class="scrollblock block-setup">
     <h1>准备工作……</h1>

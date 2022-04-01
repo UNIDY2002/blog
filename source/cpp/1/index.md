@@ -86,7 +86,7 @@ IDE是你编写代码的环境，称之为**集成**的，是因为它集合了�
 
 该教程推荐使用Dev-C++作为IDE，不是因为它有多好，而是因为对初学者而言，这款IDE正合适。
 
-Dev-C++的安装包下载地址：[https://unidy2002.github.io/downloads/softwares/Dev-Cpp_5.11_TDM-GCC_4.9.2_Setup.exe](/downloads/softwares/Dev-Cpp_5.11_TDM-GCC_4.9.2_Setup.exe)。
+Dev-C++的安装包下载地址：[/downloads/softwares/Dev-Cpp_5.11_TDM-GCC_4.9.2_Setup.exe](/downloads/softwares/Dev-Cpp_5.11_TDM-GCC_4.9.2_Setup.exe)。
 
 **注意：Dev-C++只有Windows版本。**
 
