@@ -1,10 +1,10 @@
 <scheme name="Splendid" version="142" parent_scheme="Darcula">
   <option name="FONT_SCALE" value="1.0" />
   <metaInfo>
-    <property name="created">2021-11-24T10:21:36</property>
-    <property name="ide">Python</property>
-    <property name="ideVersion">2021.2.3.0.0</property>
-    <property name="modified">2021-11-24T10:21:40</property>
+    <property name="created">2022-04-01T10:31:25</property>
+    <property name="ide">CLion</property>
+    <property name="ideVersion">2021.3.4.0.0</property>
+    <property name="modified">2022-04-01T10:31:28</property>
     <property name="originalScheme">Splendid</property>
   </metaInfo>
   <option name="LINE_SPACING" value="1.2" />
@@ -18,11 +18,11 @@
   </font>
   <console-font>
     <option name="EDITOR_FONT_NAME" value="Courier New" />
-    <option name="EDITOR_FONT_SIZE" value="14" />
+    <option name="EDITOR_FONT_SIZE" value="12" />
   </console-font>
   <console-font>
     <option name="EDITOR_FONT_NAME" value="DengXian" />
-    <option name="EDITOR_FONT_SIZE" value="14" />
+    <option name="EDITOR_FONT_SIZE" value="12" />
   </console-font>
   <attributes>
     <option name="ABSTRACT_CLASS_NAME_ATTRIBUTES">
@@ -59,6 +59,17 @@
     <option name="CONSTRUCTOR_DECLARATION_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="f8ffb0" />
+      </value>
+    </option>
+    <option name="DEFAULT_KEYWORD">
+      <value>
+        <option name="FOREGROUND" value="cc7832" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="DEFAULT_STRING">
+      <value>
+        <option name="FOREGROUND" value="ffffff" />
       </value>
     </option>
     <option name="DOC_COMMENT_TAG_VALUE">
@@ -715,6 +726,154 @@
     <option name="WRONG_REFERENCES_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="ff4444" />
+      </value>
+    </option>
+    <option name="org.rust.ASSOC_FUNCTION">
+      <value>
+        <option name="FOREGROUND" value="6effab" />
+      </value>
+    </option>
+    <option name="org.rust.ASSOC_FUNCTION_CALL">
+      <value>
+        <option name="FOREGROUND" value="f8ffb0" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="org.rust.BLOCK_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="ffffff" />
+      </value>
+    </option>
+    <option name="org.rust.CONSTANT">
+      <value>
+        <option name="FOREGROUND" value="e49fff" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="org.rust.CONST_PARAMETER">
+      <value>
+        <option name="FOREGROUND" value="659fff" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="org.rust.CRATE">
+      <value>
+        <option name="FOREGROUND" value="9cffc6" />
+      </value>
+    </option>
+    <option name="org.rust.ENUM">
+      <value>
+        <option name="FOREGROUND" value="6effab" />
+      </value>
+    </option>
+    <option name="org.rust.ENUM_VARIANT">
+      <value>
+        <option name="FOREGROUND" value="eab0ff" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="org.rust.EOL_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="808080" />
+      </value>
+    </option>
+    <option name="org.rust.FIELD">
+      <value>
+        <option name="FOREGROUND" value="e49fff" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="org.rust.FUNCTION">
+      <value>
+        <option name="FOREGROUND" value="6effab" />
+      </value>
+    </option>
+    <option name="org.rust.FUNCTION_CALL">
+      <value>
+        <option name="FOREGROUND" value="f8ffb0" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="org.rust.LIFETIME">
+      <value>
+        <option name="FOREGROUND" value="9fe9ff" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="org.rust.MACRO">
+      <value>
+        <option name="FOREGROUND" value="4eade5" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="org.rust.METHOD">
+      <value>
+        <option name="FOREGROUND" value="6effab" />
+      </value>
+    </option>
+    <option name="org.rust.METHOD_CALL">
+      <value>
+        <option name="FOREGROUND" value="f8ffb0" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="org.rust.MODULE">
+      <value>
+        <option name="FOREGROUND" value="9cffc6" />
+      </value>
+    </option>
+    <option name="org.rust.MUT_BINDING">
+      <value>
+        <option name="EFFECT_COLOR" value="e9b7ff" />
+        <option name="EFFECT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="org.rust.MUT_PARAMETER">
+      <value>
+        <option name="FOREGROUND" value="659fff" />
+        <option name="EFFECT_COLOR" value="e9b7ff" />
+        <option name="EFFECT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="org.rust.PARAMETER">
+      <value>
+        <option name="FOREGROUND" value="659fff" />
+      </value>
+    </option>
+    <option name="org.rust.SELF_PARAMETER">
+      <value>
+        <option name="FOREGROUND" value="1980cc" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="org.rust.STRUCT">
+      <value>
+        <option name="FOREGROUND" value="6effab" />
+      </value>
+    </option>
+    <option name="org.rust.TRAIT">
+      <value>
+        <option name="FOREGROUND" value="95ffeb" />
+      </value>
+    </option>
+    <option name="org.rust.TYPE_PARAMETER">
+      <value>
+        <option name="FOREGROUND" value="9bfffe" />
+      </value>
+    </option>
+    <option name="org.rust.UNION">
+      <value>
+        <option name="FOREGROUND" value="6effab" />
+      </value>
+    </option>
+    <option name="org.rust.UNSAFE_CODE">
+      <value>
+        <option name="BACKGROUND" value="333a27" />
+      </value>
+    </option>
+    <option name="org.rust.VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="659fff" />
       </value>
     </option>
   </attributes>
