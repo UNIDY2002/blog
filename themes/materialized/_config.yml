@@ -41,6 +41,8 @@ pages: # Custom page links. Set with `name` and `link`
     link: /downloads
   - name: THUInfo
     link: https://thuinfo.net/
+  - name: Saiblo
+    link: https://www.saiblo.net/
 links: # Friendship links. Set with `name` and `link`
   - name: 迪兰特的小屋
     link: https://www.dilant.cn/
