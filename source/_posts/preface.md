@@ -6,17 +6,22 @@ date: 2019-11-26
 categories: 碎碎念
 tags:
   - 随想
-qrcode: false
 share_menu: false
 donate: false
 toc: false
-comments: false
-indexing: false
-password: Till2022_!Valid&Secret
-abstract: 暂时封存。
-message: 预计2023年1月1日解封
-wrong_pass_message: emm还是不要试了吧……
+excerpt: 关于这个网站的由来。
 ---
+
+> **写在后面**
+> 
+> 这篇文章自写下起即被加密，预计三年后解开。
+> 
+> 三年过去了，如果让我评价一下自己的本科生涯，我觉得总体方向上和预期相符。虽然结局和最开始的梦想稍有差距，但也说不上哪个更好。我这个人嘛，多少还是有点重感情的。
+> 
+> 我本科的心路历程，还真像 [Reach for the Summit](https://music.163.com/song?id=1341359828) 一样。起初，充满憧憬与好奇，有着无穷的能量，在摸爬滚打中前行。后来，也曾困于不适合自己的梦境，也曾有过顺风与逆风，有过迷茫时期。最后，不管怎样，还是达到了理想的彼岸。回过头来，我对自己的本科生涯基本上是满意的。
+
+---
+
 夜，还不算深。
 
 我坐在电脑前，写下第一篇博文。
