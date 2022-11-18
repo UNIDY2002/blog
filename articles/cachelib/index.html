@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://cachelib.org/assets/images/hashtable-bbb7241416549634ca94eacf582a764a.png">
 <meta property="og:image" content="https://cachelib.org/assets/images/Navy_Architecture_overview-3fcba60db4e31d50cd4dd7ea560de0c4.png">
 <meta property="article:published_time" content="2022-10-16T00:00:00.000Z">
-<meta property="article:modified_time" content="2022-11-18T09:53:14.168Z">
+<meta property="article:modified_time" content="2022-11-18T10:00:18.946Z">
 <meta property="article:author" content="UNIDY">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -48,7 +48,7 @@
 
   
   <meta property="article:published_time" content="Sun Oct 16 2022 00:00:00 GMT+0000">
-  <meta property="article:modified_time" content="Fri Nov 18 2022 09:53:14 GMT+0000">
+  <meta property="article:modified_time" content="Fri Nov 18 2022 10:00:18 GMT+0000">
   
 
   
@@ -428,7 +428,7 @@
 <p>这是我第一次知道侵入式链表的概念，颠覆了我对链表的传统观念。</p>
 </blockquote>
 <p><code>AllocationClass</code> 内使用一个侵入式链表来维护已回收的 allocations。采用侵入式链表可以直接在待回收的内存上<strong>原地</strong>存储下一节点的地址，能够节省空间并提高效率，是非常巧妙的设计。</p>
-<p>用于表示 allocation 的地址也不采用原始指针，而是重新定义了一个 <code>CompressedPtr</code>，采用一个 32 位整数表示 <code>Slab</code> 编号和 allocation 编号两部分信息。这里做一个简单的计算：一个 <code>Slab</code> 内最多分配 $4\mathrm{MB}/64\mathrm{B}=2^{16}$ 个 allocations，那就可以用余下的 16 位整数表示 <code>Slab</code> 编号。一个 <code>Slab</code> 的大小为 4MB，这样就能表示 $4\mathrm{MB}\times2^{16}=256\mathrm{GB}$ 范围的缓存地址。因此，这种表示方式非常高效。</p>
+<p>用于表示 allocation 的地址也不采用原始指针，而是重新定义了一个 <code>CompressedPtr</code>，采用一个 32 位整数表示 <code>Slab</code> 编号和 allocation 编号两部分信息。这里做一个简单的计算：一个 <code>Slab</code> 内最多分配 $4\mathrm{MB}&#x2F;64\mathrm{B}&#x3D;2^{16}$ 个 allocations，那就可以用余下的 16 位整数表示 <code>Slab</code> 编号。一个 <code>Slab</code> 的大小为 4MB，这样就能表示 $4\mathrm{MB}\times2^{16}&#x3D;256\mathrm{GB}$ 范围的缓存地址。因此，这种表示方式非常高效。</p>
 <h2 id="Slab-与-SlabHeader"><a href="#Slab-与-SlabHeader" class="headerlink" title="Slab 与 SlabHeader"></a><code>Slab</code> 与 <code>SlabHeader</code></h2><p>每个 <code>Slab</code> 需要维护自身的 <code>poolId</code>、<code>classId</code> 等元信息，这些元信息用一个 <code>SlabHeader</code> 结构存储。CacheLib 的策略是，将整块内存分为两部分，前面一小部分依次存放各个 <code>SlabHeader</code>，剩余部分用于分配 <code>Slab</code>。</p>
 <p>这就要求 <code>SlabAllocator</code> 在构造时就估计好这个切分的界限。由于 <code>Slab</code> 与 <code>SlabHeader</code> 的大小都是已知的（分别为 4MB 和 7B），只要知道内存总量，这一估计并不困难，具体实现见 <code>SlabAllocator::computeSlabMemoryStart()</code>。</p>
 <p><code>SlabHeader</code> 结构在定义时注明了 <code>__attribute__((__packed__))</code>，从而能更紧凑地利用内存空间。</p>

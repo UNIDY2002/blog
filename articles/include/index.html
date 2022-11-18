@@ -32,14 +32,14 @@
 <meta property="og:description" content="所以还是期待Modules（逃">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-19T00:00:00.000Z">
-<meta property="article:modified_time" content="2022-11-18T09:53:14.168Z">
+<meta property="article:modified_time" content="2022-11-18T10:00:18.946Z">
 <meta property="article:author" content="UNIDY">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 
   
   <meta property="article:published_time" content="Thu Mar 19 2020 00:00:00 GMT+0000">
-  <meta property="article:modified_time" content="Fri Nov 18 2022 09:53:14 GMT+0000">
+  <meta property="article:modified_time" content="Fri Nov 18 2022 10:00:18 GMT+0000">
   
 
   
@@ -202,7 +202,7 @@
 	
     <div class="mdui-card-content mdui-typo">
       <blockquote>
-<p>本文首发于<a href="https://github.com/thunlp/OOP-THU/issues/39">github.com/thunlp/OOP-THU/issues/39</a></p>
+<p>本文首发于<a href="https://github.com/thunlp/OOP-THU/issues/39">github.com&#x2F;thunlp&#x2F;OOP-THU&#x2F;issues&#x2F;39</a></p>
 </blockquote>
 <p><code>#include</code><strong>其实并不是一个非常聪明的机制</strong>——直接全文复制，也不管包含了多少用不着的代码；你也不甚清楚你包含的代码中有什么牛鬼蛇神，会不会碰巧撞上了<code>math.h</code>中的<code>y1</code>；假如处理不当，还可能惹来重复定义等令人头秃的麻烦……</p>
 <p>在此，我列举一些初次深入了解<code>#include</code>时可能遇到的困扰，并加以说明。</p>
@@ -225,7 +225,7 @@
 <p><strong>破案了！</strong></p>
 <p>好，我们将<code>A.h</code>中的<code>#pragma once</code>去掉总行了吧？还不行，这次又报找不到类型<code>B</code>了。</p>
 <p>那就把<code>B.h</code>中的<code>#pragma once</code>也去掉吧……停下来！不然那编译器的报错……太美……</p>
-<p>不过，至此，这背后的原因已可见端倪——<strong>套娃<code>include</code></strong>。C++的<code>include</code>最忌讳的就是套娃了。如果不加<code>#pragma once</code>等处理，则头文件就会永无止境地包含下去；如果加了，那你写代码时可能以为自己<code>include</code>过了，实际上却被编译器拦下了。</p>
+<p>不过，至此，这背后的原因已可见端倪——**套娃<code>include</code>**。C++的<code>include</code>最忌讳的就是套娃了。如果不加<code>#pragma once</code>等处理，则头文件就会永无止境地包含下去；如果加了，那你写代码时可能以为自己<code>include</code>过了，实际上却被编译器拦下了。</p>
 <p><strong>总之，这种循环包含的行为是不可取的，在实际编程中应当避免。</strong></p>
 <hr>
 <h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>那么，应当如何修改代码，才能既满足需求，又不出现套娃的现象呢？</p>
