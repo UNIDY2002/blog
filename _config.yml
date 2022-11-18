@@ -93,23 +93,11 @@ ignore:
 
 theme: materialized
 
-# Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repo: ssh://unidy/~/repos/site.git
-  branch: master
-
 # search
 search:
   path: search.xml
   field: all
   content: true
-
-# Security
-##
-encrypt:
-  enable: true
 
 # mermaid chart
 mermaid: ## mermaid url https://github.com/knsv/mermaid
@@ -117,10 +105,3 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
   version: "7.1.2" # default v7.1.2
   options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
     startOnload: true  # default true
-
-# Backup repo
-backup:
-    type: git
-    message: Hexo backup
-    repository:
-        github: git@github.com:UNIDY2002/blog-backup.git,backup
