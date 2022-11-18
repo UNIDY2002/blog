@@ -44,11 +44,7 @@
               <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple"><%= theme.qrcode.caption %></a></li>
             <% } %>
             <li class="mdui-menu-item" disabled>
-              <% if (theme.qrcode.use === 'plugin') { %>
-                <img src="<%- qrcode(page.permalink, {margin: 2}) %>">
-              <% } else { %>
-                <img src="<% if (config.language === 'zh-CN') { %>http://qr.liantu.com/api.php?w=246&m=10&text=<%- page.permalink %><% } else { %>https://chart.googleapis.com/chart?cht=qr&chs=246x246&chl=<%- page.permalink %>&chld=M|2<% } %>">
-              <% } %>
+              <img src="<%- qrcode(page.permalink, {margin: 2}) %>">
             </li>
           </ul>
         <% } %>
