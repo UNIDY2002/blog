@@ -74,7 +74,7 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## Use post's date for updated date unless set in front-matter
-use_date_for_updated: false
+updated_option: mtime
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -98,10 +98,3 @@ search:
   path: search.xml
   field: all
   content: true
-
-# mermaid chart
-mermaid: ## mermaid url https://github.com/knsv/mermaid
-  enable: true  # default true
-  version: "7.1.2" # default v7.1.2
-  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
-    startOnload: true  # default true
