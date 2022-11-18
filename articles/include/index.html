@@ -32,14 +32,14 @@
 <meta property="og:description" content="所以还是期待Modules（逃">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-19T00:00:00.000Z">
-<meta property="article:modified_time" content="2022-11-18T08:46:35.510Z">
+<meta property="article:modified_time" content="2022-11-18T09:43:29.179Z">
 <meta property="article:author" content="UNIDY">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 
   
   <meta property="article:published_time" content="Thu Mar 19 2020 00:00:00 GMT+0000">
-  <meta property="article:modified_time" content="Fri Nov 18 2022 08:46:35 GMT+0000">
+  <meta property="article:modified_time" content="Fri Nov 18 2022 09:43:29 GMT+0000">
   
 
   
@@ -58,7 +58,7 @@
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 
 <body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
   <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
@@ -129,7 +129,7 @@
         </div>
         <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
           
-          <a class="mdui-ripple sidebar_archives-link" href="/tags/Android/" rel="tag">Android<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/C/" rel="tag">C++<span class="mdui-ripple sidebar_archives-count">3</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/JavaScript/" rel="tag">JavaScript<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/JetBrains/" rel="tag">JetBrains<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Kotlin/" rel="tag">Kotlin<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/PyCharm/" rel="tag">PyCharm<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Python/" rel="tag">Python<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E9%9A%8F%E6%83%B3/" rel="tag">随想<span class="mdui-ripple sidebar_archives-count">13</span></a>
+          <a class="mdui-ripple sidebar_archives-none-link" href="/tags/Android/" rel="tag">Android<span class="mdui-ripple sidebar_archives-none-count">1</span></a><a class="mdui-ripple sidebar_archives-none-link" href="/tags/C/" rel="tag">C++<span class="mdui-ripple sidebar_archives-none-count">3</span></a><a class="mdui-ripple sidebar_archives-none-link" href="/tags/JavaScript/" rel="tag">JavaScript<span class="mdui-ripple sidebar_archives-none-count">1</span></a><a class="mdui-ripple sidebar_archives-none-link" href="/tags/JetBrains/" rel="tag">JetBrains<span class="mdui-ripple sidebar_archives-none-count">2</span></a><a class="mdui-ripple sidebar_archives-none-link" href="/tags/Kotlin/" rel="tag">Kotlin<span class="mdui-ripple sidebar_archives-none-count">1</span></a><a class="mdui-ripple sidebar_archives-none-link" href="/tags/PyCharm/" rel="tag">PyCharm<span class="mdui-ripple sidebar_archives-none-count">1</span></a><a class="mdui-ripple sidebar_archives-none-link" href="/tags/Python/" rel="tag">Python<span class="mdui-ripple sidebar_archives-none-count">1</span></a><a class="mdui-ripple sidebar_archives-none-link" href="/tags/%E9%9A%8F%E6%83%B3/" rel="tag">随想<span class="mdui-ripple sidebar_archives-none-count">13</span></a>
           
         </div>
       </div>
@@ -210,15 +210,15 @@
 <p>在此，我列举一些初次深入了解<code>#include</code>时可能遇到的困扰，并加以说明。</p>
 <hr>
 <h1 id="套娃"><a href="#套娃" class="headerlink" title="套娃"></a>套娃</h1><p>事情开始于这样的代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A.h</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"B.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> &#123;</span></span><br><span class="line">    B b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;B.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line">    B b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// B.h</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"A.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> &#123;</span></span><br><span class="line">    A *a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// B.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;A.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> &#123;</span><br><span class="line">    A *a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"A.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Do your thing...</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;A.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Do your thing...</span></span><br></pre></td></tr></table></figure>
 
 <p>我们在类<code>A</code>中设置了<code>B</code>类型的成员变量，因此需要<code>#include &quot;B.h&quot;</code>。<strong>然而，出于某种需求，我们还希望在类<code>B</code>中保留对应的<code>A</code>的指针，因此还需<code>#include &quot;A.h&quot;</code>。</strong>看起来顺理成章。</p>
 <p>可是，当我们编译时，g++报了错：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">B.h:6:5:error: &#39;A&#39; does not name a type</span><br><span class="line">     A *a;</span><br><span class="line">     ^</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">B.h:6:5:error: &#x27;A&#x27; does not name a type</span><br><span class="line">     A *a;</span><br><span class="line">     ^</span><br></pre></td></tr></table></figure>
 
 <p>是在<code>B.h</code>中报了找不到类型<code>A</code>的错。</p>
 <p><strong>奇怪，我们明明在<code>B.h</code>中包含了<code>A.h</code>啊……</strong></p>
@@ -233,7 +233,7 @@
 <h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>那么，应当如何修改代码，才能既满足需求，又不出现套娃的现象呢？</p>
 <p><strong>在动手之前，先想想，是否真的需要在<code>B</code>中保留<code>A</code>的指针。</strong>因为，这种情况的发生，很有可能意味着你的代码设计时<strong>耦合度有些高</strong>，才会剪不断理还乱。如果能重新设计代码，让<code>B</code>干脆不依赖<code>A</code>，那是最好的。</p>
 <p>不过，如果这一需求不可避免呢？那也有办法：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// B.h</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>;</span>  <span class="comment">// 声明类A</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> &#123;</span></span><br><span class="line">    A *a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// B.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>;  <span class="comment">// 声明类A</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> &#123;</span><br><span class="line">    A *a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>我们在<code>B.h</code>中不去<code>#include &quot;A.h&quot;</code>，而是<strong>声明<code>class A</code>，供<code>B</code>使用</strong>，具体的细节则在<code>A.h</code>中给出。这样，既免去了循环包含，又能够在类<code>B</code>中用到类<code>A</code>。</p>
 <p>至此，“套娃”的问题暂告一段落。下面，再简单提一下<code>#pragma once</code>和<code>#ifndef...</code>的事。</p>
@@ -243,7 +243,7 @@
 <h2 id="ifndef-XXX含义的理解"><a href="#ifndef-XXX含义的理解" class="headerlink" title="#ifndef XXX含义的理解"></a><code>#ifndef XXX</code>含义的理解</h2><p><code>#ifndef XXX</code>和<code>#endif</code>配套，可以理解为<code>if not defined XXX</code>，则……，<code>end if</code>。而在解析……所示的代码之前，需要先<code>#define XXX</code>，从而下次解析到这一头文件时，因为宏定义过<code>XXX</code>了，<code>ifndef</code>条件不满足，就不再解析……部分的代码了，从而保证了单次包含。</p>
 <h2 id="ifndef-XXX插入的位置"><a href="#ifndef-XXX插入的位置" class="headerlink" title="#ifndef XXX插入的位置"></a><code>#ifndef XXX</code>插入的位置</h2><p>合理的使用方法，应当是<code>#ifndef XXX</code>和<code>#define XXX</code>置于文件的开头而<code>#endif</code>置于文件的末尾，这样才能保证整个文件只被包含一次。</p>
 <p>我之前见到过这样的写法：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> __HEADER__</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __HEADER__</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> &#123;</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> __HEADER__</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> __HEADER__</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>这就违背<strong>保证整个文件只被包含一次</strong>的初衷了。假如这一头文件被包含多次，那也会造成<code>Test</code>的重复定义。</p>
 <p>（当然，我个人以为出现这样的错误也与课件上只给了用法没给示例有关。）</p>
@@ -269,7 +269,7 @@
         <a class="mdui-ripple article_categories-link" href="/categories/%E4%BB%A3%E7%A0%81%E6%8E%A7/">代码控</a>
       
       
-        <a class="mdui-ripple article_tags-link" href="/tags/C/" rel="tag">C++</a>
+        <a class="mdui-ripple article_tags-none-link" href="/tags/C/" rel="tag">C++</a>
       
     </footer>
     
@@ -332,7 +332,7 @@
   <div style="position: fixed !important; right: 16px; top: 30%;">
     <button class="mdui-fab mdui-fab-mini mdui-ripple" mdui-menu="{target: '#toc'}"><i class="mdui-icon material-icons">format_list_numbered</i></button>
     <ul class="mdui-menu" id="toc">
-      <li class="mdui-menu-item" disabled><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#套娃"><span class="toc-number">1.</span> <span class="toc-text">套娃</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#探因"><span class="toc-number">1.1.</span> <span class="toc-text">探因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决"><span class="toc-number">1.2.</span> <span class="toc-text">解决</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重复定义"><span class="toc-number">2.</span> <span class="toc-text">重复定义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ifndef-XXX含义的理解"><span class="toc-number">2.1.</span> <span class="toc-text">#ifndef XXX含义的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ifndef-XXX插入的位置"><span class="toc-number">2.2.</span> <span class="toc-text">#ifndef XXX插入的位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pragma-once和-ifndef-的区别"><span class="toc-number">2.3.</span> <span class="toc-text">#pragma once和#ifndef...的区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#写在最后"><span class="toc-number">3.</span> <span class="toc-text">写在最后</span></a></li></ol></li>
+      <li class="mdui-menu-item" disabled><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A5%97%E5%A8%83"><span class="toc-number">1.</span> <span class="toc-text">套娃</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A2%E5%9B%A0"><span class="toc-number">1.1.</span> <span class="toc-text">探因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3"><span class="toc-number">1.2.</span> <span class="toc-text">解决</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E5%A4%8D%E5%AE%9A%E4%B9%89"><span class="toc-number">2.</span> <span class="toc-text">重复定义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ifndef-XXX%E5%90%AB%E4%B9%89%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">2.1.</span> <span class="toc-text">#ifndef XXX含义的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ifndef-XXX%E6%8F%92%E5%85%A5%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="toc-number">2.2.</span> <span class="toc-text">#ifndef XXX插入的位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pragma-once%E5%92%8C-ifndef-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.3.</span> <span class="toc-text">#pragma once和#ifndef...的区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="toc-number">3.</span> <span class="toc-text">写在最后</span></a></li></ol></li>
     </ul>
   </div>
 
@@ -366,53 +366,6 @@
     
   </div>
 </footer>
-
-<script src='https://cdn.bootcdn.net/ajax/libs/mermaid/8.14.0/mermaid.min.js'></script>
-<script>
-  if (window.mermaid) {
-    window.mermaidUri = 'https://cdn.bootcdn.net/ajax/libs/mermaid/8.14.0/mermaid.min.js';
-    window.loadScript = function(url) {
-      return new window.Promise(function(resolve) {
-        var script = window.document.createElement ("script");
-        script.type = "text/javascript";
-
-        if (script.readyState){ //IE
-          script.onreadystatechange = function() {
-            if (script.readyState === 'loaded' || script.readyState === 'complete'){
-              script.onreadystatechange = null;
-              resolve(script);
-            }
-          };
-        } else { //Others
-          script.onload = function(){
-            resolve(script);
-          };
-        }
-        script.src = url;
-        window.document.getElementsByTagName("head")[0].appendChild(script);
-      });
-    };
-
-    // 存在.mermaid的元素 加载执行 mermaid.js
-    if (window.document.querySelector('.mermaid')) {
-      window.loadScript(window.mermaidUri).then(function () {
-        if (window.mermaid) {
-		  console.log("Hi!")
-          window.mermaid.initialize({
-            startOnLoad: true,
-            flowchart:{
-              useMaxWidth: false,
-              htmlLabels: true
-            }
-          });
-        }
-      });
-    }
-
-    //mermaid.initialize({theme: 'forest'});
-  }
-</script>
-
 
   <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>
   
