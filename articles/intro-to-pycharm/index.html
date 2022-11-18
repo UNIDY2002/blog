@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="renderer" content="webkit">
+  
+  <meta name="format-detection" content="telephone=no,email=no">
+  <meta name="theme-color" content="#9C27B0">
+  <meta name="description" content="JetBrains家产品的配置根本不用怕">
+  <meta name="keywords" content=",PyCharm,Python">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="UNIDY&#39;s Timeline">
+  <meta name="msapplication-starturl" content="https://www.unidy.cn/articles/intro-to-pycharm/">
+  <meta name="msapplication-navbutton-color" content="#9C27B0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="UNIDY&#39;s Timeline">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/images/unidy.png">
+
+  <title>30分钟入门PyCharm | UNIDY&#39;s Timeline</title>
+  <link rel="shortcut icon" href="/images/unidy.png">
+  
+  <meta name="description" content="JetBrains家产品的配置根本不用怕">
+<meta property="og:type" content="article">
+<meta property="og:title" content="30分钟入门PyCharm">
+<meta property="og:url" content="https://www.unidy.cn/articles/intro-to-pycharm/">
+<meta property="og:site_name" content="UNIDY&#39;s Timeline">
+<meta property="og:description" content="JetBrains家产品的配置根本不用怕">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.unidy.cn/articles/intro-to-pycharm/arrow.png">
+<meta property="article:published_time" content="2020-02-06T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-18T07:38:54.262Z">
+<meta property="article:author" content="UNIDY">
+<meta property="article:tag" content="PyCharm">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.unidy.cn/articles/intro-to-pycharm/arrow.png">
+
+  
+  <meta property="article:published_time" content="Thu Feb 06 2020 00:00:00 GMT+0000">
+  <meta property="article:modified_time" content="Fri Nov 18 2022 07:38:54 GMT+0000">
+  
+
+  
+  <link rel="canonical" href="https://www.unidy.cn/articles/intro-to-pycharm/">
+  
+
+  
+  
+
+  
+  
+  
+
+  
+<link rel="stylesheet" href="https://unpkg.com/mdui@1.0.1/dist/css/mdui.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
+  <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
+  <header id="header" class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset">
+    <div class="mdui-toolbar mdui-color-theme">
+      <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
+      <a href="/" class="mdui-typo-headline">UNIDY&#39;s Timeline</a>
+      <div class="mdui-toolbar-spacer"></div>
+      <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: '搜索'}"><i class="mdui-icon material-icons">search</i></a>
+      
+    </div>
+  </header>
+  <div class="mdui-dialog" id="search">
+    
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+    
+  </div>
+  <aside id="sidebar" class="mdui-drawer mdui-drawer-full-height">
+    <div class="mdui-grid-tile">
+      <img src="/images/banner.png" style="height: 160px;">
+      <img src="/images/unidy.png" class="avatar-animation" style="position: absolute; top: 10%; left: 24px; width: 64px; height: 64px; border: 2px solid #fff; border-radius: 50%;">
+      <div class="mdui-grid-tile-actions">
+        <div class="mdui-grid-tile-text">
+          <div class="mdui-grid-tile-title">UNIDY</div>
+          <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">art_track</i>Stay Hungry, Stay Foolish.</div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="mdui-list" mdui-collapse="{accordion: true}">
+      <a href="/" class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+        <div class="mdui-list-item-content">主页</div>
+      </a>
+      <div class="mdui-collapse-item">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+          <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">inbox</i>
+          <div class="mdui-list-item-content">归档</div>
+          <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+        </div>
+        <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+          
+          <a class="mdui-ripple sidebar_archives-link" href="/archives/2022/10/">十月 2022<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2022/09/">九月 2022<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2022/07/">七月 2022<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2022/06/">六月 2022<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/03/">三月 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/02/">二月 2020<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/12/">十二月 2019<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/11/">十一月 2019<span class="mdui-ripple sidebar_archives-count">2</span></a>
+          
+        </div>
+      </div>
+      <div class="mdui-collapse-item">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+          <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">chrome_reader_mode</i>
+          <div class="mdui-list-item-content">分类</div>
+          <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+        </div>
+        <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+          
+          <a class="mdui-ripple sidebar_archives-link" href="/categories/%E4%BB%A3%E7%A0%81%E6%8E%A7/">代码控<span class="mdui-ripple sidebar_archives-count">4</span></a><a class="mdui-ripple sidebar_archives-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AE%85/">技术宅<span class="mdui-ripple sidebar_archives-count">5</span></a><a class="mdui-ripple sidebar_archives-link" href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念<span class="mdui-ripple sidebar_archives-count">11</span></a>
+          
+        </div>
+      </div>
+      <div class="mdui-collapse-item">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+          <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
+          <div class="mdui-list-item-content">标签</div>
+          <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+        </div>
+        <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+          
+          <a class="mdui-ripple sidebar_archives-link" href="/tags/Android/" rel="tag">Android<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/C/" rel="tag">C++<span class="mdui-ripple sidebar_archives-count">3</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/JavaScript/" rel="tag">JavaScript<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/JetBrains/" rel="tag">JetBrains<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Kotlin/" rel="tag">Kotlin<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/PyCharm/" rel="tag">PyCharm<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Python/" rel="tag">Python<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E9%9A%8F%E6%83%B3/" rel="tag">随想<span class="mdui-ripple sidebar_archives-count">13</span></a>
+          
+        </div>
+      </div>
+      <a href="/about" class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
+        <div class="mdui-list-item-content">关于</div>
+      </a>
+    </div>
+
+    <div class="mdui-divider"></div>
+
+    <div class="mdui-list" mdui-collapse="{accordion: true}">
+      
+      <a href="/downloads" class="mdui-list-item mdui-ripple">资源下载</a>
+      
+      <a href="https://thuinfo.net/" class="mdui-list-item mdui-ripple">THUInfo</a>
+      
+      <a href="https://www.saiblo.net/" class="mdui-list-item mdui-ripple">Saiblo</a>
+      
+      <div class="mdui-collapse-item">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+          <div class="mdui-list-item-content">友情链接</div>
+          <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+        </div>
+        <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+          
+          <a href="https://www.dilant.cn/" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">迪兰特的小屋</a>
+          
+          <a href="https://ashitemaru.github.io/" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">Ashitemaru</a>
+          
+          <a href="https://zcy.moe/" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">猫猫窝</a>
+          
+          
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main id="main" class="mdui-m-t-5 fadeIn animated">
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
+  <article class="mdui-card mdui-m-b-5">
+    
+    <div class="mdui-card-content mdui-typo">
+      <style>
+    .scrollblock{
+        position: relative;
+        margin: 0;
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        text-align: center;
+    }
+    .block-welcome {
+        background-color: white;
+        color: black;
+    }
+    .block-welcome h1 {
+        font-size: 40px;
+    }
+    .block-welcome h2 {
+        font-size: 27px;
+    }
+    .block-welcome p {
+        font-size: 14px;
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+    .block-setup{
+        background-color: #348FD4;
+        color: #06406C;
+        font-size: 13px;
+    }
+    .block-setup h1 {
+        font-size: 36px;
+    }
+    .block-setup a.simple {
+        color: lightblue !important;
+    }
+    .block-setup a.big {
+        color: white !important;
+        font-size: 22px;
+        font-weight: normal;
+        font-style: normal;
+        background-color: #06406c;
+        padding: 10px 15px !important;
+        margin: 8px !important;
+        border-radius: 10px;
+        text-decoration: none;
+        line-height: 70px !important;
+    }
+    .block-setup a.big:hover,
+    .block-setup a.big:focus {
+        border-bottom: none !important;
+        background-color: #003466 !important;
+    }
+    .block-setup a.normal {
+        color: white !important;
+        font-size: 15px;
+        font-weight: normal;
+        font-style: normal;
+        background-color: #FF4081;
+        padding: 8px 12px !important;
+        margin: 6px !important;
+        border-radius: 10px;
+        text-decoration: none;
+        line-height: 46px !important;
+    }
+    .block-setup a.normal:hover,
+    .block-setup a.normal:focus {
+        border-bottom: none !important;
+        background-color: #ff80ab !important;
+    }
+    .mdui-dialog-setup {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+        overflow-y: scroll;
+    }
+    .mdui-dialog-setup h3 {
+        font-size: 28px !important;
+    }
+    .mdui-dialog-setup h4{
+        font-size: 24px !important;
+    }
+    .mdui-dialog-setup p {
+        font-size:15px !important;
+        background-color: white !important;
+        line-height: 22px !important;
+    }
+    .mdui-dialog-setup small {
+        font-size: 12px !important;
+        color: gray !important;
+        line-height: 20px !important;
+    }
+    .block-config {
+        background-color: #FFC19F !important;
+        color: black !important;
+    }
+    .block-config h2 {
+        color: #CC4037 !important;
+        font-size: 25px;
+    }
+    .block-config h3 {
+        color: #CC4037 !important;
+        font-size: 20px;
+    }
+    .block-config code {
+        background-color: #ffb584 !important;
+        color: black !important;
+    }
+    .block-try {
+        background-color: black;
+        color: white;
+        font-size: 16px;
+        line-height: 30px !important;
+    }
+    .block-try h2 {
+        font-size: 32px !important;
+    }
+    .block-try code {
+        color: black !important;
+        margin: 6px !important;
+    }
+    .block-white {
+        font-size: 16px;
+        line-height: 30px !important;
+    }
+    .block-coding {
+        font-size: 15px;
+        background-color: #4C0D09;
+        color: #D3B2AF;
+    }
+    .block-coding code {
+        background-color: #6d4c41 !important;
+        color: black !important;
+        margin: 6px;
+    }
+    .block-coding .gutter pre {
+        color: #D3B2AF !important;
+        text-align: right !important;
+        /*font-family: consolas, monospace !important;*/
+    }
+    .block-coding .code pre {
+        text-align: left !important;
+        /*font-family: consolas, monospace !important;*/
+    }
+    .block-coding table {
+        margin-left: calc(50% - 131px) !important;
+    }
+    code {
+        /*font-family: consolas, monospace !important;*/
+    }
+    .block-DIY {
+        font-size: 16px;
+        background-color: #FFF8C9;
+        color: #615400;
+    }
+    .block-DIY code {
+        background-color: black !important;
+        color: white !important;
+    }
+    .block-DIY a.simple {
+        color: #21add4 !important;
+    }
+    .block-TabNine {
+        background-color: #CC4037 !important;
+        color: #4C0D09 !important;
+        font-size: 16px !important;
+    }
+    .block-TabNine code {
+        background-color: black !important;
+        color: white !important;
+    }
+    .block-TabNine code.big {
+        font-size: 22px !important;
+        line-height: 38px !important;
+    }
+    .block-TabNine a {
+        color: #ff501f !important;
+    }
+    .block-ending {
+        background-color: #FFC19F;
+        color: #CC4037;
+    }
+    .block-ending code {
+        background-color: #ffb584 !important;
+        color: black !important;
+    }
+    .block-ending p {
+        font-size:18px !important;
+        line-height: 28px !important;
+    }
+</style>
+
+<div class="scrollblock block-welcome">
+    <h1>30分钟入门PyCharm</h1>
+    <h2>JetBrains家产品的配置根本不用怕</h2>
+    <p>
+        作者：UNIDY<br>
+        设计灵感来源：<a href="https://www.runoob.com/manual/git-guide/" target="_blank">https://www.runoob.com/manual/git-guide/</a><br>
+        实际入门时间可能与下载和安装速度有关<br>
+        如果遇到困难，欢迎在评论区指出<br>
+        帮我一起改进这份教程~<br>
+        <small>尚未进行网页的移动端适配（可能这辈子也不会做了……）</small>
+    </p>
+    <img src="/articles/intro-to-pycharm/arrow.png" alt>
+</div>
+<div class="scrollblock block-setup">
+    <h1>准备工作……</h1>
+    <p>
+        <a href="https://download.jetbrains.8686c.com/python/pycharm-community-2019.3.3.exe" target="_blank" class="big" onClick="alert('重要的事情说三遍：\n如果之前没装过Java环境，那么\n安装PyCharm时记得勾选Download and install JRE x86 by JetBrains\n安装PyCharm时记得勾选Download and install JRE x86 by JetBrains\n安装PyCharm时记得勾选Download and install JRE x86 by JetBrains\n（我在下一版块还会提醒你的。）\n（假如安装时没这个选项就不用管了）');">PyCharm <i class="fa fa-windows"></i></a>
+        <a href="javascript:" mdui-dialog="{target: '#setup-Windows'}" class="big">Python <i class="fa fa-windows"></i></a><br>
+        <a href="https://download.jetbrains.8686c.com/python/pycharm-community-2019.3.3.dmg" target="_blank" class="big" onClick="alert('重要的事情说三遍：\n如果之前没装过Java环境，那么\n安装PyCharm时记得勾选Download and install JRE x86 by JetBrains\n安装PyCharm时记得勾选Download and install JRE x86 by JetBrains\n安装PyCharm时记得勾选Download and install JRE x86 by JetBrains\n（我在下一版块还会提醒你的。）\n（假如安装时没这个选项就不用管了）');">PyCharm <i class="fa fa-apple"></i></a>
+        <a href="javascript:" mdui-dialog="{target: '#setup-Mac'}" class="big">Python <i class="fa fa-apple"></i></a><br>
+        <a href="https://download.jetbrains.8686c.com/python/pycharm-community-2019.3.3.tar.gz" target="_blank" class="big">PyCharm <i class="fa fa-linux"></i></a>
+        <a href="javascript:" mdui-dialog="{target: '#setup-Linux'}" class="big">Python <i class="fa fa-linux"></i></a>
+    <p>PyCharm和Python都要准备好，两者可同时下载<br>
+    <a href="javascript:" class="simple" mdui-dialog="{target: '#setup'}">我是CS专业的学生</a></p>
+    <div class="mdui-dialog mdui-dialog-setup" id="setup" style="display: none; top: 61px; height: 488px;">
+      <h3>你可以选择使用PyCharm专业版</h3>
+      <p><a href="/articles/intro-to-pycharm/features.png" target="_blank">按需选择——功能比较</a></p>
+      <p>PyCharm专业版是付费产品，但对学生免费<br>
+      如果你之前没有申请过JetBrains学生账号<br>
+      <a href="https://www.jetbrains.com/shop/eform/students" target="_blank">点击链接申请</a></p>
+      <p>
+        PyCharm专业版下载链接（不含Python）<br>
+        <a href="https://download.jetbrains.8686c.com/python/pycharm-professional-2019.3.3.exe" target="_blank" class="normal" onClick="alert('重要的事情说三遍：\n如果之前没装过Java环境，那么\n安装PyCharm时记得勾选Download and install JRE x86 by JetBrains\n安装PyCharm时记得勾选Download and install JRE x86 by JetBrains\n安装PyCharm时记得勾选Download and install JRE x86 by JetBrains\n（我在下一版块还会提醒你的。）\n（假如安装时没这个选项就不用管了）');"><i class="fa fa-windows"></i></a>
+        <a href="https://download.jetbrains.8686c.com/python/pycharm-professional-2019.3.3.dmg" target="_blank" class="normal" onClick="alert('重要的事情说三遍：\n如果之前没装过Java环境，那么\n安装PyCharm时记得勾选Download and install JRE x86 by JetBrains\n安装PyCharm时记得勾选Download and install JRE x86 by JetBrains\n安装PyCharm时记得勾选Download and install JRE x86 by JetBrains\n（我在下一版块还会提醒你的。）\n（假如安装时没这个选项就不用管了）');"><i class="fa fa-apple"></i></a>
+        <a href="https://download.jetbrains.8686c.com/python/pycharm-professional-2019.3.3.tar.gz" target="_blank" class="normal"><i class="fa fa-linux"></i></a><br>
+        你也可以选择回退到教程页面，继续下载PyCharm社区版
+      </p>
+    </div>
+    <div class="mdui-dialog mdui-dialog-setup" id="setup-Windows" style="display: none; top: 61px; height: 488px;">
+       <h3>请先确认电脑上是否安装过Python</h3>
+       <p>如果已经装有Python 3，就不用再安装了<br>
+       如果没有印象，那多半是没装过，请继续往下看</p>
+       <h4>你是Windows 10用户吗？</h4>
+       <p>那太好了！打开cmd（<a href="javascript:" onClick="alert('同时按住Windows徽标键和R键\n跳出“运行”提示框\n输入cmd确定即可')">如何打开？</a>），输入命令<code>python</code><br>
+       应该会跳出Microsoft Store，一键安装即可<br>
+       <small>cmd上打印出了Python的版本信息……？嘿，你明明已经安装过了！<br>
+       不过假如真这样，检查一下版本号，如果<code><3.5</code><br>
+       那还是要手动进入Microsoft Store，或使用下面的安装包，重装一下最新版哦~</small></p>
+       <h4>emm……好像并不是诶……</h4>
+       <p>没关系，我帮你准备好了<a href="https://www.python.org/ftp/python/3.8.1/python-3.8.1-amd64.exe">安装包</a>，手动安装也不难~<br>
+       安装时选中<code>Add Python 3.8 to PATH</code>，Install Now即可~</p>
+    </div>
+    <div class="mdui-dialog mdui-dialog-setup" id="setup-Mac" style="display: none; top: 61px; height: 488px;">
+       <h4>别急……先打开Mac终端</h4>
+       <p><code style="font-size:22px">$ python --version</code></p>
+       <p><small>等一等……终端是啥……<br>
+       莫慌！直接往下找到方案二，使用传统方式安装即可</small></p>
+       <p>如果打印出的版本号<code>≥3.5</code><br>
+       就代表你的Mac上已有版本合适的Python，不用再安装了<br>
+       否则，请继续往下看</p>
+       <h3>方案一：Homebrew快捷通道</h3>
+       <p>如果之前没有用过Homebrew，参见<a href="https://brew.sh/" target="_blank">官网</a><br>
+       找到Install Homebrew，把那串指令复制到终端中</p>
+       <p>Homebrew安装好后，输入指令<br>
+       <code>$ brew install python</code><br>
+       如果一切顺利，那么就大功告成啦~</p>
+       <h3>方案二：传统通道</h3>
+       <p>感觉这波操作好复杂？<br>
+       别紧张！<br>
+       我帮你准备好了<a href="https://www.python.org/ftp/python/3.8.1/python-3.8.1-macosx10.9.pkg">安装包</a>，使用传统方式安装即可~</p>
+    </div>
+    <div class="mdui-dialog mdui-dialog-setup" id="setup-Linux" style="display: none; top: 61px; height: 488px;">
+       <p>先留个坑</p>
+       <p>等我实测过了再回来补</p>
+    </div>
+</div>
+<div class="scrollblock block-config">
+    <h2>初始化PyCharm</h2>
+    <p>（假如有这个选项的话）别忘了安装PyCharm时要勾选<code>Download and install JRE x86 by JetBrains</code>哦~</p>
+    <p>PyCharm安装完成后是配置环节<br>
+    此处先按默认来，因为后面还可以改</p>
+    <h3>Import Settings</h3>
+    <p>选择<code>Do not import settings</code>即可</p>
+    <h3>Customize PyCharm</h3>
+    <p>左下角选择<code>Skip Remaining and Set Defaults</code>即可</p>
+    <h3>[专业版用户] PyCharm License Activation</h3>
+    <p>在<code>JetBrains Account</code>通道下<br>
+    输入申请学生账号用的邮箱和相应的JetBrains密码</p>
+</div>
+<div class="scrollblock block-try">
+    <h2>Hello, world!</h2>
+    <p>在电脑中选好一个位置，以后专门放PyCharm的项目</p>
+    <p>回到PyCharm<br>
+    点击<code>Create New Project</code><br>
+    在最上面<code>Location</code>一栏中<br>
+    填入你选好的位置<br>
+    并在后面加上<code>/项目名称</code><br>
+    例如：<br>
+    <code>D:/PyCharm-Projects/Hello-world</code><br>
+    初次使用先别急着<code>Create</code>，继续往下看</p>
+</div>
+<div class="scrollblock block-white">
+    <p>展开<code>Project Interpreter</code><br>
+    选择<code>New environment using Virtualenv</code><br>
+    这里的<code>Location</code>字段不用动<br>
+    点开<code>Base interpreter</code>一栏的下拉列表<br>
+    选择版本最新的那个<br>
+    然后就可以<code>Create</code>啦~</p>
+</div>
+<div class="scrollblock block-coding">
+    <h3>等PyCharm准备好之后</h3>
+    <p>在左侧你会看到项目文件管理窗口<br>
+    （虽然现在什么文件也没有）<br>
+    找到主文件夹（例如<code>Hello-world</code>）<br>
+    右击，<code>New->Python File</code><br>
+    （不要点成别的类型的File了）<br>
+    输入你想要的文件名</p>
+    <p>文件打开后，将下面的代码粘贴进去</p>
+    <figure class="highlight python">
+        <table>
+            <tr>
+                <td class="gutter">
+                    <pre><span class="line">1</span><br><span class="line">2</span></pre>
+                </td>
+                <td class="code">
+                    <pre><span class="line"><span class="built_in">print</span>(<span class="string">'Hello, world!'</span>)</span><br><span class="line"></span><br></pre>
+                </td>
+            </tr>
+        </table>
+    </figure>
+    <p style="font-size:18px; line-height: 28px">按下组合键：<br>
+    （ <i class="fa fa-windows"></i> / <i class="fa fa-linux"></i> ）<code>Ctrl+Shift+F10</code><br>
+    （ <i class="fa fa-apple"></i> ）<code>⌃⇧R</code><br>
+    （或在上方菜单栏中找到<code>Run->Run</code>）<br>
+    你就能在下方看到输出的<code>Hello, world!</code>啦~</p>
+</div>
+<div class="scrollblock block-DIY">
+    <h1>DIY时间到！</h1>
+    <p>以下两部分非必须<br>
+    所以不计入那30分钟（23333</p>
+    <p>左上角找到<br>
+    <code>File->Settings->Editor->Font</code><br>
+    右边第一个<code>Font</code>是英文字体，推荐Consolas<br>
+    <code>Fallback font</code>是非英文字体，挑个自己喜欢的<br>
+    （也都只是推荐，具体怎么调，完全由你而定）</p>
+    <p>然后回到左边，找到<code>Color Scheme->Python</code><br>
+    快乐的调色环节完全由你掌控！<br></p>
+</div>
+<div class="scrollblock block-TabNine">
+    <p>调色完成后，回到左边，收起<code>Editor</code><br>
+    然后进入<code>Plugins</code>，搜索<code>TabNine</code><br>
+    <code>Install</code>这款超棒的智能补全插件<br>
+    让它助你一臂之力吧！</p>
+    <p>不过需要注意的是<br>
+    TabNine的深度学习功能只有30天的试用期<br>
+    好在专业版目前免费<br>
+    TabNine安装完成后，<a href="https://tabnine.com/beta_signup" target="_blank">点击链接</a>申请专业版<br>
+    你会收到一封含有注册码的邮件</p>
+    <p>回到PyCharm<br>
+    在任一打开的代码文件的任一位置直接输入<br>
+    <code class="big">TabNine::config</code><br>
+    （不要复制粘贴）<br>
+    在跳出的页面中，找到<code>Activation key</code>一栏<br>
+    粘贴入注册码即可~</p>
+</div>
+<div class="scrollblock block-ending">
+    <h2>还想说的是……</h2>
+    <p>创建、移动、复制、粘贴、重命名、删除文件<br>
+    <strong>都在左侧的项目文件管理窗口中进行</strong><br>
+    其中，<strong>重命名和删除在<code>Refactor</code>下找</strong><br>
+    假如一不小心把那个窗口关掉了<br>
+    双击File...Edit...下面一排的路径条就能召唤回来~</p>
+    <h1>最后的最后，牢记这个快捷键</h1>
+    <h2>（ <i class="fa fa-windows"></i> / <i class="fa fa-linux"></i> ）<code>Ctrl+Alt+L</code><br>
+    （ <i class="fa fa-apple"></i> ）<code>⌘⌥L</code></h2>
+    <p>它可以帮你整理代码<br>
+    增强代码可读性</p>
+    <p>不过，由于Python的缩进风格<br>
+    <strong>建议每一行前的空格数自己调整好</strong><br>
+    以防PyCharm整理代码时出现意外<br>
+    （不过万一真出意外了，撤销回去就好~）</p>
+</div>
+<div class="scrollblock">
+    <h2>如果想学习更多Python的知识</h2>
+    <h3>欢迎查看我写的快速入门教程！</h3>
+    <p>然而并没有这种东西……</p>
+    <h3>所以……推荐另一个网站吧</h3>
+    <p><a href="https://www.runoob.com/python3/python3-tutorial.html" target="_blank">https://www.runoob.com/python3/python3-tutorial.html</a></p>
+    <p>也欢迎在评论区指出这份教程可以改进的地方<br>
+    或者对这个页面的直男配色提出合理化建议</p>
+    <p>最后，再次……</p>
+    <h3>祝学习愉快~</h3>
+</div>
+
+      
+        <blockquote class="mdui-m-t-5">
+          
+          <strong>本文链接：</strong><a href="https://www.unidy.cn/articles/intro-to-pycharm/">https://www.unidy.cn/articles/intro-to-pycharm/</a>
+        </blockquote>
+	  
+      
+    </div>
+    <footer class="mdui-card-actions">
+      
+        <a class="mdui-ripple article_categories-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AE%85/">技术宅</a>
+      
+      
+        <a class="mdui-ripple article_tags-link" href="/tags/PyCharm/" rel="tag">PyCharm</a><a class="mdui-ripple article_tags-link" href="/tags/Python/" rel="tag">Python</a>
+      
+    </footer>
+    
+  </article>
+  
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+  <script>$("#main article .mdui-card-content img.fancybox").on("click",function(e){$.fancybox.open({src:$(this).attr("src")});});</script>
+
+
+  <nav id="paginator">
+    
+      <a rel="prev" class="extend prev" href="/articles/thui-a-1/">
+        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上一篇
+      </a>
+    
+    <div class="spacer"></div>
+    
+      <a rel="next" class="extend next" href="/articles/summary-1-1/">
+        下一篇&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
+    
+  </nav>
+
+
+  <div id="comment" class="mdui-m-t-5">
+    <div class="vcomment"></div>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.slim.min.js"></script>
+<script src="https://unpkg.com/leancloud-storage@4.12.2/dist/av-min.js"></script>
+<script src="https://unpkg.com/valine@1.4.18/dist/Valine.min.js"></script>
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  var notify = 'false' === 'true';
+  var verify = 'false' === 'true';
+  new Valine({
+    av: AV,
+    el: '.vcomment',
+    notify: notify,
+    verify: verify,
+    appId: "ewlT3sErBcbbAdwPXrhxRNfg-gzGzoHsz",
+    appKey: "MQgeLEsEGHvbeG6SjqBaiUad",
+    placeholder: "一起来评论呀~",
+    pageSize: '',
+    avatar: 'mp',
+    lang: '',
+    guest_info: guest_info
+  });
+</script>
+
+  </div>
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.slim.min.js"></script>
+<script src='https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.10/clipboard.min.js'></script>
+<script src='/lib/btn-copy.js'></script>
+</main>
+<footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
+  <div class="mdui-p-y-0 mdui-text-center">
+    
+    
+    
+    
+    
+    
+    
+      <a href="https://github.com/UNIDY2002/" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe7ab;</i></a>
+    
+    
+    
+    
+    
+    
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    <a target="_blank" href="https://beian.miit.gov.cn/" class="mdui-text-color-theme-a100">京ICP备2021021102号-1</a>
+    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802035479" class="mdui-text-color-theme-a100"><img src="/images/beian.png" style="padding-left: 1px;padding-right: 2px"/>京公网安备 11010802035479号</a>
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    &copy; 2022 | <i class="fa fa-user"></i> UNIDY
+    
+  </div>
+</footer>
+
+<script src='https://cdn.bootcdn.net/ajax/libs/mermaid/8.14.0/mermaid.min.js'></script>
+<script>
+  if (window.mermaid) {
+    window.mermaidUri = 'https://cdn.bootcdn.net/ajax/libs/mermaid/8.14.0/mermaid.min.js';
+    window.loadScript = function(url) {
+      return new window.Promise(function(resolve) {
+        var script = window.document.createElement ("script");
+        script.type = "text/javascript";
+
+        if (script.readyState){ //IE
+          script.onreadystatechange = function() {
+            if (script.readyState === 'loaded' || script.readyState === 'complete'){
+              script.onreadystatechange = null;
+              resolve(script);
+            }
+          };
+        } else { //Others
+          script.onload = function(){
+            resolve(script);
+          };
+        }
+        script.src = url;
+        window.document.getElementsByTagName("head")[0].appendChild(script);
+      });
+    };
+
+    // 存在.mermaid的元素 加载执行 mermaid.js
+    if (window.document.querySelector('.mermaid')) {
+      window.loadScript(window.mermaidUri).then(function () {
+        if (window.mermaid) {
+		  console.log("Hi!")
+          window.mermaid.initialize({
+            startOnLoad: true,
+            flowchart:{
+              useMaxWidth: false,
+              htmlLabels: true
+            }
+          });
+        }
+      });
+    }
+
+    //mermaid.initialize({theme: 'forest'});
+  }
+</script>
+
+
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>
+  
+  
+<script src="https://unpkg.com/mdui@1.0.1/dist/js/mdui.js"></script>
+<script src="/lib/script.js"></script>
+
+</body>
+</html>

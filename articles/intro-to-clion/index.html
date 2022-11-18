@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="renderer" content="webkit">
+  
+  <meta name="format-detection" content="telephone=no,email=no">
+  <meta name="theme-color" content="#9C27B0">
+  <meta name="description" content="热衷于安利JetBrains家的产品……">
+  <meta name="keywords" content=",JetBrains,C++">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="UNIDY&#39;s Timeline">
+  <meta name="msapplication-starturl" content="https://www.unidy.cn/articles/intro-to-clion/">
+  <meta name="msapplication-navbutton-color" content="#9C27B0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="UNIDY&#39;s Timeline">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/images/unidy.png">
+
+  <title>CLion安装经验分享 | UNIDY&#39;s Timeline</title>
+  <link rel="shortcut icon" href="/images/unidy.png">
+  
+  <meta name="description" content="热衷于安利JetBrains家的产品……">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CLion安装经验分享">
+<meta property="og:url" content="https://www.unidy.cn/articles/intro-to-clion/">
+<meta property="og:site_name" content="UNIDY&#39;s Timeline">
+<meta property="og:description" content="热衷于安利JetBrains家的产品……">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.unidy.cn/articles/intro-to-clion/001.png">
+<meta property="article:published_time" content="2019-11-28T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-18T07:38:54.262Z">
+<meta property="article:author" content="UNIDY">
+<meta property="article:tag" content="JetBrains">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.unidy.cn/articles/intro-to-clion/001.png">
+
+  
+  <meta property="article:published_time" content="Thu Nov 28 2019 00:00:00 GMT+0000">
+  <meta property="article:modified_time" content="Fri Nov 18 2022 07:38:54 GMT+0000">
+  
+
+  
+  <link rel="canonical" href="https://www.unidy.cn/articles/intro-to-clion/">
+  
+
+  
+  
+
+  
+  
+  
+
+  
+<link rel="stylesheet" href="https://unpkg.com/mdui@1.0.1/dist/css/mdui.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
+  <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
+  <header id="header" class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset">
+    <div class="mdui-toolbar mdui-color-theme">
+      <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
+      <a href="/" class="mdui-typo-headline">UNIDY&#39;s Timeline</a>
+      <div class="mdui-toolbar-spacer"></div>
+      <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: '搜索'}"><i class="mdui-icon material-icons">search</i></a>
+      
+    </div>
+  </header>
+  <div class="mdui-dialog" id="search">
+    
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+    
+  </div>
+  <aside id="sidebar" class="mdui-drawer mdui-drawer-full-height">
+    <div class="mdui-grid-tile">
+      <img src="/images/banner.png" style="height: 160px;">
+      <img src="/images/unidy.png" class="avatar-animation" style="position: absolute; top: 10%; left: 24px; width: 64px; height: 64px; border: 2px solid #fff; border-radius: 50%;">
+      <div class="mdui-grid-tile-actions">
+        <div class="mdui-grid-tile-text">
+          <div class="mdui-grid-tile-title">UNIDY</div>
+          <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">art_track</i>Stay Hungry, Stay Foolish.</div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="mdui-list" mdui-collapse="{accordion: true}">
+      <a href="/" class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+        <div class="mdui-list-item-content">主页</div>
+      </a>
+      <div class="mdui-collapse-item">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+          <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">inbox</i>
+          <div class="mdui-list-item-content">归档</div>
+          <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+        </div>
+        <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+          
+          <a class="mdui-ripple sidebar_archives-link" href="/archives/2022/10/">十月 2022<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2022/09/">九月 2022<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2022/07/">七月 2022<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2022/06/">六月 2022<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/03/">三月 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/02/">二月 2020<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/12/">十二月 2019<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/11/">十一月 2019<span class="mdui-ripple sidebar_archives-count">2</span></a>
+          
+        </div>
+      </div>
+      <div class="mdui-collapse-item">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+          <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">chrome_reader_mode</i>
+          <div class="mdui-list-item-content">分类</div>
+          <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+        </div>
+        <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+          
+          <a class="mdui-ripple sidebar_archives-link" href="/categories/%E4%BB%A3%E7%A0%81%E6%8E%A7/">代码控<span class="mdui-ripple sidebar_archives-count">4</span></a><a class="mdui-ripple sidebar_archives-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AE%85/">技术宅<span class="mdui-ripple sidebar_archives-count">5</span></a><a class="mdui-ripple sidebar_archives-link" href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念<span class="mdui-ripple sidebar_archives-count">11</span></a>
+          
+        </div>
+      </div>
+      <div class="mdui-collapse-item">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+          <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
+          <div class="mdui-list-item-content">标签</div>
+          <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+        </div>
+        <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+          
+          <a class="mdui-ripple sidebar_archives-link" href="/tags/Android/" rel="tag">Android<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/C/" rel="tag">C++<span class="mdui-ripple sidebar_archives-count">3</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/JavaScript/" rel="tag">JavaScript<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/JetBrains/" rel="tag">JetBrains<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Kotlin/" rel="tag">Kotlin<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/PyCharm/" rel="tag">PyCharm<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Python/" rel="tag">Python<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E9%9A%8F%E6%83%B3/" rel="tag">随想<span class="mdui-ripple sidebar_archives-count">13</span></a>
+          
+        </div>
+      </div>
+      <a href="/about" class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
+        <div class="mdui-list-item-content">关于</div>
+      </a>
+    </div>
+
+    <div class="mdui-divider"></div>
+
+    <div class="mdui-list" mdui-collapse="{accordion: true}">
+      
+      <a href="/downloads" class="mdui-list-item mdui-ripple">资源下载</a>
+      
+      <a href="https://thuinfo.net/" class="mdui-list-item mdui-ripple">THUInfo</a>
+      
+      <a href="https://www.saiblo.net/" class="mdui-list-item mdui-ripple">Saiblo</a>
+      
+      <div class="mdui-collapse-item">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+          <div class="mdui-list-item-content">友情链接</div>
+          <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+        </div>
+        <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+          
+          <a href="https://www.dilant.cn/" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">迪兰特的小屋</a>
+          
+          <a href="https://ashitemaru.github.io/" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">Ashitemaru</a>
+          
+          <a href="https://zcy.moe/" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">猫猫窝</a>
+          
+          
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main id="main" class="mdui-m-t-5 fadeIn animated">
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
+  <article class="mdui-card mdui-m-b-5">
+    
+    <header class="mdui-card-media">
+      <img src="/images/random/material-19.png" style="max-height: 240px;">
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-title">CLion安装经验分享</div>
+		  
+            <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2019-11-28 / <i class="iconfont">&#xe601;</i> UNIDY</div>
+	      
+        </div>
+      </div>
+      <div class="mdui-card-menu">
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#qrcode', align: 'right'}"><i class="mdui-icon material-icons">devices</i></button>
+          <ul class="mdui-menu" id="qrcode">
+            
+              <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple">在移动端上查看</a></li>
+            
+            <li class="mdui-menu-item" disabled>
+              
+                <img src="http://qr.liantu.com/api.php?w=246&m=10&text=https://www.unidy.cn/articles/intro-to-clion/">
+              
+            </li>
+          </ul>
+        
+        
+      </div>
+    </header>
+	
+    <div class="mdui-card-content mdui-typo">
+      <p>热衷于安利JetBrains家的产品……</p>
+<a id="more"></a>
+
+<p>作为我的博客的第一篇正经文章，我打算安利一下CLion。毕竟……谁叫它是全宇宙第一的IDE呢！<del>（引战言论）</del></p>
+<p><strong>有一款超棒的IDE是什么体验？相信我，CLion能让你从入门到上瘾……</strong></p>
+<blockquote>
+<p><strong>一起来改进这份教程~</strong></p>
+<p>由于本文主要凭借记忆，写作前未经过实际验证，再加上互联网产品更新快，因此文中所描述的内容可能与实际情形不符。若有这种情况发生，请尽管在评论区中指出。如果你能够提供一些安装过程中的截图，那我也更加欢迎。</p>
+</blockquote>
+<blockquote>
+<p>注：本文适用于Windows用户，对于Mac和Linux用户情形可能会有或大或小的差异。</p>
+</blockquote>
+<hr>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>如果你的电脑上还没有MinGW，需要<a href="https://sourceforge.net/projects/mingw/files/">下载</a>MinGW安装包。并且，安装的时候留个心，记一下自己把MinGW安装到什么位置了（后面配置会用到）。</p>
+<p><strong>然而，从MinGW官方下载地址安装MinGW过于魔鬼（我的个人体验如此），所以推荐“曲线救国”——先<a href="/downloads/softwares/Dev-Cpp_5.11_TDM-GCC_4.9.2_Setup.exe">安装Dev-C++</a>（假如你没装过的话），它会顺带安装好MinGW，具体的位置应该在Dev-C++的安装目录下。</strong></p>
+<blockquote>
+<p>如何简易判断电脑上有没有MinGW？</p>
+<p>打开cmd，输入命令<code>gcc -v</code>，如果可以打印出版本信息，就表示已有MinGW。</p>
+</blockquote>
+<p>下面安装CLion。</p>
+<p>CLion是一款收费产品，不过对学生免费——只要你有自己的学校邮箱。所以，首先你要<a href="https://www.jetbrains.com/shop/eform/students">申请一个学生账号</a>。</p>
+<p>然后，<a href="https://www.jetbrains.com/clion/download/#section=windows">下载</a>CLion安装包。（如果你有<a href="/articles/about-toolbox">Toolbox</a>，可以直接用Toolbox安装。）</p>
+<p>安装完成后，运行CLion，然后就是激动人心的配置部分啦！</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><strong>配置有多重要？一方面，如果不能正确配置，那你的CLion可能连用都用不了。另一方面，良好的配置可以大大提升你的使用体验。</strong></p>
+<h3 id="正确配置"><a href="#正确配置" class="headerlink" title="正确配置"></a>正确配置</h3><p>启动CLion后，作为新用户，你估计会遇到一个<code>Customize CLion</code>的界面。</p>
+<p>首先是<code>UI Themes</code>，就是界面颜色风格，这个挑自己喜欢的风格（好像黑色的比较受欢迎）。（不过后面会教你自定义一套自己喜欢的风格。）</p>
+<p>然后是<code>Default plugins</code>和<code>Featured plugins</code>，直接点<code>Next</code>过去好了。</p>
+<hr>
+<p><strong>接下来，就是重中之重：<code>Toolchains</code>的配置。</strong>因为它非常重要，所以我也在后面配上了截图，可以对照着看，<strong>但一定要先读我写的文字说明！</strong></p>
+<p><code>Environment</code>下方有个下拉菜单，选<code>MinGW</code>。</p>
+<p>这时，IDE应该会自动帮你找寻MinGW的位置。<strong>但自动生成的东西有可能不靠谱，所以你先检查一下，它找的MinGW是不是你刚刚安装的那个。</strong></p>
+<blockquote>
+<p>假如之前安装了Dev-C++，这次就没装MinGW，怎么知道MinGW的位置呢？</p>
+<p>找到Dev-C++的安装目录，下面应该有个名叫MinGW64文件夹，这就是你MinGW的位置了。</p>
+</blockquote>
+<p><strong>大部分情况下，这个空里的路径应该以<code>...\MinGW64</code>结尾。</strong></p>
+<p>选择好之后，IDE就会自动帮你填完后面的几个空（这时它自动生成的基本上就是靠谱的了）。如果你看到没有小圈圈在转，也没有红色的感叹号，那就代表一切顺利。</p>
+<blockquote>
+<p>假如出现了异常……首先再次确认自己刚刚MinGW的位置有没有填对，是不是你刚刚安装的MinGW。如果还不行，那就参考下面的截图，自己想办法吧……（无奈脸）（或者……利用一下评论区……？虽然我很可能自己也不知道如何解决这些配置时的异常……）</p>
+</blockquote>
+<p><img src="/articles/intro-to-clion/001.png" alt="Toolchains配置完成截图参考"></p>
+<hr>
+<p>基本的配置完成后，需要激活一下。你既然已经有学生账号了，那就可以光明正大地选择<code>JetBrains Account</code>通道进行验证了。</p>
+<p>现在，一切准备就绪，你可以开始编程啦。</p>
+<p>在这里，建议你先在电脑中选好一个位置，以后就专门用来放CLion的项目。</p>
+<p>先试着写一个Hello World吧。</p>
+<p>在<code>New Project</code>的窗口中，选择<code>C++ Executable</code>，<code>Location</code>里面填自己选好的位置（例如<code>D:\CLion_Project\HelloWorld</code>），其中，地址的最后一段是这个项目的名称。</p>
+<p><code>Language standard</code>是语言标准，如果刚刚学习C++不知道选什么就按它默认的来。</p>
+<p><code>Create</code>之后，进入代码界面，它应该会默认提供一个Hello World的代码。<strong>先等一会儿，等右下角的进度条完成。</strong></p>
+<p>进度条完成后，你有两种方法执行程序。</p>
+<ol>
+<li>右上角有一排绿色的按钮，有锤子（<code>build</code>）、三角（<code>run</code>）、虫子（<code>debug</code>）什么的，点<code>run</code>，稍微过一会儿就能看到运行结果了。</li>
+<li>你的<code>main</code>函数左边应该也会有一个小三角，点击之后选择<code>run</code>同样可以运行。</li>
+</ol>
+<hr>
+<p>如果到现在一切顺利，就代表你的CLion已经成功安装并配置，理论上讲以后都可以正常用了。不过，为了拥有更好的编程体验，可以再进行一些个性化的配置。</p>
+<h3 id="进阶配置"><a href="#进阶配置" class="headerlink" title="进阶配置"></a>进阶配置</h3><p>左上角，找到<code>File</code>，下拉菜单里找到<code>Settings</code>，进行进一步的配置。</p>
+<p>代码又细又淡的字体一定让你很讨厌吧！找到<code>Editor</code>，选择<code>Font</code>，把<code>Font</code>字段设置成<code>Consolas</code>。</p>
+<p>接下来就是<code>Color Scheme</code>，也就是非常快乐的调颜色阶段。<del>（我曾经花了一下午调颜色……）</del></p>
+<blockquote>
+<p>为什么需要调颜色？</p>
+<p>C++是一门拥有<del>过于</del>丰富特性的语言，不同的标志类型和语法特性可以通过不同的颜色清晰地体现出来。而默认的配色方案比较单调，这时就可以充分发挥你DIY的功力了。</p>
+<p>而且屏幕上五彩斑斓（但不要调得太花了）的代码本身就会让你赏心悦目呢！</p>
+<p>还有，配色不仅仅是上不同的颜色，还可以选择加粗、斜体或者加阴影。所以，可以发挥的空间很大呢。</p>
+</blockquote>
+<p>如果第一次使用，还比较陌生，可以照搬我当前用的配置。详见后文<strong>导入配色方案</strong>。</p>
+<p>与C++关系比较大的，应该是<code>General</code>、<code>Language Defaults</code>和<code>C/C++</code>。调这些就行了。</p>
+<hr>
+<p>接下来，<strong>我强烈推荐一款插件：<code>TabNine</code>。</strong>它是一款利用机器学习进行代码补全的插件，可以有效提升编程体验。（当然这里只是推荐，并不是刚需，可以选择不装。<strong>在你还不太熟悉CLion时，也可以不急着装。</strong>）</p>
+<p>这个东西介绍见<a href="https://tabnine.com/">官网</a>，不过其实也不用去看，只要知道它可以有效地对你接下来要输入的代码进行预测，并提供代码补全建议。</p>
+<p>在屏幕左上角<code>File-&gt;Settings-&gt;Plugins-&gt;Marketplace</code>，进入插件市场，搜索<code>TabNine</code>，<code>Install</code>即可。</p>
+<p>然后回到编程界面，<strong>照理应该</strong>可以用了。具体而言，敲代码的时候，它会给你提供补全建议。如果它给的第一条建议正好就是你想要的，那就直接按回车。如果是后面的某条建议，那就先按几次下键，然后再回车。</p>
+<p>然而……<strong>初次使用的时候，需要先写几段代码，相当于训练一下你的TabNine，让它熟悉你的代码风格，所以一开始它不会给你提示（你这时候看到的代码补全其实是CLion预设的）。等用一段时间，你会发现TabNine变得越来越聪明了。</strong></p>
+<p><del>还有一件比较重要的事，就是<strong>TabNine的深度学习功能默认只有30天的试用期，需要注册专业版获得永久使用权。</strong>专业版目前免费，点击链接（已失效）申请，它会向你的邮箱中发送注册码及配置说明，按照要求做即可。</del></p>
+<p>可惜的是，专业版TabNine现在似乎需要付费了。不管怎么说，还是先把网址丢这儿：<a href="https://www.tabnine.com/trial/">网页链接</a></p>
+<p><strong>TabNine有一个缺陷，就是比较占CPU（毕竟自带机器学习）。</strong>反正我敲代码比较快的时候会发现排风扇也在呼呼转。</p>
+<p>然后可能会有一些小bug（习惯就好）。</p>
+<p>如果需要停用/卸载TabNine，屏幕左上角<code>File-&gt;Settings-&gt;Plugins-&gt;TabNine-&gt;Disable/Uninstall</code>。</p>
+<p>额……说是进阶的配置，其实也就这些。不过，应该已经可以很好地提升编程体验了~</p>
+<hr>
+<h3 id="导入配色方案"><a href="#导入配色方案" class="headerlink" title="导入配色方案"></a>导入配色方案</h3><p>如果需要我自己用的配色方案，首先<a href="/downloads/themes/Splendid-CLion.icls">下载</a>。</p>
+<p>然后，在<code>Settings</code>的<code>Editor</code>下<code>Color Scheme</code>主菜单中，有一个<code>Scheme</code>下拉列表，右边还有一个小齿轮的，点击小齿轮，<code>Import Scheme</code>，把外部配色方案导入IDE，应该就可以了。</p>
+<p>当然，导入之后你也可以自己继续进行一定的微调。</p>
+<p>那么……配置的部分，其实差不多了。</p>
+<p>不过，我个人认为，<strong>我这篇博客最不可替代的部分，其实是接下来的技巧与注意事项</strong>。我希望它可以帮你更好地适应并使用CLion。</p>
+<hr>
+<h2 id="技巧与注意事项"><a href="#技巧与注意事项" class="headerlink" title="技巧与注意事项"></a>技巧与注意事项</h2><ol>
+<li><p>CLion的代码以项目为单位，一个项目中可以有很多很多文件，它们之间可以相互引用。因此，坦诚地说，如果你只是为了完成<strong>一些</strong>小型程序而使用CLion，确实有点浪费电脑资源。</p>
+<p>在这里，提供两种方案。一个，是如果这段代码只是用于测试，以后再也不会用了，那就<strong>把代码清空，不用再建新的项目</strong>。另一个，就是如果你还想保留当前的代码，那就<strong>把当前文件复制到项目中的另一个地方，当做备份，同样不用建新的项目</strong>。（复制粘贴的操作详见第4条。）</p>
+</li>
+<li><p><strong>熟练运用组合键<code>Ctrl+Alt+L</code>。</strong>它可以将你的代码格式化，增强代码可读性。（像我现在已经敲几行就整理一下代码了……简直过于方便……）</p>
+</li>
+<li><p>重视一下IDE给出的Warning(s)（虽然绝不以消除所有Warning(s)为目标）。CLion给的Warning质量还是普遍比较高的。首先，它会在右侧的滚动条处以黄色表示出来，方便你看看哪里还有需要注意的地方。然后，不同级别和类型的Warning会用不同的方式在代码中呈现出来<strong>（有些地方的代码会变成灰色，有些则是下划线或者高亮出来）</strong>，鼠标悬浮在上方就能看到具体的提示；当光标在Warning处时，使用组合键<code>Alt+Enter</code>可以看到一些修改建议（不过这些修改建议不一定管用，往往还是需要人工修改的）。<code>Clang-Tidy</code>类型的Warning可以选择忽略。</p>
+<blockquote>
+<p><code>Typo</code>类型的Warning表示拼写错误。虽然拼写错误并不会直接导致程序的错误，但还是尽量避免。</p>
+<p>如果确实是单词拼错了，把光标放到那个单词处，按下组合键<code>Alt+Enter</code>，选择<code>Typo: Rename to...</code>，然后进行更正。它会把项目中这个所有出现这个变量的地方一起改好。</p>
+<p>如果这个单词确实存在，只是IDE没有收录，还是<code>Alt+Enter</code>，把它保存到<code>project-level dictionary</code>。</p>
+<p>如果你的变量名是多个单词的组合，请使用小驼峰命名法（<code>smallCamelCase</code>）、大驼峰命名法（<code>BigCamelCase</code>）、使用下划线分隔的小写字母命名法（<code>lower_case_with_underscores</code>）、使用下划线分隔的大写字母命名法（<code>UPPER_CASE_WITH_UNDERSCORES</code>）。</p>
+<p>如果你的变量名是汉语拼音甚至是汉语拼音缩写……还是算了吧……请设想一下在别人的代码中看到<code>bt</code>、<code>wz</code>、<code>djadd</code>等名称时内心的崩溃感……</p>
+<p><del>当然我不会告诉你最新的语言标准中允许真的用汉字做变量名……（试试<code>int 测试;</code>）</del></p>
+</blockquote>
+<p>利用好Warning提示可以有效地避免一些低级错误。试着在IDE中粘贴以下代码<strong>（不用去运行）</strong>，看看它给出了哪些Warning(s)。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; m;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; n * m &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bar</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">bool</span> flag)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (x % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            x = x + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            x = x * <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">return</span> x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">culculate</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; a + b &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    foo(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; bar(<span class="number">4</span>, <span class="literal">false</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> s;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">10</span>][<span class="number">10</span>] = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; a[i][j] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">8</span>;</span><br><span class="line">    <span class="keyword">while</span> (k &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">//Do something but forget to update the variable `k`</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> baz[<span class="number">5</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">9</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (baz[i] = <span class="number">4</span>)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (flag)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"true"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    culculate(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"The end."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当你的项目中<strong>有多个文件需要管理</strong>时，屏幕上方的文件路径条（例如<code>HelloWorld&gt;main.cpp</code>）可以比较简便地实现一些功能。点击一个文件夹（例如<code>HelloWorld</code>），你可以<strong>查看这个文件夹下的其他文件或子文件夹</strong>。右击一个文件夹或文件（例如<code>main.cpp</code>），你可以进行<strong>新建文件、复制粘贴文件、重命名文件、删除文件</strong>等更多操作。</p>
+<blockquote>
+<p>我们当然可以直接使用Windows系统的文件资源管理器来复制粘贴重命名，为什么还要用CLion进行这些操作呢？</p>
+<p>设想，当你的项目中有多个相互关联的文件时，手动修改文件名等信息，难以保证其它用到这个文件的代码都在相应的位置得到更正。而使用CLion进行这些操作，IDE会自动找寻其它用到这个文件的位置，并进行调整和修改，这样就保证了项目的安全性。</p>
+</blockquote>
+</li>
+<li><p>左侧的项目文件组织窗口同样可以用于文件管理，并且更加直观全面。不过，平时不常用的时候，可以点击<code>-</code>关掉。如果想把它再开出来，双击屏幕上方的文件路径条即可。</p>
+</li>
+<li><p>屏幕最左下角的那个按钮可以显示拓展功能框。比如说，如果一不小心把输出窗口关掉了，想再开出来，鼠标悬停在上面，点<code>Run</code>。<del>（前提当然是你得要先run过一遍当前的代码。）</del>[进阶内容]或者说有时想用到<code>Windows</code>系统的<code>cmd</code>，同样的方法，点<code>Terminal</code>。（如果想要定向到生成的<code>.exe</code>文件所在的目录，需要使用指令<code>cd cmake-build-debug</code>。参见下面的第7条。自行学习DOS命令有关内容。）</p>
+</li>
+<li><p><strong>如果程序中想用EOF来判断输入终止，但调试时在CLion的<code>Run</code>窗口中使用<code>Ctrl+Z</code>等没有效果</strong>，这时进行这一波操作：<code>Ctrl+Shift+A</code>，输入<code>registry</code>，进入<code>Registry..</code><del>（不是<code>Register</code>）</del>，把<code>run.processes.with.pty</code>后面的勾去掉。调试的时候，按下<code>Ctrl+D</code>，即可实现输入的终止。</p>
+<blockquote>
+<p>注意：这波操作可能会有副作用！</p>
+<p>不得不承认，这确实是CLion的一个比较讨厌的bug，据说也一直有人向JetBrains反馈这个bug，不过不清楚什么时候会改过来。（或许你看到这篇博文时，这个bug已经解决了……？）</p>
+</blockquote>
+</li>
+<li><p>如果想要使用Windows系统自带的黑框运行程序，或者是想找到项目生成的<code>.exe</code>文件，在哪找呢？在文件资源管理器中找到你这个项目代码的位置，接着找到<code>cmake-build-debug</code>文件夹，里面就能找到那个<code>.exe</code>文件了。</p>
+<blockquote>
+<p>还有一种“偏门左道”是，在代码中没有加入任何断点的情况下，点击<code>Debug</code>，它就会跳出黑框了。不过黑框中输出的信息不会保存下来。化解这一问题的办法是在代码结束之前加入<code>system(&quot;pause&quot;)</code>。</p>
+</blockquote>
+</li>
+<li><p>还有一些有时比较实用的功能，比如<strong>代码比较</strong>，上方菜单栏<code>View-&gt;Compare With...</code>，后面应该不用多说了。此外，在代码比较对话框中进行的修改可以直接反映到原文件上。当然，有时也可以先<code>Ctrl+Alt+L</code>格式化一下再比较。</p>
+</li>
+<li><p>（未完待续……）</p>
+</li>
+</ol>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>JetBrains家的产品好是好，但是也有坏处，就是吃内存。所以有人说</p>
+<blockquote>
+<p>JetBrains：从入门到破产</p>
+</blockquote>
+<p><del>（因为你可能会为了提升JetBrains产品的使用体验而去买很多很多内存条……反正我还没这么干过）</del></p>
+<p>JetBrains家的产品还有一个更大的坏处，就是一旦用了，就再也不想用其他家的IDE了，所谓</p>
+<blockquote>
+<p>JetBrains：从入门到上瘾</p>
+</blockquote>
+<p>不过，在我看来，JetBrains的IDE最大的坏处，就是一旦你用了它的一款IDE，就会接着安装它的其它语言的IDE。这不，我的电脑里，从<code>IntelliJ IDEA</code>到<code>CLion</code>，再到<code>PyCharm</code>，以及<code>WebStorm</code>……</p>
+<p>有机会再写写JetBrains家别的产品的入坑教程，安利就要安利到底~</p>
+
+      
+        <blockquote class="mdui-m-t-5">
+          
+          <strong>本文链接：</strong><a href="https://www.unidy.cn/articles/intro-to-clion/">https://www.unidy.cn/articles/intro-to-clion/</a>
+        </blockquote>
+	  
+      
+    </div>
+    <footer class="mdui-card-actions">
+      
+        <a class="mdui-ripple article_categories-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AE%85/">技术宅</a>
+      
+      
+        <a class="mdui-ripple article_tags-link" href="/tags/C/" rel="tag">C++</a><a class="mdui-ripple article_tags-link" href="/tags/JetBrains/" rel="tag">JetBrains</a>
+      
+    </footer>
+    
+  </article>
+  
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+  <script>$("#main article .mdui-card-content img.fancybox").on("click",function(e){$.fancybox.open({src:$(this).attr("src")});});</script>
+
+
+  <nav id="paginator">
+    
+      <a rel="prev" class="extend prev" href="/articles/about-toolbox/">
+        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上一篇
+      </a>
+    
+    <div class="spacer"></div>
+    
+      <a rel="next" class="extend next" href="/articles/preface/">
+        下一篇&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
+    
+  </nav>
+
+
+  <div id="comment" class="mdui-m-t-5">
+    <div class="vcomment"></div>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.slim.min.js"></script>
+<script src="https://unpkg.com/leancloud-storage@4.12.2/dist/av-min.js"></script>
+<script src="https://unpkg.com/valine@1.4.18/dist/Valine.min.js"></script>
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  var notify = 'false' === 'true';
+  var verify = 'false' === 'true';
+  new Valine({
+    av: AV,
+    el: '.vcomment',
+    notify: notify,
+    verify: verify,
+    appId: "ewlT3sErBcbbAdwPXrhxRNfg-gzGzoHsz",
+    appKey: "MQgeLEsEGHvbeG6SjqBaiUad",
+    placeholder: "一起来评论呀~",
+    pageSize: '',
+    avatar: 'mp',
+    lang: '',
+    guest_info: guest_info
+  });
+</script>
+
+  </div>
+
+
+
+  <div style="position: fixed !important; right: 16px; top: 30%;">
+    <button class="mdui-fab mdui-fab-mini mdui-ripple" mdui-menu="{target: '#toc'}"><i class="mdui-icon material-icons">format_list_numbered</i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item" disabled><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#准备工作"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正确配置"><span class="toc-number">2.1.</span> <span class="toc-text">正确配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进阶配置"><span class="toc-number">2.2.</span> <span class="toc-text">进阶配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入配色方案"><span class="toc-number">2.3.</span> <span class="toc-text">导入配色方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#技巧与注意事项"><span class="toc-number">3.</span> <span class="toc-text">技巧与注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">4.</span> <span class="toc-text">后记</span></a></li></ol></li>
+    </ul>
+  </div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.slim.min.js"></script>
+<script src='https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.10/clipboard.min.js'></script>
+<script src='/lib/btn-copy.js'></script>
+</main>
+<footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
+  <div class="mdui-p-y-0 mdui-text-center">
+    
+    
+    
+    
+    
+    
+    
+      <a href="https://github.com/UNIDY2002/" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe7ab;</i></a>
+    
+    
+    
+    
+    
+    
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    <a target="_blank" href="https://beian.miit.gov.cn/" class="mdui-text-color-theme-a100">京ICP备2021021102号-1</a>
+    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802035479" class="mdui-text-color-theme-a100"><img src="/images/beian.png" style="padding-left: 1px;padding-right: 2px"/>京公网安备 11010802035479号</a>
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    &copy; 2022 | <i class="fa fa-user"></i> UNIDY
+    
+  </div>
+</footer>
+
+<script src='https://cdn.bootcdn.net/ajax/libs/mermaid/8.14.0/mermaid.min.js'></script>
+<script>
+  if (window.mermaid) {
+    window.mermaidUri = 'https://cdn.bootcdn.net/ajax/libs/mermaid/8.14.0/mermaid.min.js';
+    window.loadScript = function(url) {
+      return new window.Promise(function(resolve) {
+        var script = window.document.createElement ("script");
+        script.type = "text/javascript";
+
+        if (script.readyState){ //IE
+          script.onreadystatechange = function() {
+            if (script.readyState === 'loaded' || script.readyState === 'complete'){
+              script.onreadystatechange = null;
+              resolve(script);
+            }
+          };
+        } else { //Others
+          script.onload = function(){
+            resolve(script);
+          };
+        }
+        script.src = url;
+        window.document.getElementsByTagName("head")[0].appendChild(script);
+      });
+    };
+
+    // 存在.mermaid的元素 加载执行 mermaid.js
+    if (window.document.querySelector('.mermaid')) {
+      window.loadScript(window.mermaidUri).then(function () {
+        if (window.mermaid) {
+		  console.log("Hi!")
+          window.mermaid.initialize({
+            startOnLoad: true,
+            flowchart:{
+              useMaxWidth: false,
+              htmlLabels: true
+            }
+          });
+        }
+      });
+    }
+
+    //mermaid.initialize({theme: 'forest'});
+  }
+</script>
+
+
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>
+  
+  
+<script src="https://unpkg.com/mdui@1.0.1/dist/js/mdui.js"></script>
+<script src="/lib/script.js"></script>
+
+</body>
+</html>

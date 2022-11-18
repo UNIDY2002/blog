@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="renderer" content="webkit">
+  
+  <meta name="format-detection" content="telephone=no,email=no">
+  <meta name="theme-color" content="#9C27B0">
+  <meta name="description" content="JavaScript与其说是一门语言，不如说是一套协议。">
+  <meta name="keywords" content=",JavaScript">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="UNIDY&#39;s Timeline">
+  <meta name="msapplication-starturl" content="https://www.unidy.cn/articles/cross-fetch/">
+  <meta name="msapplication-navbutton-color" content="#9C27B0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="UNIDY&#39;s Timeline">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/images/unidy.png">
+
+  <title>跨平台fetch | UNIDY&#39;s Timeline</title>
+  <link rel="shortcut icon" href="/images/unidy.png">
+  
+  <meta name="description" content="JavaScript与其说是一门语言，不如说是一套协议。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跨平台fetch">
+<meta property="og:url" content="https://www.unidy.cn/articles/cross-fetch/">
+<meta property="og:site_name" content="UNIDY&#39;s Timeline">
+<meta property="og:description" content="JavaScript与其说是一门语言，不如说是一套协议。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-26T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-18T07:38:54.262Z">
+<meta property="article:author" content="UNIDY">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+  
+  <meta property="article:published_time" content="Tue Jan 26 2021 00:00:00 GMT+0000">
+  <meta property="article:modified_time" content="Fri Nov 18 2022 07:38:54 GMT+0000">
+  
+
+  
+  <link rel="canonical" href="https://www.unidy.cn/articles/cross-fetch/">
+  
+
+  
+  
+
+  
+  
+  
+
+  
+<link rel="stylesheet" href="https://unpkg.com/mdui@1.0.1/dist/css/mdui.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
+  <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
+  <header id="header" class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset">
+    <div class="mdui-toolbar mdui-color-theme">
+      <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
+      <a href="/" class="mdui-typo-headline">UNIDY&#39;s Timeline</a>
+      <div class="mdui-toolbar-spacer"></div>
+      <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: '搜索'}"><i class="mdui-icon material-icons">search</i></a>
+      
+    </div>
+  </header>
+  <div class="mdui-dialog" id="search">
+    
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+    
+  </div>
+  <aside id="sidebar" class="mdui-drawer mdui-drawer-full-height">
+    <div class="mdui-grid-tile">
+      <img src="/images/banner.png" style="height: 160px;">
+      <img src="/images/unidy.png" class="avatar-animation" style="position: absolute; top: 10%; left: 24px; width: 64px; height: 64px; border: 2px solid #fff; border-radius: 50%;">
+      <div class="mdui-grid-tile-actions">
+        <div class="mdui-grid-tile-text">
+          <div class="mdui-grid-tile-title">UNIDY</div>
+          <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">art_track</i>Stay Hungry, Stay Foolish.</div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="mdui-list" mdui-collapse="{accordion: true}">
+      <a href="/" class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+        <div class="mdui-list-item-content">主页</div>
+      </a>
+      <div class="mdui-collapse-item">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+          <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">inbox</i>
+          <div class="mdui-list-item-content">归档</div>
+          <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+        </div>
+        <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+          
+          <a class="mdui-ripple sidebar_archives-link" href="/archives/2022/10/">十月 2022<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2022/09/">九月 2022<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2022/07/">七月 2022<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2022/06/">六月 2022<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2022/01/">一月 2022<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2021/06/">六月 2021<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2021/01/">一月 2021<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/03/">三月 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/02/">二月 2020<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/12/">十二月 2019<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/11/">十一月 2019<span class="mdui-ripple sidebar_archives-count">2</span></a>
+          
+        </div>
+      </div>
+      <div class="mdui-collapse-item">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+          <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">chrome_reader_mode</i>
+          <div class="mdui-list-item-content">分类</div>
+          <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+        </div>
+        <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+          
+          <a class="mdui-ripple sidebar_archives-link" href="/categories/%E4%BB%A3%E7%A0%81%E6%8E%A7/">代码控<span class="mdui-ripple sidebar_archives-count">4</span></a><a class="mdui-ripple sidebar_archives-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AE%85/">技术宅<span class="mdui-ripple sidebar_archives-count">5</span></a><a class="mdui-ripple sidebar_archives-link" href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念<span class="mdui-ripple sidebar_archives-count">11</span></a>
+          
+        </div>
+      </div>
+      <div class="mdui-collapse-item">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+          <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
+          <div class="mdui-list-item-content">标签</div>
+          <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+        </div>
+        <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+          
+          <a class="mdui-ripple sidebar_archives-link" href="/tags/Android/" rel="tag">Android<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/C/" rel="tag">C++<span class="mdui-ripple sidebar_archives-count">3</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/JavaScript/" rel="tag">JavaScript<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/JetBrains/" rel="tag">JetBrains<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Kotlin/" rel="tag">Kotlin<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/PyCharm/" rel="tag">PyCharm<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Python/" rel="tag">Python<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E9%9A%8F%E6%83%B3/" rel="tag">随想<span class="mdui-ripple sidebar_archives-count">13</span></a>
+          
+        </div>
+      </div>
+      <a href="/about" class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
+        <div class="mdui-list-item-content">关于</div>
+      </a>
+    </div>
+
+    <div class="mdui-divider"></div>
+
+    <div class="mdui-list" mdui-collapse="{accordion: true}">
+      
+      <a href="/downloads" class="mdui-list-item mdui-ripple">资源下载</a>
+      
+      <a href="https://thuinfo.net/" class="mdui-list-item mdui-ripple">THUInfo</a>
+      
+      <a href="https://www.saiblo.net/" class="mdui-list-item mdui-ripple">Saiblo</a>
+      
+      <div class="mdui-collapse-item">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+          <div class="mdui-list-item-content">友情链接</div>
+          <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+        </div>
+        <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+          
+          <a href="https://www.dilant.cn/" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">迪兰特的小屋</a>
+          
+          <a href="https://ashitemaru.github.io/" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">Ashitemaru</a>
+          
+          <a href="https://zcy.moe/" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">猫猫窝</a>
+          
+          
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main id="main" class="mdui-m-t-5 fadeIn animated">
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
+  <article class="mdui-card mdui-m-b-5">
+    
+    <header class="mdui-card-media">
+      <img src="/images/random/material-2.png" style="max-height: 240px;">
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-title">跨平台fetch</div>
+		  
+            <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2021-01-26 / <i class="iconfont">&#xe601;</i> UNIDY</div>
+	      
+        </div>
+      </div>
+      <div class="mdui-card-menu">
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#qrcode', align: 'right'}"><i class="mdui-icon material-icons">devices</i></button>
+          <ul class="mdui-menu" id="qrcode">
+            
+              <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple">在移动端上查看</a></li>
+            
+            <li class="mdui-menu-item" disabled>
+              
+                <img src="http://qr.liantu.com/api.php?w=246&m=10&text=https://www.unidy.cn/articles/cross-fetch/">
+              
+            </li>
+          </ul>
+        
+        
+      </div>
+    </header>
+	
+    <div class="mdui-card-content mdui-typo">
+      <p>JavaScript与其说是一门语言，不如说是一套协议。<strong>只是各大宿主平台恰好都按照这一协议实现了对应的接口。</strong>至于怎么实现，ECMA委员会并不管，也管不了。所以JavaScript没有标准库。如果某个平台上的某个实现有问题，那也绝对是平台的特性，绝不可能甩锅给JavaScript。</p>
+<p>这与Java的跨平台属性有着显著的不同。JVM提供了一个完全抽象的层次，开发者理论上不必关心同一段代码在不同平台上的表现问题。<strong>JavaScript则将这一责任移交给开发人员</strong>，各大宿主平台仿佛只是读代码的机器，读到一半很任性地抛给你一个<code>xxx is not implemented</code>都是意料之中的（没错，<a href="https://github.com/facebook/react-native/blob/master/Libraries/Blob/FileReader.js#L83">说的就是你</a>）。开发者需要自己进行兼容与缝合。</p>
+<p>网络库就是一大坑——它天然与宿主平台相关。<strong>尽管有统一的<code>Fetch API</code>接口规范，但各大平台对<code>fetch</code>的实现情况都不尽理想。</strong><a href="https://www.npmjs.com/package/cross-fetch"><code>cross-fetch</code></a>是一个很优秀的库，它基本实现了node、browser和react-native三端统一的<code>fetch</code>功能，可惜它对不同字符集编码解析的跨平台支持有些无能为力。</p>
+<p>针对这一问题，我在项目中基于<code>cross-fetch</code>定制了一个更加通用的<code>uFetch</code>，并在此加以记录。</p>
+<hr>
+<blockquote>
+<p>Talk is cheap. Show me the code.</p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fetch <span class="keyword">from</span> <span class="string">"cross-fetch"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> cookies: &#123;[key: <span class="built_in">string</span>]: <span class="built_in">string</span>&#125; = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Clear the cookies.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> clearCookies = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">Object</span>.keys(cookies).forEach(<span class="function">(<span class="params">key</span>) =&gt;</span> <span class="keyword">delete</span> cookies[key]);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Gets the response data from the given `url`, with a specified `referer` if</span></span><br><span class="line"><span class="comment"> * provided.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * If param `post` is provided, a `POST` request with the given post form will</span></span><br><span class="line"><span class="comment"> * be sent. Otherwise, a `GET` request will be sent.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * The `timeout` is `60000` by default, in milliseconds.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> uFetch = <span class="keyword">async</span> (</span><br><span class="line">    url: <span class="built_in">string</span>,</span><br><span class="line">    referer?: <span class="built_in">string</span>,</span><br><span class="line">    post?: object | <span class="built_in">string</span>,</span><br><span class="line">    timeout = <span class="number">60000</span>,</span><br><span class="line">): <span class="built_in">Promise</span>&lt;<span class="built_in">string</span>&gt; =&gt; &#123;</span><br><span class="line">    <span class="comment">// Prepare request headers</span></span><br><span class="line">    <span class="keyword">const</span> defaultHeaders = &#123;</span><br><span class="line">        <span class="comment">// Setup content-type and user-agent</span></span><br><span class="line">        <span class="string">"Content-Type"</span>: CONTENT_TYPE_FORM,</span><br><span class="line">        <span class="string">"User-Agent"</span>: USER_AGENT,</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> headersWithCookies = global.FileReader === <span class="literal">undefined</span> ? &#123;</span><br><span class="line">        ...defaultHeaders,</span><br><span class="line">        <span class="comment">// Cookie should be manually set in Node.js</span></span><br><span class="line">        Cookie: <span class="built_in">Object</span>.keys(cookies).map(<span class="function">(<span class="params">key</span>) =&gt;</span> <span class="string">`<span class="subst">$&#123;key&#125;</span>=<span class="subst">$&#123;cookies[key]&#125;</span>`</span>).join(<span class="string">";"</span>),</span><br><span class="line">    &#125; : defaultHeaders;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Add referer to header if specified</span></span><br><span class="line">    <span class="keyword">const</span> headers =</span><br><span class="line">        referer === <span class="literal">undefined</span></span><br><span class="line">            ? headersWithCookies</span><br><span class="line">            : &#123;...headersWithCookies, Referer: referer&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Handle timeout abortion</span></span><br><span class="line">    <span class="keyword">const</span> controller = <span class="keyword">new</span> AbortController();</span><br><span class="line">    <span class="keyword">const</span> timeoutEvent = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        controller.abort();</span><br><span class="line">    &#125;, timeout);</span><br><span class="line">    <span class="keyword">const</span> defaultInit = &#123;</span><br><span class="line">        headers: headers,</span><br><span class="line">        signal: controller.signal,</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Switch method to `POST` if post-body is provided</span></span><br><span class="line">    <span class="keyword">const</span> init =</span><br><span class="line">        post === <span class="literal">undefined</span></span><br><span class="line">            ? defaultInit</span><br><span class="line">            : &#123;</span><br><span class="line">                ...defaultInit,</span><br><span class="line">                method: <span class="string">"POST"</span>,</span><br><span class="line">                body: <span class="keyword">typeof</span> post === <span class="string">"string"</span> ? post : stringify(post),</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Perform the network request</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(url, init);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Manage cookies</span></span><br><span class="line">        response.headers.forEach(<span class="function">(<span class="params">value, key</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (key === <span class="string">"set-cookie"</span>) &#123;</span><br><span class="line">                <span class="keyword">const</span> segment = value.split(<span class="string">";"</span>)[<span class="number">0</span>];</span><br><span class="line">                <span class="keyword">const</span> [item, val] = segment.split(<span class="string">"="</span>);</span><br><span class="line">                cookies[item] = val;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Detect charset based on content-type</span></span><br><span class="line">        <span class="keyword">const</span> contentType = response.headers.get(<span class="string">"Content-Type"</span>);</span><br><span class="line">        <span class="keyword">let</span> base64 = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">let</span> charset = <span class="string">"UTF-8"</span>;</span><br><span class="line">        <span class="keyword">if</span> (contentType) &#123;</span><br><span class="line">            <span class="keyword">if</span> (contentType.includes(<span class="string">"application/octet-stream"</span>)) &#123;</span><br><span class="line">                base64 = <span class="literal">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                /charset=(.*?);<span class="regexp">/.test(contentType + ";");</span></span><br><span class="line"><span class="regexp">                charset = RegExp.$1;</span></span><br><span class="line"><span class="regexp">            &#125;</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        if (global.FileReader) &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ For browser and react-native</span></span><br><span class="line"><span class="regexp">            const blob = await response.blob();</span></span><br><span class="line"><span class="regexp">            return await new Promise&lt;string&gt;(((resolve, reject) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">                /</span><span class="regexp">/ Use FileReader to read blob data</span></span><br><span class="line"><span class="regexp">                const reader = new FileReader();</span></span><br><span class="line"><span class="regexp">                reader.onloadend = () =&gt; &#123;</span></span><br><span class="line"><span class="regexp">                    if (typeof reader.result === "string") &#123;</span></span><br><span class="line"><span class="regexp">                        if (base64) &#123;</span></span><br><span class="line"><span class="regexp">                            /</span><span class="regexp">/ Simply return the string data with the MIME header removed</span></span><br><span class="line"><span class="regexp">                            resolve(reader.result.substr("data:application/</span>octet-stream;base64,<span class="string">".length));</span></span><br><span class="line"><span class="string">                        &#125; else &#123;</span></span><br><span class="line"><span class="string">                            // The value stored in `reader.result` has already been parsed with the correct encoding</span></span><br><span class="line"><span class="string">                            resolve(reader.result);</span></span><br><span class="line"><span class="string">                        &#125;</span></span><br><span class="line"><span class="string">                    &#125; else &#123;</span></span><br><span class="line"><span class="string">                        // This should not happen</span></span><br><span class="line"><span class="string">                        reject(new Error("</span>Blob parsing error.<span class="string">"));</span></span><br><span class="line"><span class="string">                    &#125;</span></span><br><span class="line"><span class="string">                &#125;;</span></span><br><span class="line"><span class="string">                // Read and transform</span></span><br><span class="line"><span class="string">                if (base64) &#123;</span></span><br><span class="line"><span class="string">                    reader.readAsDataURL(blob);</span></span><br><span class="line"><span class="string">                &#125; else &#123;</span></span><br><span class="line"><span class="string">                    reader.readAsText(blob, charset);</span></span><br><span class="line"><span class="string">                &#125;</span></span><br><span class="line"><span class="string">            &#125;));</span></span><br><span class="line"><span class="string">        &#125; else &#123;</span></span><br><span class="line"><span class="string">            // For node.js</span></span><br><span class="line"><span class="string">            const arrayBuffer = await response.arrayBuffer();</span></span><br><span class="line"><span class="string">            // Use iconv-lite to transform arrayBuffer into string</span></span><br><span class="line"><span class="string">            return iconv.decode(Buffer.from(arrayBuffer), charset);</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">    &#125; finally &#123;</span></span><br><span class="line"><span class="string">        // We have to clear the timeout</span></span><br><span class="line"><span class="string">        clearTimeout(timeoutEvent);</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;;</span></span><br></pre></td></tr></table></figure>
+
+<p>这份代码并没有太多不平凡的地方，交代几个细节即可。</p>
+<h3 id="利用global-FileReader判断平台"><a href="#利用global-FileReader判断平台" class="headerlink" title="利用global.FileReader判断平台"></a>利用<code>global.FileReader</code>判断平台</h3><p>RN和浏览器环境实现了<code>FileReader</code>，Node.js没有，因此<code>global.FileReader === undefined</code>等价于平台为Node.js。</p>
+<p>有两处需要用到这一判定。一是cookie相关。Node.js环境下开发者需要自己管理cookie，而浏览器和RN环境会自动进行管理。二是解析响应数据相关。RN环境没有实现将响应数据以<code>arrayBuffer</code>的形式加载——这对于使用指定编码解析数据的需求是致命的。因此，只能先取得<code>blob</code>形式的数据，再使用<code>FileReader</code>的<code>readAsText</code>方法进行解析。</p>
+<h3 id="编码的判定"><a href="#编码的判定" class="headerlink" title="编码的判定"></a>编码的判定</h3><p>借助响应头的<code>Content-Type</code>字段进行判断。需要注意的是，如果<code>Content-Type</code>包含<code>application/octet-stream</code>，那么直接返回<code>blob</code>中的<code>base64</code>编码数据即可。</p>
+<p>（最后，为啥我这网页的代码高亮又崩了hhh）</p>
+
+      
+        <blockquote class="mdui-m-t-5">
+          
+          <strong>本文链接：</strong><a href="https://www.unidy.cn/articles/cross-fetch/">https://www.unidy.cn/articles/cross-fetch/</a>
+        </blockquote>
+	  
+      
+    </div>
+    <footer class="mdui-card-actions">
+      
+        <a class="mdui-ripple article_categories-link" href="/categories/%E4%BB%A3%E7%A0%81%E6%8E%A7/">代码控</a>
+      
+      
+        <a class="mdui-ripple article_tags-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
+      
+    </footer>
+    
+  </article>
+  
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+  <script>$("#main article .mdui-card-content img.fancybox").on("click",function(e){$.fancybox.open({src:$(this).attr("src")});});</script>
+
+
+  <nav id="paginator">
+    
+      <a rel="prev" class="extend prev" href="/articles/summary-2-2/">
+        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上一篇
+      </a>
+    
+    <div class="spacer"></div>
+    
+      <a rel="next" class="extend next" href="/articles/summary-2-1/">
+        下一篇&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
+    
+  </nav>
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.slim.min.js"></script>
+<script src='https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.10/clipboard.min.js'></script>
+<script src='/lib/btn-copy.js'></script>
+</main>
+<footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
+  <div class="mdui-p-y-0 mdui-text-center">
+    
+    
+    
+    
+    
+    
+    
+      <a href="https://github.com/UNIDY2002/" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe7ab;</i></a>
+    
+    
+    
+    
+    
+    
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    <a target="_blank" href="https://beian.miit.gov.cn/" class="mdui-text-color-theme-a100">京ICP备2021021102号-1</a>
+    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802035479" class="mdui-text-color-theme-a100"><img src="/images/beian.png" style="padding-left: 1px;padding-right: 2px"/>京公网安备 11010802035479号</a>
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    &copy; 2022 | <i class="fa fa-user"></i> UNIDY
+    
+  </div>
+</footer>
+
+<script src='https://cdn.bootcdn.net/ajax/libs/mermaid/8.14.0/mermaid.min.js'></script>
+<script>
+  if (window.mermaid) {
+    window.mermaidUri = 'https://cdn.bootcdn.net/ajax/libs/mermaid/8.14.0/mermaid.min.js';
+    window.loadScript = function(url) {
+      return new window.Promise(function(resolve) {
+        var script = window.document.createElement ("script");
+        script.type = "text/javascript";
+
+        if (script.readyState){ //IE
+          script.onreadystatechange = function() {
+            if (script.readyState === 'loaded' || script.readyState === 'complete'){
+              script.onreadystatechange = null;
+              resolve(script);
+            }
+          };
+        } else { //Others
+          script.onload = function(){
+            resolve(script);
+          };
+        }
+        script.src = url;
+        window.document.getElementsByTagName("head")[0].appendChild(script);
+      });
+    };
+
+    // 存在.mermaid的元素 加载执行 mermaid.js
+    if (window.document.querySelector('.mermaid')) {
+      window.loadScript(window.mermaidUri).then(function () {
+        if (window.mermaid) {
+		  console.log("Hi!")
+          window.mermaid.initialize({
+            startOnLoad: true,
+            flowchart:{
+              useMaxWidth: false,
+              htmlLabels: true
+            }
+          });
+        }
+      });
+    }
+
+    //mermaid.initialize({theme: 'forest'});
+  }
+</script>
+
+
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>
+  
+  
+<script src="https://unpkg.com/mdui@1.0.1/dist/js/mdui.js"></script>
+<script src="/lib/script.js"></script>
+
+</body>
+</html>
