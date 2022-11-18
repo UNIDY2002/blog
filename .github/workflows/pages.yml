@@ -1,9 +1,6 @@
 name: Pages
 
-on:
-  push:
-    branches:
-      - main # default branch
+on: push
 
 jobs:
   pages:
@@ -26,6 +23,7 @@ jobs:
       - name: Build
         run: yarn build
       - name: Deploy
+        if: endsWith(github.ref, 'main')
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
