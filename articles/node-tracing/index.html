@@ -9,41 +9,43 @@
   
   <meta name="format-detection" content="telephone=no,email=no">
   <meta name="theme-color" content="#9C27B0">
-  <meta name="description" content="关于这个网站的由来。">
-  <meta name="keywords" content=",随想">
+  <meta name="description" content="记录我分析 Saiblo 评测机性能问题时用到的小工具">
+  <meta name="keywords" content=",JavaScript">
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="UNIDY&#39;s Timeline">
-  <meta name="msapplication-starturl" content="https://www.unidy.cn/articles/preface/">
+  <meta name="msapplication-starturl" content="https://www.unidy.cn/articles/node-tracing/">
   <meta name="msapplication-navbutton-color" content="#9C27B0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="UNIDY&#39;s Timeline">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <link rel="apple-touch-icon" href="/images/unidy.png">
 
-  <title>写在前面 | UNIDY&#39;s Timeline</title>
+  <title>对 Node.js 程序进行性能分析 | UNIDY&#39;s Timeline</title>
   <link rel="shortcut icon" href="/images/unidy.png">
   
-  <meta name="description" content="关于这个网站的由来。">
+  <meta name="description" content="记录我分析 Saiblo 评测机性能问题时用到的小工具">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写在前面">
-<meta property="og:url" content="https://www.unidy.cn/articles/preface/">
+<meta property="og:title" content="对 Node.js 程序进行性能分析">
+<meta property="og:url" content="https://www.unidy.cn/articles/node-tracing/">
 <meta property="og:site_name" content="UNIDY&#39;s Timeline">
-<meta property="og:description" content="关于这个网站的由来。">
+<meta property="og:description" content="记录我分析 Saiblo 评测机性能问题时用到的小工具">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-11-26T00:00:00.000Z">
+<meta property="og:image" content="https://www.unidy.cn/images/meme_yaml.jpg">
+<meta property="article:published_time" content="2022-11-20T00:00:00.000Z">
 <meta property="article:modified_time" content="2022-11-20T06:23:08.062Z">
 <meta property="article:author" content="UNIDY">
-<meta property="article:tag" content="随想">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.unidy.cn/images/meme_yaml.jpg">
 
   
-  <meta property="article:published_time" content="Tue Nov 26 2019 00:00:00 GMT+0000">
+  <meta property="article:published_time" content="Sun Nov 20 2022 00:00:00 GMT+0000">
   <meta property="article:modified_time" content="Sun Nov 20 2022 06:23:08 GMT+0000">
   
 
   
-  <link rel="canonical" href="https://www.unidy.cn/articles/preface/">
+  <link rel="canonical" href="https://www.unidy.cn/articles/node-tracing/">
   
 
   
@@ -175,12 +177,12 @@
   <article class="mdui-card mdui-m-b-5">
     
     <header class="mdui-card-media">
-      <img src="/images/random/material-6.png" style="max-height: 240px;">
+      <img src="/images/random/material-15.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
-          <div class="mdui-card-primary-title">写在前面</div>
+          <div class="mdui-card-primary-title">对 Node.js 程序进行性能分析</div>
 		  
-            <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2019-11-26 / <i class="iconfont">&#xe601;</i> UNIDY</div>
+            <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2022-11-20 / <i class="iconfont">&#xe601;</i> UNIDY</div>
 	      
         </div>
       </div>
@@ -192,72 +194,81 @@
               <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple">在移动端上查看</a></li>
             
             <li class="mdui-menu-item" disabled>
-              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAAB40lEQVR42u3aQVbDMAwFwNz/0rBlAemX7JQmGq947UvtyUJIlo6vR6wDAwMDAwMDA+NjGEe8/nrq5ye/bBY/Wz4DBgbGMMaL0FZkJEdJXsGLM2BgYIxk5Fv2jpV8nvw+BgYGRi+YnmPOQyoGBgbGFYyEtCutxMDAwKgWkOcHTWAfUYtjYGDckJFfyl/391v7GxgYGLdilEccghQwaXwmQfbCmREMDIxbMaqtxyo4Ty6r+2JgYMxh5AVtL4xWh8wK42UYGBhjGMnDu8LlejqIgYGBsX6IXguzmkpiYGBMYySXZcm31V/oXephYGBg9IrY6qVb3iIt1+IYGBhjGMk2+cb50EbSBMXAwJjJ2DBI2moVVNsGGBgYGOfb58F31wvaPDOCgYHxCEZeOlavyY7WSl4EBgbGNEZejubpYLUBUG2aYmBgYKy3AXqH3lyLY2BgPI6xnurlLYHe72BgYMxkVFceKJOAXm2mYmBgzGRUr8CqZW21JM7LYAwMjGmManNxvQDOWxEbMlwMDIwHMXrDpuuXa8m+5VtDDAwMjJUhibjcbd4aYmBgYLQC6Pq42Jv+b2BgYHw8ozdCkZSg1aGKqIWAgYExjFENlL0j9pLOS/obGBgYt2Lcd2FgYGBgYGBg/Ov6BtRFMN07eUMYAAAAAElFTkSuQmCC">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACYklEQVR42u3aQXKEMAwEwP3/p5MHpLKZkbFhU80phwBuDpZ3pNfXv75eeHh4eHh4eHh4D+O94uvnXT+f8MeL3z75t7fUa8PDw8M7wkuW1f7Pe0DyUYbvxcPDwzvIS7bsfEOflYeVteHh4eE9mZcz8lKRvAsPDw/vc3nv75pt+o+ue3h4eHgLP/jfB7sJKb/3hqwFDw8PL+blm/v5v4/29/Dw8PACXj3SFBeJfCAgLwPRCvHw8PA28/KNOI9oZw2zdugKDw8P7y7eVVHCStOrvbeIcfHw8PC28fJDc94eK7byhWZY/YsBDw8Pb5m30nZaoSYFJhkdwMPDw7uL127Ks2BipeVWHM3x8PDwHsDLm/0Juz3QJ58GDw8P7zyvHa5ajyRWIuNhGIGHh4d3KS/Zpq8aEWif1hYYPDw8vN28ZCn5YboNDpKDclJC8PDw8O7i5Q9tFzcrBltmyvDw8PCWebNG/qwYtJ9vWCrw8PDwNvPaA3Tymtlw1WXDW3h4eHibebNDczs0MAt2Z+UBDw8P7yQv2nbjsKA9iK+00PDw8PDu5bUh76zdNYtCloau8PDw8Lbx2tbXLM5oA4iidOHh4eEd5LVH3lkMsVIGlo7UeHh4eBfx2isJKWahQxJeRB8LDw8PbzPvFV+z7X59uKoeAsPDw8M7wmtDh2vbZtGi8yYZHh4e3kFeu0HP4uDZ8MGWoSs8PDy8g7x2QKqNgPMDOh4eHt5n8WajWu3RPGl64eHh4d3FawcC8kP2ejutCIXx8PDwjvDaCKBd9MpddSyCh4eHt5n3/y48PDw8PDw8PLwHXN8yDPcTR5KkugAAAABJRU5ErkJggg==">
             </li>
           </ul>
         
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
+          <ul class="mdui-menu" id="share_menu">
+            <li class="mdui-menu-item">
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=对 Node.js 程序进行性能分析&url=https://www.unidy.cn/articles/node-tracing/&pic=https://www.unidy.cn/images/unidy.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到微博</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://twitter.com/intent/tweet?text=对 Node.js 程序进行性能分析&url=https://www.unidy.cn/articles/node-tracing/&via=UNIDY" target="_blank" class="mdui-ripple">分享到Twitter</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.unidy.cn/articles/node-tracing/" target="_blank" class="mdui-ripple">分享到Facebook</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://plus.google.com/share?url=https://www.unidy.cn/articles/node-tracing/" target="_blank" class="mdui-ripple">分享到Google+</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.unidy.cn/articles/node-tracing/&title=对 Node.js 程序进行性能分析" target="_blank" class="mdui-ripple">分享到LinkedIn</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=UNIDY&#39;s Timeline&title=对 Node.js 程序进行性能分析&summary=The personal blog of UNIDY&pics=https://www.unidy.cn/images/unidy.png&url=https://www.unidy.cn/articles/node-tracing/" target="_blank" class="mdui-ripple">分享到QQ</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://telegram.me/share/url?url=https://www.unidy.cn/articles/node-tracing/&text=对 Node.js 程序进行性能分析" target="_blank" class="mdui-ripple">分享到Telegram</a>
+            </li>
+          </ul>
         
       </div>
     </header>
 	
     <div class="mdui-card-content mdui-typo">
-      <blockquote>
-<p><strong>写在后面</strong></p>
-<p>这篇文章自写下起即被加密，预计三年后解开。</p>
-<p>三年过去了，如果让我评价一下自己的本科生涯，我觉得总体方向上和预期相符。虽然结局和最开始的梦想稍有差距，但也说不上哪个更好。我这个人嘛，多少还是有点重感情的。</p>
-<p>我本科的心路历程，还真像 <a href="https://music.163.com/song?id=1341359828">Reach for the Summit</a> 一样。起初，充满憧憬与好奇，有着无穷的能量，在摸爬滚打中前行。后来，也曾困于不适合自己的梦境，也曾有过顺风与逆风，有过迷茫时期。最后，不管怎样，还是达到了理想的彼岸。回过头来，我对自己的本科生涯基本上是满意的。</p>
-</blockquote>
-<hr>
-<p>夜，还不算深。</p>
-<p>我坐在电脑前，写下第一篇博文。</p>
-<hr>
-<p>经历了前些天的思想波动，我基本回到了正常的生活状态，完成了今天的学习和运动计划，并留下了时间做自己想做的事（虽然比预期少了一点）。</p>
-<p>于是，我郑重其事地写起了我的博客。</p>
-<p>不过，当我说到“郑重其事”时，我可能已经走在错误的道路上了。为什么要建这个博客？或许是之前思想波动的产物，或许有着其它的什么目的。总之，好像自己就是需要有一个博客，尽管一时说不出什么道理。</p>
-<p><strong>那么，这个博客也应当是随心而写。心中有所想，就有所表达，不必拘束。</strong></p>
-<hr>
-<p>但这个博客总得有什么内容吧。写什么呢？碎碎念？那整个博客似乎会过于琐碎了。心得记录？那确实可以随心而写，不过可能缺少一点主题。技术分享？这大概也是我建这个博客的初衷，不过这样又显得太过单调……</p>
-<p>这么看来，怎么想都是错。也许根源就在于，我似乎总想在一开始就对未来的事情有所掌控，殊不知，这样只会为自己带来更多的困扰。</p>
-<p><strong>不如贪心一点，想清楚自己现在最想要的是什么。以后的路还很长，慢慢走，别着急。</strong></p>
-<hr>
-<p>当然，一点点远见还是有必要的。比如接下来的两年多时间里，不出意外，我只会越来越忙。而这后半个学期，也由于一些阴差阳错，变得比较清闲。<strong>因此，我应当抓紧这段时间，把自己以后想做的事争取开个头，走出第一步。</strong></p>
-<p>大概有那些事呢？除了完成好学业任务以外，我简单列了一下：</p>
-<ul>
-<li>维护个人博客</li>
-<li>多学几种语言</li>
-<li>掌握应用开发</li>
-<li>开源一个项目（计划是Powernomial）</li>
-<li>入门电子编曲（放在最后显然<del>咕咕咕的可能性</del>难度最大）</li>
-<li>……</li>
-</ul>
-<p><del>想到自己要眼看着这么多flag一个个倒下去就心疼（bushi）</del></p>
-<p>虽然这半个学期相对轻松一点，不过有这么多事要做，应该也不会太闲了吧~</p>
-<p>至于以后会怎么样，姑且先走一步看一步吧！</p>
-<hr>
-<p><strong>其实，未来究竟是什么样子的，从现在来看的确不得而知。</strong></p>
-<p><strong>就说这个博客，在一定时间内，估计也只是一个小圈子里的人会看吧。</strong></p>
-<p>不过，这篇文章也确实过于碎碎念了，我还是打算过两天把它暂时封存起来。或许，留到三年后，再回头看看，现在的自己变成了什么样吧！</p>
-<hr>
-<p>最后，也附上一些拙劣的句子。它们和我建立博客的念头差不多一起诞生，可能与这个博客也或多或少有着间接的联系吧。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">找到了自己想变成的模样，</span><br><span class="line">无关标准、功利与特奖。</span><br><span class="line">把那份愿望悄悄藏在心底，</span><br><span class="line">三年后看看自己走到了何方。</span><br><span class="line">攀登的道路注定不会简单，</span><br><span class="line">热情与信念指引征途的方向。</span><br><span class="line">求知若饥，虚心若愚，</span><br><span class="line">永远不要丢掉眼里的光。</span><br></pre></td></tr></table></figure>
+      <p>这个暑假，我用 Node.js 将 Saiblo 评测机重写了一遍。但测试时，我遇到了一些 IO 性能问题。</p>
+<p>出于一些安全性与保密性的原则，我在这里并不介绍具体的问题，而是简单记录一下我分析问题时的心路历程，以便后续回顾。</p>
+<h2 id="寻找-IO-代码"><a href="#寻找-IO-代码" class="headerlink" title="寻找 IO 代码"></a>寻找 IO 代码</h2><p>Node.js 最典型的特征是事件驱动 IO，它的底层 IO 采用 <a href="https://libuv.org/">libuv</a> 实现。</p>
+<p>在本项目中，我需要重点关注文件读写的性能。以写文件（<code>write</code>）为例，经过层层搜索，我找到了 Node.js 里写文件的 <a href="https://github.com/nodejs/node/blob/v19.0.0/src/node_file.cc#L1939-L1993">C++ 实现</a>。其中，调用 libuv 接口的异步代码是：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (req_wrap_async != <span class="literal">nullptr</span>) &#123;  <span class="comment">// write(fd, buffer, off, len, pos, req)</span></span><br><span class="line">  <span class="built_in">FS_ASYNC_TRACE_BEGIN0</span>(UV_FS_WRITE, req_wrap_async)</span><br><span class="line">  <span class="built_in">AsyncCall</span>(env, req_wrap_async, args, <span class="string">&quot;write&quot;</span>, UTF8, AfterInteger,</span><br><span class="line">            uv_fs_write, fd, &amp;uvbuf, <span class="number">1</span>, pos);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>也算是郑重其事地写完了第一篇博文。</p>
-<p>我也要去准备迎接第一个期末ddl了~</p>
+<p>我们再看一下 <code>AsyncCall</code> <a href="https://github.com/nodejs/node/blob/v19.0.0/src/node_file-inl.h#L253-L286">相关定义</a>，就会明白，这里执行的代码相当于：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uv_fs_write</span>(<span class="built_in">env</span>()-&gt;<span class="built_in">event_loop</span>(), <span class="built_in">req</span>(), fd, &amp;uvbuf, <span class="number">1</span>, pos, AfterInteger);</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>AfterInteger</code> 是<a href="https://github.com/nodejs/node/blob/v19.0.0/src/node_file.cc#L770-L781">回调函数</a>，用于处理 write 的返回值：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">AfterInteger</span><span class="params">(<span class="type">uv_fs_t</span>* req)</span> </span>&#123;</span><br><span class="line">  FSReqBase* req_wrap = FSReqBase::<span class="built_in">from_req</span>(req);</span><br><span class="line">  <span class="function">FSReqAfterScope <span class="title">after</span><span class="params">(req_wrap, req)</span></span>;</span><br><span class="line">  <span class="built_in">FS_ASYNC_TRACE_END1</span>(</span><br><span class="line">      req-&gt;fs_type, req_wrap, <span class="string">&quot;result&quot;</span>, <span class="built_in">static_cast</span>&lt;<span class="type">int</span>&gt;(req-&gt;result))</span><br><span class="line">  <span class="type">int</span> result = <span class="built_in">static_cast</span>&lt;<span class="type">int</span>&gt;(req-&gt;result);</span><br><span class="line">  <span class="keyword">if</span> (result &gt;= <span class="number">0</span> &amp;&amp; req_wrap-&gt;<span class="built_in">is_plain_open</span>())</span><br><span class="line">    req_wrap-&gt;<span class="built_in">env</span>()-&gt;<span class="built_in">AddUnmanagedFd</span>(result);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (after.<span class="built_in">Proceed</span>())</span><br><span class="line">    req_wrap-&gt;<span class="built_in">Resolve</span>(Integer::<span class="built_in">New</span>(req_wrap-&gt;<span class="built_in">env</span>()-&gt;<span class="built_in">isolate</span>(), result));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="进行性能分析"><a href="#进行性能分析" class="headerlink" title="进行性能分析"></a>进行性能分析</h2><p>就当我准备自己插装代码，分析 IO 耗时，寻找性能瓶颈时，我注意到了这两个宏：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">FS_ASYNC_TRACE_BEGIN0</span>(UV_FS_WRITE, req_wrap_async);</span><br><span class="line"><span class="built_in">FS_ASYNC_TRACE_END1</span>(req-&gt;fs_type, req_wrap, <span class="string">&quot;result&quot;</span>, <span class="built_in">static_cast</span>&lt;<span class="type">int</span>&gt;(req-&gt;result));</span><br></pre></td></tr></table></figure>
+
+<p>难道 Node.js 本身就插装了性能追踪代码？</p>
+<p>经过进一步分析和寻找，我发现果然如此，并找到了<a href="https://github.com/nodejs/node/blob/v19.0.0/doc/api/tracing.md">相关文档</a>。</p>
+<p>真是太棒了，我只要指定事件类别（<code>&quot;node.fs.async&quot;</code>），即可轻松完成性能追踪。</p>
+<blockquote>
+<p>当然，由于 Saiblo 评测机是多进程执行的，我只需要追踪其中一个子进程的 IO 事件。这里简单记录一下代码，以便后续回顾：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">import</span> trace <span class="keyword">from</span> <span class="string">&quot;node:trace_events&quot;</span>;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">main</span> = <span class="keyword">async</span> (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (process.<span class="property">argv</span>[<span class="number">2</span>] === <span class="string">&quot;worker&quot;</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> tracing = trace.<span class="title function_">createTracing</span>(&#123; <span class="attr">categories</span>: [<span class="string">&quot;node.fs.async&quot;</span>] &#125;);</span><br><span class="line">        tracing.<span class="title function_">enable</span>();</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="阅读追踪日志"><a href="#阅读追踪日志" class="headerlink" title="阅读追踪日志"></a>阅读追踪日志</h2><p>但当我拿到日志文件时，我傻眼了，因为它是以人类几乎不可读的 JSON 格式记录的。</p>
+<p><img src="/images/meme_yaml.jpg" alt="阅读困难：JSON"></p>
+<p>当然，Node.js 的文档里写得很清楚，在 Chrome 浏览器中访问 <a href="https://www.chromium.org/developers/how-tos/trace-event-profiling-tool"><code>chrome://tracing</code></a> 即可以可视化的方式加载追踪日志。然而，我没有 Chrome 浏览器，那可怎么办呢？</p>
+<p>经过在网上搜索，我找到了谷歌写的一个网站 <a href="https://ui.perfetto.dev/">Perfetto UI</a>，与 <a href="https://www.chromium.org/developers/how-tos/trace-event-profiling-tool"><code>chrome://tracing</code></a> 有着同样的功能。有了这个网站，我成功完成了 IO 性能的分析。</p>
 
       
         <blockquote class="mdui-m-t-5">
           
-          <strong>本文链接：</strong><a href="https://www.unidy.cn/articles/preface/">https://www.unidy.cn/articles/preface/</a>
+          <strong>本文链接：</strong><a href="https://www.unidy.cn/articles/node-tracing/">https://www.unidy.cn/articles/node-tracing/</a>
         </blockquote>
 	  
       
     </div>
     <footer class="mdui-card-actions">
       
-        <a class="mdui-ripple article_categories-link" href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">碎碎念</a>
+        <a class="mdui-ripple article_categories-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AE%85/">技术宅</a>
       
       
-        <a class="mdui-ripple article_tags-none-link" href="/tags/%E9%9A%8F%E6%83%B3/" rel="tag">随想</a>
+        <a class="mdui-ripple article_tags-none-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
       
     </footer>
     
@@ -271,12 +282,12 @@
 
   <nav id="paginator">
     
-      <a rel="prev" class="extend prev" href="/articles/intro-to-clion/">
-        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上一篇
-      </a>
-    
     <div class="spacer"></div>
+    
+      <a rel="next" class="extend next" href="/articles/cachelib/">
+        下一篇&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
     
   </nav>
 
