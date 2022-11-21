@@ -98,3 +98,8 @@ search:
   path: search.xml
   field: all
   content: true
+
+# MathJax Support
+mathjax:
+  enable: true
+  per_page: true

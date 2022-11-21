@@ -637,6 +637,11 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
+ejs@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ejs/-/ejs-1.0.0.tgz#c9c60a48a46ee452fb32a71c317b95e5aa1fcb3d"
+  integrity sha512-hK3tEqj0pP7UF5UHKNiRvm3zCaYk7UI4EBJ6wwN5O2qX1WdSovmqvUHEbNOJuglXzVkk/H0r7vgst3mVcQXrPA==
+
 ejs@^3.1.6:
   version "3.1.8"
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-3.1.8.tgz#758d32910c78047585c7ef1f92f9ee041c1c190b"
@@ -1010,6 +1015,13 @@ hexo-renderer-marked@6.0.0:
     hexo-util "^2.7.0"
     jsdom "^20.0.1"
     marked "^4.1.1"
+
+hexo-renderer-mathjax@0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/hexo-renderer-mathjax/-/hexo-renderer-mathjax-0.6.0.tgz#f42e41a158a41a6409ecdc92a132137358f601fa"
+  integrity sha512-S6bWVzBBp1cuMUOqjqnQgMspwpS05slrWZ1gqIbi7OF3spBEOpGa26hC7j7dP55oNCDmcbK7PE+i/l3Q6qRYoQ==
+  dependencies:
+    ejs "^1.0.0"
 
 hexo-renderer-stylus@2.1.0:
   version "2.1.0"

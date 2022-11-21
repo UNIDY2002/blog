@@ -11,6 +11,7 @@ share_menu: true
 donate: false
 toc: true
 comments: true
+mathjax: true
 excerpt: 学点新知识
 ---
 
@@ -510,7 +511,7 @@ Navy 实现了两个派生类：`ThreadPoolJobScheduler` 与 `OrderedThreadPoolJ
 
 它的核心想法是，引入一个“缓冲带”，在接受一个新任务之前，检查是否有同样 `key` 的任务正在执行或等待执行中。如有，将其追加到该 `key` 的缓冲队列中。否则，直接交给线程池去执行。
 
-为了高效实现这一机制，`OrderedThreadPoolJobScheduler` 引入大量桶（默认值为 $$$$2^{20} $$$$ 个）。每个桶内维护一个缓冲队列，根据 `key` 的模选择对应的桶。
+为了高效实现这一机制，`OrderedThreadPoolJobScheduler` 引入大量桶（默认值为 $2^{20}$ 个）。每个桶内维护一个缓冲队列，根据 `key` 的模选择对应的桶。
 
 ## 兼容新的存储介质
 
