@@ -24,7 +24,7 @@
     "hexo-renderer-marked": "6.0.0",
     "hexo-renderer-stylus": "2.1.0",
     "hexo-server": "3.0.0",
-    "leancloud-storage": "4.13.4",
+    "leancloud-storage": "4.14.0",
     "valine": "1.5.1"
   }
 }
