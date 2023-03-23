@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>在容器中运行完整版 Chromium</title>
+      <link href="/articles/chromium-in-docker/"/>
+      <url>/articles/chromium-in-docker/</url>
+      
+        <content type="html"><![CDATA[<p>前几天接了一个活，需要使用代码驱动浏览器（具体而言，我使用了 puppeteer），并且需要在云服务器上部署。</p><p>由于要使用代码驱动一个<strong>完整的</strong> Chromium 浏览器，需要一个图形界面，因此只能通过远程桌面登录云服务器进行操作。随着业务规模的扩张，操作的人力成本也随之增加。我亟需将这个系统转化为一个微服务，从而支持快速部署与增缩。</p><p>最后，我参考了 <a href="https://github.com/c0b/chrome-in-docker">chrome-in-docker</a> 的实现，完成了这一目标。我在这里摘录了部分代码，供以后有类似需求时查阅。</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Dockerfile</span></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt-get update &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y xvfb chromium &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get clean</span></span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># entry.sh</span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">rm</span> -f /tmp/.X10-lock</span><br><span class="line">Xvfb :10 -screen 0 1920x1480x24+32 -ac -r -cc 4 -accessx -xinerama +extension Composite -extension RANDR +extension GLX &amp;</span><br><span class="line"><span class="built_in">sleep</span> 5</span><br><span class="line"><span class="built_in">export</span> DISPLAY=<span class="string">&quot;:10&quot;</span></span><br><span class="line">yarn start</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术宅 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+            <tag> Docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>大四上学期小结</title>
       <link href="/articles/summary-4-1/"/>
       <url>/articles/summary-4-1/</url>
