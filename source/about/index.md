@@ -18,13 +18,15 @@ hide_tail: true
 
 我的主要作品有 [THUInfo](https://thuinfo.net/)，一个旨在提升同学们信息化生活体验的校园 APP。
 
-我目前还参与了 [Saiblo](https://github.com/saiblo) 平台的开发和维护工作。
+我还参与过 [Saiblo](https://github.com/saiblo) 平台的开发和维护工作。
 
 我最喜欢的游戏是空洞骑士和蔚蓝。我很少接触其他游戏。
 
 我最喜欢的电影是星际穿越。
 
 好听的原声带会大幅增加我对某个游戏或电影的好感度。
+
+我的十六型人格是 [ISFJ-A](https://www.16personalities.com/ch/isfj-%E4%BA%BA%E6%A0%BC)。
 
 我最喜欢的人是 @xyi。
 
