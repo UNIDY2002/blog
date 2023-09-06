@@ -74,6 +74,16 @@ comments: true
 
 随后，登录 usereg 办理网络账号的注销手续。
 
+## 直读生准备数据迁移
+
+通常需要迁移的数据，不外乎 {cloud,git,overleaf}.tsinghua.edu.cn。
+
+云盘不用多说。
+
+GitLab 请在账号注销前创建一个 personal access token，这样即使校园网账号被注销了，也可以通过 API 访问本科账号。还可以通过 [LabCoat](https://gitlab.com/Commit451/LabCoat) 等客户端访问。
+
+Overleaf 也不用多说。
+
 ## 填写毕业调查问卷
 
 网上填一填就好。需要用 Windows 系统和 IE 浏览器。
@@ -94,4 +104,4 @@ comments: true
 
 今年搬家的时间是 7.19，且必须当天完成。
 
-无论是直博生还是直硕生，第一年均需入住硕士生公寓。
+无论是直博生还是直硕生，第一年通常均需入住 3 人间。博士生在第二年需要搬家。
