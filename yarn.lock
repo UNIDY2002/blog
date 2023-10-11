@@ -22,6 +22,13 @@
   dependencies:
     regenerator-runtime "^0.13.10"
 
+"@babel/runtime@^7.21.0":
+  version "7.23.1"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.23.1.tgz#72741dc4d413338a91dcb044a86f3c0bc402646d"
+  integrity sha512-hC2v6p8ZSI/W0HUzh3V8C5g+NwSKzKPtJwSpTjwl0o297GP9+ZLQSkdvHz46CM3LqyoXxq+5G9komY+eSqSO0g==
+  dependencies:
+    regenerator-runtime "^0.14.0"
+
 "@leancloud/adapter-types@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@leancloud/adapter-types/-/adapter-types-3.0.0.tgz#71c5e8e37065bea4914650848b55a6262d658577"
@@ -78,10 +85,20 @@
     superagent "^8.0.9"
     ws "^5.2.2"
 
-"@leancloud/platform-adapters-weapp@^1.2.0", "@leancloud/platform-adapters-weapp@^1.6.2":
+"@leancloud/platform-adapters-weapp@^1.2.0":
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/@leancloud/platform-adapters-weapp/-/platform-adapters-weapp-1.6.2.tgz#56d8c32d924000f943fa6c8cf0755683961a748e"
   integrity sha512-xMe8r3w0G/vOKy/Wnc9SZeb+cU/RzHkTK0s9aVgGS01wxOBAVlgbUEC8K67D1IeI15LxODL9e6wXXPgleR58FQ==
+  dependencies:
+    "@leancloud/adapter-types" "^5.0.0"
+    "@leancloud/adapter-utils" "^1.2.2"
+    event-target-shim "^5.0.1"
+    miniprogram-api-typings "^2.10.2"
+
+"@leancloud/platform-adapters-weapp@^1.6.3":
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/@leancloud/platform-adapters-weapp/-/platform-adapters-weapp-1.6.3.tgz#3cbf738348e894f18752b8421683e0eefc96108f"
+  integrity sha512-adUCskxrCZ6aT8q9/s+JWXla1QIVKLAg571OP7VQeDvRqSYAUeqxLquQAmO0oiUQKsPDB5dDtYJHYvicJQK3IQ==
   dependencies:
     "@leancloud/adapter-types" "^5.0.0"
     "@leancloud/adapter-utils" "^1.2.2"
@@ -1472,7 +1489,7 @@ leancloud-realtime-plugin-live-query@^1.2.0:
   resolved "https://registry.yarnpkg.com/leancloud-realtime-plugin-live-query/-/leancloud-realtime-plugin-live-query-1.2.0.tgz#1e07da1b5b99e44cddbc3b052234422f278c4ab9"
   integrity sha512-eJooIH8/FyUoozr3Eeby2DpDnmX39m1bfxfxlYPuojkio+i/DLwPD+aTHnRDH6QXJcT6tNTt85RcxVR/Txg98Q==
 
-leancloud-realtime@^5.0.0-alpha.3, leancloud-realtime@^5.0.0-rc.7:
+leancloud-realtime@^5.0.0-alpha.3:
   version "5.0.0-rc.7"
   resolved "https://registry.yarnpkg.com/leancloud-realtime/-/leancloud-realtime-5.0.0-rc.7.tgz#ef314fdf598a0a32a3eed9453cc2ca31cfa79781"
   integrity sha512-T5D12cvONg/eLlMKO+J31CdolM0ydgCnRpcTwWaCq1KrboROOvwgovKQpfeSKm4MxKNIio5gEKf41xAbE3K5dA==
@@ -1491,19 +1508,38 @@ leancloud-realtime@^5.0.0-alpha.3, leancloud-realtime@^5.0.0-rc.7:
     protobufjs "^5.0.1"
     uuid "^3.0.0"
 
-leancloud-storage@4.15.1:
-  version "4.15.1"
-  resolved "https://registry.yarnpkg.com/leancloud-storage/-/leancloud-storage-4.15.1.tgz#a172073a62629492c072c6da6f2ea5fa9c6ef842"
-  integrity sha512-7VD1o0skitc0scG5wWuVaKUwrukW0oOp1dgxktjdcOLzKXiEbhIYvdDUp59oZuY718j9Z02K/h9Bersc0xW6Cw==
+leancloud-realtime@^5.0.0-rc.8:
+  version "5.0.0-rc.8"
+  resolved "https://registry.yarnpkg.com/leancloud-realtime/-/leancloud-realtime-5.0.0-rc.8.tgz#49e24a93ca685239a6756c3c994436f87e43709b"
+  integrity sha512-H54ZPJnsR9oXM8fRqeT0foAIdtV9tqS9b+DQgzAIg1Okn0CBnJXSbJg5c4yHZNCtmX4lxZ1LudEspytW0V/AyQ==
+  dependencies:
+    "@babel/runtime" "^7.21.0"
+    "@leancloud/adapter-types" "^3.0.0"
+    "@leancloud/platform-adapters-browser" "^1.1.0"
+    "@leancloud/platform-adapters-node" "^1.1.0"
+    "@leancloud/platform-adapters-weapp" "^1.2.0"
+    base64-arraybuffer "^0.1.5"
+    debug "^3.1.0"
+    eventemitter3 "^3.0.0"
+    javascript-state-machine "^2.3.5"
+    lodash "^4.17.10"
+    promise-timeout "^1.3.0"
+    protobufjs "^5.0.1"
+    uuid "^3.0.0"
+
+leancloud-storage@4.15.2:
+  version "4.15.2"
+  resolved "https://registry.yarnpkg.com/leancloud-storage/-/leancloud-storage-4.15.2.tgz#1d540daca745897932f86e7ef4ec69e9f6250f1a"
+  integrity sha512-zvlfeG2aq25lFZ+2pvo0KoMf3jDuR0ThzLivCj5Yv3yhZf2i/BL5fypW+0IqRh6YSFkJ731iHHfq7FIPhxdHpw==
   dependencies:
     "@babel/runtime-corejs3" "^7.18.6"
     "@leancloud/adapter-types" "^5.0.0"
     "@leancloud/platform-adapters-browser" "^1.5.3"
     "@leancloud/platform-adapters-node" "^1.6.0"
-    "@leancloud/platform-adapters-weapp" "^1.6.2"
+    "@leancloud/platform-adapters-weapp" "^1.6.3"
     debug "^3.1.0"
     eventemitter3 "^2.0.3"
-    leancloud-realtime "^5.0.0-rc.7"
+    leancloud-realtime "^5.0.0-rc.8"
     leancloud-realtime-plugin-live-query "^1.2.0"
     md5 "^2.0.0"
     promise-timeout "^1.3.0"
@@ -2028,6 +2064,11 @@ regenerator-runtime@^0.13.10:
   version "0.13.11"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz#f6dca3e7ceec20590d07ada785636a90cdca17f9"
   integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==
+
+regenerator-runtime@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.14.0.tgz#5e19d68eb12d486f797e15a3c6a918f7cec5eb45"
+  integrity sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==
 
 requires-port@^1.0.0:
   version "1.0.0"
