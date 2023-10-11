@@ -24,3 +24,15 @@ excerpt: 记录一下，防止忘掉
 指令要点：`make INSTALL_MOD_STRIP=1 modules_install && make install`
 
 参考资料：https://unix.stackexchange.com/questions/270390
+
+## 使用了 `openssl@v3` 但需要连接 Tsinghua-Secure
+
+指令要点：`nmcli connection modify id Tsinghua-Secure 802-1x.phase1-auth-flags tls-1-0-enable`
+
+参考资料：https://thu.services/services/#tsinghua-secure
+
+## 让 `.bashrc` 生效
+
+指令要点：创建一个默认 `~/.profile`
+
+参考资料：https://askubuntu.com/questions/161249
