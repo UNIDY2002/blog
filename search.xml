@@ -692,17 +692,6 @@
     
     
     <entry>
-      <title>啊呀！页面不见了o(╥﹏╥)o</title>
-      <link href="/404.html"/>
-      <url>/404.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>404 Not Found…</p><p>要不……先回主页看看？</p><p><a href="/">传送门~</a></p>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>关于</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -719,6 +708,17 @@
       <url>/cpp/index.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul><li><a href="1/">上册</a><ul><li>01 - 你好，世界！（Hello, world!）</li><li>02 - 二数之和（add）</li><li>03 - 二数之积（mul）</li><li>04 - 计价器（taxi）</li><li>05 - 素数判断（isprime）</li><li>06 - 哥德巴赫猜想（goldbach）</li><li>07 - 素数表（primetable）</li><li>08 - 选择排序（selection）</li><li>09 - 成绩排名（student）</li><li>10 - 分数（fraction）</li></ul></li><li>下册</li><li>增值包</li></ul>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>啊呀！页面不见了o(╥﹏╥)o</title>
+      <link href="/404.html"/>
+      <url>/404.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>404 Not Found…</p><p>要不……先回主页看看？</p><p><a href="/">传送门~</a></p>]]></content>
       
     </entry>
     
