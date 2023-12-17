@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Manjaro 新机配置小记</title>
+      <link href="/articles/manjaro-configuration/"/>
+      <url>/articles/manjaro-configuration/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="安装镜像"><a href="#安装镜像" class="headerlink" title="安装镜像"></a>安装镜像</h2><ul><li>从 <a href="https://manjaro.org/">Manjaro 官网</a>下载 Plasma 主题镜像。</li><li>使用 <a href="https://github.com/openSUSE/imagewriter">SUSE Studio Imagewriter</a> 将镜像写入 USB。</li><li>按 F12 进入 Boot Menu，选择 USB 镜像，安装镜像。</li></ul><hr><h2 id="配置准备"><a href="#配置准备" class="headerlink" title="配置准备"></a>配置准备</h2><h3 id="连接蓝牙鼠标"><a href="#连接蓝牙鼠标" class="headerlink" title="连接蓝牙鼠标"></a>连接蓝牙鼠标</h3><ul><li>打开菜单，搜索 bluetooth，进入蓝牙设置。</li><li>通过 Tab 键和空格键进入“添加新设备”菜单，通过 Tab 键、方向键和回车键配对鼠标。</li></ul><h3 id="连接无线网络"><a href="#连接无线网络" class="headerlink" title="连接无线网络"></a>连接无线网络</h3><ul><li>购买 TP-LINK TL-WN725N 无线网络接收器，Linux 内核自带驱动。</li></ul><h3 id="启用-AUR"><a href="#启用-AUR" class="headerlink" title="启用 AUR"></a>启用 AUR</h3><ul><li>打开软件包管理器，进入首选项，在第三方选项卡中，启用 AUR 支持。</li><li>打开软件包管理器，安装 <code>yay</code>。</li></ul><h3 id="安装-base-devel"><a href="#安装-base-devel" class="headerlink" title="安装 base-devel"></a>安装 <code>base-devel</code></h3><ul><li>打开软件包管理器，安装 <code>base-devel</code>。</li></ul><h3 id="安装中文输入法"><a href="#安装中文输入法" class="headerlink" title="安装中文输入法"></a>安装中文输入法</h3><ul><li>打开软件包管理器，安装 <code>fcitx-sogoupinyin</code> 和 <code>kcm-fcitx</code>。</li><li>修改 <code>/etc/profile</code>，写入以下内容：</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#fcitx</span></span><br><span class="line">XIM_PROGRAM=fcitx</span><br><span class="line">XIM=fcitx</span><br><span class="line">GTK_IM_MODULE=fcitx</span><br><span class="line">QT_IM_MODULE=fcitx</span><br><span class="line">XMODIFIERS=<span class="string">&quot;@im=fcitx&quot;</span></span><br></pre></td></tr></table></figure><hr><h2 id="系统设置"><a href="#系统设置" class="headerlink" title="系统设置"></a>系统设置</h2><h3 id="设置交换内存"><a href="#设置交换内存" class="headerlink" title="设置交换内存"></a>设置交换内存</h3><ul><li>参见 <a href="https://wiki.archlinux.org/title/Swap#Swap_file">Swap - ArchWiki</a> 。</li></ul><hr><h2 id="软件配置"><a href="#软件配置" class="headerlink" title="软件配置"></a>软件配置</h2><h3 id="Fish"><a href="#Fish" class="headerlink" title="Fish"></a>Fish</h3><ul><li>打开软件包管理器，安装 <code>fish</code>。</li><li>编辑 <code>~/.config/fish/config.fish</code>，设置 <code>set -U fish_greeting</code>。</li><li>打开 Konsole，新建配置方案“Fish”，将启动命令改为 <code>/usr/bin/fish</code>，适当调整字号，并将该配置方案设为默认配置。</li></ul><h3 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h3><ul><li>设置语言。</li><li>设置隐私模式。</li><li>设置默认搜索引擎。</li><li>设置新标签菜单。</li><li>设置关闭多标签页时确认。</li><li>安装 Learn Helper、Zotero 等插件。</li></ul><h3 id="Clash"><a href="#Clash" class="headerlink" title="Clash"></a>Clash</h3><ul><li>打开软件包管理器，安装 <code>clash</code>。</li><li>创建配置目录 <code>/etc/clash</code>，并从旧电脑上拷贝必要的配置文件。</li><li>创建配置文件 <code>/etc/systemd/system/clash.service</code>，写入以下内容：</li></ul><figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=Clash daemon, A rule-based proxy in Go.</span><br><span class="line"><span class="attr">After</span>=network-<span class="literal">on</span>line.target</span><br><span class="line"></span><br><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">Type</span>=simple</span><br><span class="line"><span class="attr">Restart</span>=always</span><br><span class="line"><span class="attr">ExecStart</span>=/usr/bin/clash -d /etc/clash</span><br><span class="line"></span><br><span class="line"><span class="section">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=multi-user.target</span><br></pre></td></tr></table></figure><ul><li>重新加载 <code>systemd</code> 模块：<code>systemctl daemon-reload</code>。</li><li>启动 <code>clash</code> 服务：<code>systemctl start clash</code>。</li><li>设置开机自启：<code>systemctl enable clash</code>。</li></ul><h3 id="JetBrains"><a href="#JetBrains" class="headerlink" title="JetBrains"></a>JetBrains</h3><ul><li>打开软件包管理器，安装 <code>jetbrains-toolbox</code>。</li><li>登录 JetBrains Toolbox。</li><li>设置打开 Toolbox App 的全局快捷键 <code>Ctrl + Alt + J</code>。</li></ul><h3 id="QQ"><a href="#QQ" class="headerlink" title="QQ"></a>QQ</h3><ul><li>打开软件包管理器，安装 <code>linuxqq</code>。</li></ul><h3 id="微信"><a href="#微信" class="headerlink" title="微信"></a>微信</h3><ul><li>打开软件包管理器，安装 <code>deepin-wine-wechat</code>。</li></ul><h3 id="飞书"><a href="#飞书" class="headerlink" title="飞书"></a>飞书</h3><ul><li>打开软件包管理器，安装 <code>feishu-bin</code>。</li></ul><h3 id="网易云音乐"><a href="#网易云音乐" class="headerlink" title="网易云音乐"></a>网易云音乐</h3><ul><li>打开软件包管理器，安装 <code>netease-cloud-music</code>。</li></ul><h3 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h3><ul><li>打开软件包管理器，安装 <code>typora-free</code>。</li></ul><h3 id="Thunderbird"><a href="#Thunderbird" class="headerlink" title="Thunderbird"></a>Thunderbird</h3><ul><li>打开软件包管理器，安装 <code>thunderbird</code>。</li></ul><h3 id="Telegram"><a href="#Telegram" class="headerlink" title="Telegram"></a>Telegram</h3><ul><li>打开软件包管理器，安装 <code>telegram-desktop</code>。</li></ul><h3 id="Zotero"><a href="#Zotero" class="headerlink" title="Zotero"></a>Zotero</h3><ul><li>打开软件包管理器，安装 <code>zotero-bin</code>。</li></ul><h3 id="腾讯会议"><a href="#腾讯会议" class="headerlink" title="腾讯会议"></a>腾讯会议</h3><ul><li>打开软件包管理器，安装 <code>wemeet-bin</code>。</li></ul><h3 id="WPS"><a href="#WPS" class="headerlink" title="WPS"></a>WPS</h3><ul><li>打开软件包管理器，安装 <code>wps-office</code>、<code>wps-office-fonts</code>、<code>wps-office-mime</code>、<code>wps-office-mui-zh-cn</code>。</li></ul><h3 id="OneDrive"><a href="#OneDrive" class="headerlink" title="OneDrive"></a>OneDrive</h3><ul><li>打开软件包管理器，安装 <code>onedrive-git</code>。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术宅 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>研究生入学小记</title>
       <link href="/articles/post-graduate-entrance/"/>
       <url>/articles/post-graduate-entrance/</url>
@@ -692,6 +717,17 @@
     
     
     <entry>
+      <title>啊呀！页面不见了o(╥﹏╥)o</title>
+      <link href="/404.html"/>
+      <url>/404.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>404 Not Found…</p><p>要不……先回主页看看？</p><p><a href="/">传送门~</a></p>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -708,17 +744,6 @@
       <url>/cpp/index.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul><li><a href="1/">上册</a><ul><li>01 - 你好，世界！（Hello, world!）</li><li>02 - 二数之和（add）</li><li>03 - 二数之积（mul）</li><li>04 - 计价器（taxi）</li><li>05 - 素数判断（isprime）</li><li>06 - 哥德巴赫猜想（goldbach）</li><li>07 - 素数表（primetable）</li><li>08 - 选择排序（selection）</li><li>09 - 成绩排名（student）</li><li>10 - 分数（fraction）</li></ul></li><li>下册</li><li>增值包</li></ul>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>啊呀！页面不见了o(╥﹏╥)o</title>
-      <link href="/404.html"/>
-      <url>/404.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>404 Not Found…</p><p>要不……先回主页看看？</p><p><a href="/">传送门~</a></p>]]></content>
       
     </entry>
     
