@@ -62,7 +62,7 @@ Navy 是一个缓存引擎，为 HybridCache 服务，旨在基于 SSD 的物理
 
 此外，为提升 Navy 引擎的并发性，所有的请求都应是异步的。这就要求 Navy 内部实现一个异步调度器。
 
-![img](https://cachelib.org/assets/images/Navy_Architecture_overview-3fcba60db4e31d50cd4dd7ea560de0c4.png)
+![img](https://cachelib.org/assets/images/navy_architecture-04f7e32f458b3c4cc0e9c708226bc448.png)
 
 # 示例代码学习：[Set up a simple dram cache](https://cachelib.org/docs/Cache_Library_User_Guides/Set_up_a_simple_cache)
 
@@ -403,7 +403,7 @@ Navy 引入了一个 `Driver` 层，向上提供一系列异步接口，向下�
 
 在 `Driver` 层之下，就是具体的存储引擎。由于 `Driver` 层已经处理好异步调度，存储引擎的代码都是在线程池中执行的，因此只需按同步的方式实现存储引擎接口即可。
 
-![img](https://cachelib.org/assets/images/Navy_Architecture_overview-3fcba60db4e31d50cd4dd7ea560de0c4.png)
+![img](https://cachelib.org/assets/images/navy_architecture-04f7e32f458b3c4cc0e9c708226bc448.png)
 
 > 一例看懂 `Driver`、`JobScheduler` 与 `Engine` 的关系（注意代码中的注释）：
 >
