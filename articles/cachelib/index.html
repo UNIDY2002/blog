@@ -31,24 +31,24 @@
 <meta property="og:site_name" content="编程经验分享小站">
 <meta property="og:description" content="学点新知识">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cachelib.org/assets/images/Navy_Architecture_overview-3fcba60db4e31d50cd4dd7ea560de0c4.png">
+<meta property="og:image" content="https://cachelib.org/assets/images/navy_architecture-04f7e32f458b3c4cc0e9c708226bc448.png">
 <meta property="og:image" content="https://cachelib.org/assets/images/Hybrid_Cache_find-ff4b025b03a1b7e43197062810d5c574.png">
 <meta property="og:image" content="https://cachelib.org/assets/images/Hybrid_Cache_allocate-b198d86843a876795fc2b398ea42a936.png">
 <meta property="og:image" content="https://www.unidy.cn/images/kangaroo-1.png">
 <meta property="og:image" content="https://www.unidy.cn/images/kangaroo-2.png">
 <meta property="og:image" content="https://www.unidy.cn/images/chained.png">
 <meta property="og:image" content="https://cachelib.org/assets/images/hashtable-bbb7241416549634ca94eacf582a764a.png">
-<meta property="og:image" content="https://cachelib.org/assets/images/Navy_Architecture_overview-3fcba60db4e31d50cd4dd7ea560de0c4.png">
+<meta property="og:image" content="https://cachelib.org/assets/images/navy_architecture-04f7e32f458b3c4cc0e9c708226bc448.png">
 <meta property="article:published_time" content="2022-10-16T00:00:00.000Z">
-<meta property="article:modified_time" content="2023-12-17T04:13:05.393Z">
+<meta property="article:modified_time" content="2023-12-20T08:31:41.265Z">
 <meta property="article:author" content="UNIDY">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cachelib.org/assets/images/Navy_Architecture_overview-3fcba60db4e31d50cd4dd7ea560de0c4.png">
+<meta name="twitter:image" content="https://cachelib.org/assets/images/navy_architecture-04f7e32f458b3c4cc0e9c708226bc448.png">
 
   
   <meta property="article:published_time" content="Sun Oct 16 2022 00:00:00 GMT+0000">
-  <meta property="article:modified_time" content="Sun Dec 17 2023 04:13:05 GMT+0000">
+  <meta property="article:modified_time" content="Wed Dec 20 2023 08:31:41 GMT+0000">
   
 
   
@@ -392,7 +392,7 @@ mjx-container[display="true"] + br {
 <p>为此，Navy 需要对小 <code>Item</code> 与大 <code>Item</code> 采用不同的存储策略。Navy 内部分为两个引擎：Small Item Engine 与 Large Item Engine，并根据 <code>Item</code> 的大小选择合适的引擎分别处理。</p>
 <p>一个 SSD 页面的大小为 4KB，而区分大小 <code>Item</code> 的界限为 2KB。对于小 <code>Item</code> 的缓存（SOC），一个页面中可以存放多个 <code>Item</code>。CacheLib 会根据 <code>Item</code> key 的哈希选择具体的页面，而在页面内采用 FIFO 的替换策略。此外，对于每个页面，CacheLib 会在 DRAM 内维护一个快速查询器（<code>BloomFilter</code>），用于在缓存缺失时避免不必要的文件读取，提高查询效率。对于大 <code>Item</code> 的缓存（LOC），CacheLib 会在 DRAM 中为每个 <code>Item</code> 维护一个索引。</p>
 <p>此外，为提升 Navy 引擎的并发性，所有的请求都应是异步的。这就要求 Navy 内部实现一个异步调度器。</p>
-<p><img src="https://cachelib.org/assets/images/Navy_Architecture_overview-3fcba60db4e31d50cd4dd7ea560de0c4.png" alt="img"></p>
+<p><img src="https://cachelib.org/assets/images/navy_architecture-04f7e32f458b3c4cc0e9c708226bc448.png" alt="img"></p>
 <h1 id="示例代码学习：Set-up-a-simple-dram-cache"><a href="#示例代码学习：Set-up-a-simple-dram-cache" class="headerlink" title="示例代码学习：Set up a simple dram cache"></a>示例代码学习：<a href="https://cachelib.org/docs/Cache_Library_User_Guides/Set_up_a_simple_cache">Set up a simple dram cache</a></h1><h2 id="类型梳理"><a href="#类型梳理" class="headerlink" title="类型梳理"></a>类型梳理</h2><ul>
 <li><p>一共有四种 <code>CacheTrait</code>，每个 <code>CacheTrait</code> 由 <code>MMType</code>、<code>AccessType</code>、<code>AccessTypeLocks</code> 三个要素构成。</p>
 </li>
@@ -616,7 +616,7 @@ mjx-container[display="true"] + br {
 <p>Navy 引入了一个 <code>Driver</code> 层，向上提供一系列异步接口，向下对接存储部件，并负责控制异步调度器。</p>
 <p>在异步调度器的部分，Navy 定义了一个抽象类 <code>JobScheduler</code>，系统中默认使用的是派生类 <code>OrderedThreadPoolJobScheduler</code>，实现细节之后分析。</p>
 <p>在 <code>Driver</code> 层之下，就是具体的存储引擎。由于 <code>Driver</code> 层已经处理好异步调度，存储引擎的代码都是在线程池中执行的，因此只需按同步的方式实现存储引擎接口即可。</p>
-<p><img src="https://cachelib.org/assets/images/Navy_Architecture_overview-3fcba60db4e31d50cd4dd7ea560de0c4.png" alt="img"></p>
+<p><img src="https://cachelib.org/assets/images/navy_architecture-04f7e32f458b3c4cc0e9c708226bc448.png" alt="img"></p>
 <blockquote>
 <p>一例看懂 <code>Driver</code>、<code>JobScheduler</code> 与 <code>Engine</code> 的关系（注意代码中的注释）：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Driver 向上提供异步接口</span></span><br><span class="line"><span class="function">Status <span class="title">Driver::lookupAsync</span><span class="params">(HashedKey hk, LookupCallback cb)</span> </span>{</span><br><span class="line">  lookupCount_.<span class="built_in">inc</span>();</span><br><span class="line">  <span class="built_in">XDCHECK</span>(cb);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Driver 将异步任务传给 JobScheduler</span></span><br><span class="line">  scheduler_-&gt;<span class="built_in">enqueueWithKey</span>(</span><br><span class="line">      [<span class="keyword">this</span>, cb = std::<span class="built_in">move</span>(cb), hk, skipLargeItemCache = <span class="literal">false</span>]() <span class="keyword">mutable</span> {</span><br><span class="line">        <span class="comment">// 该函数将在新线程上执行 </span></span><br><span class="line">        Buffer value;</span><br><span class="line">        Status status{Status::NotFound};</span><br><span class="line">        <span class="keyword">if</span> (!skipLargeItemCache) {</span><br><span class="line">          <span class="comment">// largeItemCache_ 是一个 Engine 实例</span></span><br><span class="line">          <span class="comment">// Driver 驱动下层引擎执行 IO 任务</span></span><br><span class="line">          status = largeItemCache_-&gt;<span class="built_in">lookup</span>(hk, value);</span><br><span class="line">          <span class="keyword">if</span> (status == Status::Retry) {</span><br><span class="line">            <span class="keyword">return</span> JobExitCode::Reschedule;</span><br><span class="line">          }</span><br><span class="line">          skipLargeItemCache = <span class="literal">true</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (status == Status::NotFound) {</span><br><span class="line">          <span class="comment">// smallItemCache_ 是另一个 Engine 实例</span></span><br><span class="line">          <span class="comment">// Driver 驱动下层引擎执行 IO 任务</span></span><br><span class="line">          status = smallItemCache_-&gt;<span class="built_in">lookup</span>(hk, value);</span><br><span class="line">          <span class="keyword">if</span> (status == Status::Retry) {</span><br><span class="line">            <span class="keyword">return</span> JobExitCode::Reschedule;</span><br><span class="line">          }</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (cb) {</span><br><span class="line">          <span class="comment">// 通过回调函数通知异步任务完成</span></span><br><span class="line">          <span class="built_in">cb</span>(status, hk, std::<span class="built_in">move</span>(value));</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="built_in">updateLookupStats</span>(status);</span><br><span class="line">        <span class="keyword">return</span> JobExitCode::Done;</span><br><span class="line">      },</span><br><span class="line">      <span class="string">"lookup"</span>,</span><br><span class="line">      JobType::Read,</span><br><span class="line">      hk.<span class="built_in">keyHash</span>());</span><br><span class="line">  <span class="keyword">return</span> Status::Ok;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
