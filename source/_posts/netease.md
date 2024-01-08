@@ -33,10 +33,10 @@ excerpt: 主要是怕自己哪天把歌单顺序弄乱了
 
 1. **[TEARS OF THE DRAGON](https://music.163.com/song?id=498637)**
 2. [Imaginary Kiss](https://music.163.com/song?id=27579056)
-3. [Cornfield Chase](https://music.163.com/song?id=29734857)
-4. [Dusky World](https://music.163.com/song?id=519604416)
-5. [Take Flight](https://music.163.com/song?id=28461163)
-6. [Journey](https://music.163.com/song?id=16846088)
+3. [Dusky World](https://music.163.com/song?id=519604416)
+4. [Cornfield Chase](https://music.163.com/song?id=29734857)
+5. [Journey](https://music.163.com/song?id=16846088)
+6. [Take Flight](https://music.163.com/song?id=28461163)
 7. [In Love](https://music.163.com/song?id=26127161)
 8. [米津玄師-打上花火（Ayasa绚沙 remix）](https://music.163.com/song?id=1338174742)
 9. [City](https://music.163.com/song?id=451319227)
