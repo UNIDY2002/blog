@@ -26,7 +26,7 @@ hide_tail: true
 
 好听的原声带会大幅增加我对某个游戏或电影的好感度。
 
-我的十六型人格是 [ISFJ-A](https://www.16personalities.com/ch/isfj-%E4%BA%BA%E6%A0%BC)。
+我的十六型人格是 [ISFJ-A](https://www.16personalities.com/profiles/698219d12cb34)。
 
 我最喜欢的人是 @xyi。
 
