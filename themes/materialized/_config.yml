@@ -40,7 +40,7 @@ pages: # Custom page links. Set with `name` and `link`
   - name: 资源下载
     link: /downloads
   - name: THUInfo
-    link: https://thuinfo.net/
+    link: https://app.cs.tsinghua.edu.cn/
   - name: Saiblo
     link: https://www.saiblo.net/
 links: # Friendship links. Set with `name` and `link`
