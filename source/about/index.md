@@ -16,7 +16,7 @@ hide_tail: true
 
 我曾担任计算机系学生科协智能体部副主席。
 
-我的主要作品有 [THUInfo](https://thuinfo.net/)，一个旨在提升同学们信息化生活体验的校园 APP。
+我的主要作品有 [THUInfo](https://app.cs.tsinghua.edu.cn/)，一个旨在提升同学们信息化生活体验的校园 APP。
 
 我还参与过 [Saiblo](https://github.com/saiblo) 平台的开发和维护工作。
 
