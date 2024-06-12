@@ -15,7 +15,7 @@ excerpt: 人总是喜欢自己给自己找麻烦。
 
 清北高材生从大厂辞职创业。
 
-发往 [thuinfo.net](https://thuinfo.net) 的出流量被校园网阻断。
+发往 thuinfo.net 的出流量被校园网阻断。
 
 我去小店理发。
 
