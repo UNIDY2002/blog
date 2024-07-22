@@ -869,22 +869,22 @@
     
     
     <entry>
-      <title>主题与配置</title>
-      <link href="/downloads/themes/index.html"/>
-      <url>/downloads/themes/index.html</url>
+      <title>教程资料</title>
+      <link href="/downloads/tutorials/index.html"/>
+      <url>/downloads/tutorials/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="全部资源"><a href="#全部资源" class="headerlink" title="全部资源"></a>全部资源</h2><ul><li><p><a href="Splendid-CLion.icls">Splendid-CLion.icls</a></p><p>一款适用于CLion的主题配色方案。</p></li><li><p><a href="Splendid-Idea.icls">Splendid-Idea.icls</a></p><p>一款适用于Idea的主题配色方案。</p></li><li><p><a href="Splendid-PyCharm.icls">Splendid-PyCharm.icls</a></p><p>一款适用于PyCharm的主题配色方案。</p></li></ul>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="全部资源"><a href="#全部资源" class="headerlink" title="全部资源"></a>全部资源</h2><ul><li><a href="cpp/">C++快速入门（实验版）</a></li></ul>]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>教程资料</title>
-      <link href="/downloads/tutorials/index.html"/>
-      <url>/downloads/tutorials/index.html</url>
+      <title>主题与配置</title>
+      <link href="/downloads/themes/index.html"/>
+      <url>/downloads/themes/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="全部资源"><a href="#全部资源" class="headerlink" title="全部资源"></a>全部资源</h2><ul><li><a href="cpp/">C++快速入门（实验版）</a></li></ul>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="全部资源"><a href="#全部资源" class="headerlink" title="全部资源"></a>全部资源</h2><ul><li><p><a href="Splendid-CLion.icls">Splendid-CLion.icls</a></p><p>一款适用于CLion的主题配色方案。</p></li><li><p><a href="Splendid-Idea.icls">Splendid-Idea.icls</a></p><p>一款适用于Idea的主题配色方案。</p></li><li><p><a href="Splendid-PyCharm.icls">Splendid-PyCharm.icls</a></p><p>一款适用于PyCharm的主题配色方案。</p></li></ul>]]></content>
       
     </entry>
     
