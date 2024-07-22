@@ -2517,10 +2517,10 @@ uuid@^3.0.0, uuid@^3.3.2:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
-valine@1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/valine/-/valine-1.5.1.tgz#cb7aa97c07588646e7cd1494bd1a4d09093931c3"
-  integrity sha512-uT9tHuoKkFUqqVHHRyz4EPe8U+h1ZkCa2lVKH8SKZM9r1Whm8DZW9GfrK4USmLJ+QwpHWenPIKOH0s2xO0BVbQ==
+valine@1.5.2:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/valine/-/valine-1.5.2.tgz#45f05a8e9185b7502dcdb30668bbdcc81b4164d3"
+  integrity sha512-KJwt4V0nr7NU4PT/J6bNiFJBcK8oRNKSmPTAYrI77WxggMugoRUqFBVFPLP35xvcg4mPnas4s+cBgW55lqt1KA==
   dependencies:
     autosize "^4.0.2"
     balajs "^1.0.7"
