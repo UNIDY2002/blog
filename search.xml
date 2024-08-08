@@ -814,22 +814,22 @@
     
     
     <entry>
-      <title>C++快速入门（实验版）</title>
-      <link href="/cpp/index.html"/>
-      <url>/cpp/index.html</url>
+      <title>资源下载</title>
+      <link href="/downloads/index.html"/>
+      <url>/downloads/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul><li><a href="1/">上册</a><ul><li>01 - 你好，世界！（Hello, world!）</li><li>02 - 二数之和（add）</li><li>03 - 二数之积（mul）</li><li>04 - 计价器（taxi）</li><li>05 - 素数判断（isprime）</li><li>06 - 哥德巴赫猜想（goldbach）</li><li>07 - 素数表（primetable）</li><li>08 - 选择排序（selection）</li><li>09 - 成绩排名（student）</li><li>10 - 分数（fraction）</li></ul></li><li>下册</li><li>增值包</li></ul>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="全部资源"><a href="#全部资源" class="headerlink" title="全部资源"></a>全部资源</h2><h3 id="主题与配置"><a href="#主题与配置" class="headerlink" title="主题与配置"></a>主题与配置</h3><ul><li><p><a href="themes/Splendid-CLion.icls">Splendid-CLion.icls</a></p><p>一款适用于CLion的主题配色方案。</p></li><li><p><a href="themes/Splendid-Idea.icls">Splendid-Idea.icls</a></p><p>一款适用于Idea的主题配色方案。</p></li><li><p><a href="themes/Splendid-PyCharm.icls">Splendid-PyCharm.icls</a></p><p>一款适用于PyCharm的主题配色方案。</p></li></ul><h3 id="教程资料"><a href="#教程资料" class="headerlink" title="教程资料"></a>教程资料</h3><ul><li><a href="tutorials/cpp/">C++快速入门（实验版）</a></li></ul><h3 id="培养方案"><a href="#培养方案" class="headerlink" title="培养方案"></a>培养方案</h3><ul><li><a href="curricula">2019级计算机系培养方案</a></li></ul>]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>资源下载</title>
-      <link href="/downloads/index.html"/>
-      <url>/downloads/index.html</url>
+      <title>C++快速入门（实验版）</title>
+      <link href="/cpp/index.html"/>
+      <url>/cpp/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="全部资源"><a href="#全部资源" class="headerlink" title="全部资源"></a>全部资源</h2><h3 id="主题与配置"><a href="#主题与配置" class="headerlink" title="主题与配置"></a>主题与配置</h3><ul><li><p><a href="themes/Splendid-CLion.icls">Splendid-CLion.icls</a></p><p>一款适用于CLion的主题配色方案。</p></li><li><p><a href="themes/Splendid-Idea.icls">Splendid-Idea.icls</a></p><p>一款适用于Idea的主题配色方案。</p></li><li><p><a href="themes/Splendid-PyCharm.icls">Splendid-PyCharm.icls</a></p><p>一款适用于PyCharm的主题配色方案。</p></li></ul><h3 id="教程资料"><a href="#教程资料" class="headerlink" title="教程资料"></a>教程资料</h3><ul><li><a href="tutorials/cpp/">C++快速入门（实验版）</a></li></ul><h3 id="培养方案"><a href="#培养方案" class="headerlink" title="培养方案"></a>培养方案</h3><ul><li><a href="curricula">2019级计算机系培养方案</a></li></ul>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul><li><a href="1/">上册</a><ul><li>01 - 你好，世界！（Hello, world!）</li><li>02 - 二数之和（add）</li><li>03 - 二数之积（mul）</li><li>04 - 计价器（taxi）</li><li>05 - 素数判断（isprime）</li><li>06 - 哥德巴赫猜想（goldbach）</li><li>07 - 素数表（primetable）</li><li>08 - 选择排序（selection）</li><li>09 - 成绩排名（student）</li><li>10 - 分数（fraction）</li></ul></li><li>下册</li><li>增值包</li></ul>]]></content>
       
     </entry>
     
@@ -869,22 +869,22 @@
     
     
     <entry>
-      <title>教程资料</title>
-      <link href="/downloads/tutorials/index.html"/>
-      <url>/downloads/tutorials/index.html</url>
+      <title>主题与配置</title>
+      <link href="/downloads/themes/index.html"/>
+      <url>/downloads/themes/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="全部资源"><a href="#全部资源" class="headerlink" title="全部资源"></a>全部资源</h2><ul><li><a href="cpp/">C++快速入门（实验版）</a></li></ul>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="全部资源"><a href="#全部资源" class="headerlink" title="全部资源"></a>全部资源</h2><ul><li><p><a href="Splendid-CLion.icls">Splendid-CLion.icls</a></p><p>一款适用于CLion的主题配色方案。</p></li><li><p><a href="Splendid-Idea.icls">Splendid-Idea.icls</a></p><p>一款适用于Idea的主题配色方案。</p></li><li><p><a href="Splendid-PyCharm.icls">Splendid-PyCharm.icls</a></p><p>一款适用于PyCharm的主题配色方案。</p></li></ul>]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>主题与配置</title>
-      <link href="/downloads/themes/index.html"/>
-      <url>/downloads/themes/index.html</url>
+      <title>教程资料</title>
+      <link href="/downloads/tutorials/index.html"/>
+      <url>/downloads/tutorials/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="全部资源"><a href="#全部资源" class="headerlink" title="全部资源"></a>全部资源</h2><ul><li><p><a href="Splendid-CLion.icls">Splendid-CLion.icls</a></p><p>一款适用于CLion的主题配色方案。</p></li><li><p><a href="Splendid-Idea.icls">Splendid-Idea.icls</a></p><p>一款适用于Idea的主题配色方案。</p></li><li><p><a href="Splendid-PyCharm.icls">Splendid-PyCharm.icls</a></p><p>一款适用于PyCharm的主题配色方案。</p></li></ul>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="全部资源"><a href="#全部资源" class="headerlink" title="全部资源"></a>全部资源</h2><ul><li><a href="cpp/">C++快速入门（实验版）</a></li></ul>]]></content>
       
     </entry>
     
