@@ -1,10 +1,10 @@
 {
 	"extends": [
-		"config:base"
+		"config:recommended"
 	],
 	"packageRules": [
 		{
-			"updateTypes": [
+			"matchUpdateTypes": [
 				"minor",
 				"patch",
 				"pin",
@@ -14,7 +14,7 @@
 			"automergeType": "branch"
 		},
 		{
-			"depTypeList": [
+			"matchDepTypes": [
 				"devDependencies"
 			],
 			"automerge": true,
