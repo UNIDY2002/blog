@@ -33,7 +33,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.unidy.cn/articles/intro-to-clion/001.png">
 <meta property="article:published_time" content="2019-11-28T00:00:00.000Z">
-<meta property="article:modified_time" content="2024-12-15T13:10:29.173Z">
+<meta property="article:modified_time" content="2025-01-02T11:27:49.508Z">
 <meta property="article:author" content="UNIDY">
 <meta property="article:tag" content="JetBrains">
 <meta property="article:tag" content="C++">
@@ -42,7 +42,7 @@
 
   
   <meta property="article:published_time" content="Thu Nov 28 2019 00:00:00 GMT+0000">
-  <meta property="article:modified_time" content="Sun Dec 15 2024 13:10:29 GMT+0000">
+  <meta property="article:modified_time" content="Thu Jan 02 2025 11:27:49 GMT+0000">
   
 
   
@@ -232,7 +232,7 @@
 <p>首先是<code>UI Themes</code>，就是界面颜色风格，这个挑自己喜欢的风格（好像黑色的比较受欢迎）。（不过后面会教你自定义一套自己喜欢的风格。）</p>
 <p>然后是<code>Default plugins</code>和<code>Featured plugins</code>，直接点<code>Next</code>过去好了。</p>
 <hr>
-<p><strong>接下来，就是重中之重：<code>Toolchains</code>的配置。</strong>因为它非常重要，所以我也在后面配上了截图，可以对照着看，<strong>但一定要先读我写的文字说明！</strong></p>
+<p>**接下来，就是重中之重：<code>Toolchains</code>的配置。**因为它非常重要，所以我也在后面配上了截图，可以对照着看，<strong>但一定要先读我写的文字说明！</strong></p>
 <p><code>Environment</code>下方有个下拉菜单，选<code>MinGW</code>。</p>
 <p>这时，IDE应该会自动帮你找寻MinGW的位置。<strong>但自动生成的东西有可能不靠谱，所以你先检查一下，它找的MinGW是不是你刚刚安装的那个。</strong></p>
 <blockquote>
@@ -272,14 +272,14 @@
 <p>如果第一次使用，还比较陌生，可以照搬我当前用的配置。详见后文<strong>导入配色方案</strong>。</p>
 <p>与C++关系比较大的，应该是<code>General</code>、<code>Language Defaults</code>和<code>C/C++</code>。调这些就行了。</p>
 <hr>
-<p>接下来，<strong>我强烈推荐一款插件：<code>TabNine</code>。</strong>它是一款利用机器学习进行代码补全的插件，可以有效提升编程体验。（当然这里只是推荐，并不是刚需，可以选择不装。<strong>在你还不太熟悉CLion时，也可以不急着装。</strong>）</p>
+<p>接下来，**我强烈推荐一款插件：<code>TabNine</code>。**它是一款利用机器学习进行代码补全的插件，可以有效提升编程体验。（当然这里只是推荐，并不是刚需，可以选择不装。<strong>在你还不太熟悉CLion时，也可以不急着装。</strong>）</p>
 <p>这个东西介绍见<a href="https://tabnine.com/">官网</a>，不过其实也不用去看，只要知道它可以有效地对你接下来要输入的代码进行预测，并提供代码补全建议。</p>
 <p>在屏幕左上角<code>File-&gt;Settings-&gt;Plugins-&gt;Marketplace</code>，进入插件市场，搜索<code>TabNine</code>，<code>Install</code>即可。</p>
 <p>然后回到编程界面，<strong>照理应该</strong>可以用了。具体而言，敲代码的时候，它会给你提供补全建议。如果它给的第一条建议正好就是你想要的，那就直接按回车。如果是后面的某条建议，那就先按几次下键，然后再回车。</p>
 <p>然而……<strong>初次使用的时候，需要先写几段代码，相当于训练一下你的TabNine，让它熟悉你的代码风格，所以一开始它不会给你提示（你这时候看到的代码补全其实是CLion预设的）。等用一段时间，你会发现TabNine变得越来越聪明了。</strong></p>
-<p><del>还有一件比较重要的事，就是<strong>TabNine的深度学习功能默认只有30天的试用期，需要注册专业版获得永久使用权。</strong>专业版目前免费，点击链接（已失效）申请，它会向你的邮箱中发送注册码及配置说明，按照要求做即可。</del></p>
+<p><del>还有一件比较重要的事，就是**TabNine的深度学习功能默认只有30天的试用期，需要注册专业版获得永久使用权。**专业版目前免费，点击链接（已失效）申请，它会向你的邮箱中发送注册码及配置说明，按照要求做即可。</del></p>
 <p>可惜的是，专业版TabNine现在似乎需要付费了。不管怎么说，还是先把网址丢这儿：<a href="https://www.tabnine.com/trial/">网页链接</a></p>
-<p><strong>TabNine有一个缺陷，就是比较占CPU（毕竟自带机器学习）。</strong>反正我敲代码比较快的时候会发现排风扇也在呼呼转。</p>
+<p>**TabNine有一个缺陷，就是比较占CPU（毕竟自带机器学习）。**反正我敲代码比较快的时候会发现排风扇也在呼呼转。</p>
 <p>然后可能会有一些小bug（习惯就好）。</p>
 <p>如果需要停用&#x2F;卸载TabNine，屏幕左上角<code>File-&gt;Settings-&gt;Plugins-&gt;TabNine-&gt;Disable/Uninstall</code>。</p>
 <p>额……说是进阶的配置，其实也就这些。不过，应该已经可以很好地提升编程体验了~</p>
@@ -294,9 +294,9 @@
 <li><p>CLion的代码以项目为单位，一个项目中可以有很多很多文件，它们之间可以相互引用。因此，坦诚地说，如果你只是为了完成<strong>一些</strong>小型程序而使用CLion，确实有点浪费电脑资源。</p>
 <p>在这里，提供两种方案。一个，是如果这段代码只是用于测试，以后再也不会用了，那就<strong>把代码清空，不用再建新的项目</strong>。另一个，就是如果你还想保留当前的代码，那就<strong>把当前文件复制到项目中的另一个地方，当做备份，同样不用建新的项目</strong>。（复制粘贴的操作详见第4条。）</p>
 </li>
-<li><p><strong>熟练运用组合键<code>Ctrl+Alt+L</code>。</strong>它可以将你的代码格式化，增强代码可读性。（像我现在已经敲几行就整理一下代码了……简直过于方便……）</p>
+<li><p>**熟练运用组合键<code>Ctrl+Alt+L</code>。**它可以将你的代码格式化，增强代码可读性。（像我现在已经敲几行就整理一下代码了……简直过于方便……）</p>
 </li>
-<li><p>重视一下IDE给出的Warning(s)（虽然绝不以消除所有Warning(s)为目标）。CLion给的Warning质量还是普遍比较高的。首先，它会在右侧的滚动条处以黄色表示出来，方便你看看哪里还有需要注意的地方。然后，不同级别和类型的Warning会用不同的方式在代码中呈现出来<strong>（有些地方的代码会变成灰色，有些则是下划线或者高亮出来）</strong>，鼠标悬浮在上方就能看到具体的提示；当光标在Warning处时，使用组合键<code>Alt+Enter</code>可以看到一些修改建议（不过这些修改建议不一定管用，往往还是需要人工修改的）。<code>Clang-Tidy</code>类型的Warning可以选择忽略。</p>
+<li><p>重视一下IDE给出的Warning(s)（虽然绝不以消除所有Warning(s)为目标）。CLion给的Warning质量还是普遍比较高的。首先，它会在右侧的滚动条处以黄色表示出来，方便你看看哪里还有需要注意的地方。然后，不同级别和类型的Warning会用不同的方式在代码中呈现出来**（有些地方的代码会变成灰色，有些则是下划线或者高亮出来）**，鼠标悬浮在上方就能看到具体的提示；当光标在Warning处时，使用组合键<code>Alt+Enter</code>可以看到一些修改建议（不过这些修改建议不一定管用，往往还是需要人工修改的）。<code>Clang-Tidy</code>类型的Warning可以选择忽略。</p>
 <blockquote>
 <p><code>Typo</code>类型的Warning表示拼写错误。虽然拼写错误并不会直接导致程序的错误，但还是尽量避免。</p>
 <p>如果确实是单词拼错了，把光标放到那个单词处，按下组合键<code>Alt+Enter</code>，选择<code>Typo: Rename to...</code>，然后进行更正。它会把项目中这个所有出现这个变量的地方一起改好。</p>
@@ -305,7 +305,7 @@
 <p>如果你的变量名是汉语拼音甚至是汉语拼音缩写……还是算了吧……请设想一下在别人的代码中看到<code>bt</code>、<code>wz</code>、<code>djadd</code>等名称时内心的崩溃感……</p>
 <p><del>当然我不会告诉你最新的语言标准中允许真的用汉字做变量名……（试试<code>int 测试;</code>）</del></p>
 </blockquote>
-<p>利用好Warning提示可以有效地避免一些低级错误。试着在IDE中粘贴以下代码<strong>（不用去运行）</strong>，看看它给出了哪些Warning(s)。</p>
+<p>利用好Warning提示可以有效地避免一些低级错误。试着在IDE中粘贴以下代码**（不用去运行）**，看看它给出了哪些Warning(s)。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> m;</span><br><span class="line">    cin &gt;&gt; m;</span><br><span class="line">    cout &lt;&lt; n * m &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">bar</span><span class="params">(<span class="type">int</span> x, <span class="type">bool</span> flag)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (x % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            x = x + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            x = x * <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">return</span> x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">culculate</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; a + b &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">foo</span>(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="built_in">bar</span>(<span class="number">4</span>, <span class="literal">false</span>) &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> s;</span><br><span class="line">    cout &lt;&lt; s &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> a[<span class="number">10</span>][<span class="number">10</span>] = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            cout &lt;&lt; a[i][j] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> k = <span class="number">8</span>;</span><br><span class="line">    <span class="keyword">while</span> (k &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">//Do something but forget to update the variable `k`</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> baz[<span class="number">5</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">9</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (baz[i] = <span class="number">4</span>)</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (flag)</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;true&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">culculate</span>(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;The end.&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>当你的项目中<strong>有多个文件需要管理</strong>时，屏幕上方的文件路径条（例如<code>HelloWorld&gt;main.cpp</code>）可以比较简便地实现一些功能。点击一个文件夹（例如<code>HelloWorld</code>），你可以<strong>查看这个文件夹下的其他文件或子文件夹</strong>。右击一个文件夹或文件（例如<code>main.cpp</code>），你可以进行<strong>新建文件、复制粘贴文件、重命名文件、删除文件</strong>等更多操作。</p>

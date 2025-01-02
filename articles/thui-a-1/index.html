@@ -33,7 +33,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.unidy.cn/articles/thui-a-1/drawer.png">
 <meta property="article:published_time" content="2020-02-13T00:00:00.000Z">
-<meta property="article:modified_time" content="2024-12-15T13:10:29.173Z">
+<meta property="article:modified_time" content="2025-01-02T11:27:49.508Z">
 <meta property="article:author" content="UNIDY">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="Kotlin">
@@ -42,7 +42,7 @@
 
   
   <meta property="article:published_time" content="Thu Feb 13 2020 00:00:00 GMT+0000">
-  <meta property="article:modified_time" content="Sun Dec 15 2024 13:10:29 GMT+0000">
+  <meta property="article:modified_time" content="Thu Jan 02 2025 11:27:49 GMT+0000">
   
 
   
@@ -210,9 +210,9 @@
 <p><strong>我毕竟刚刚接触Android，很多认识也都停留在表面，没有太多接触源码的东西，因此我现阶段写下的内容，只管能用就行。</strong></p>
 <p>第一部分，我打算写点当前少有教程提到的内容：页面导航（<code>Navigation</code>），以及可配套食用的顶部工具栏（<code>Toolbar</code>）、底部导航栏（<code>BottomNavigationView</code>）和侧边抽屉（<code>DrawerLayout</code>）。</p>
 <h1 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h1><p><code>Navigation</code>能做什么？</p>
-<p><strong>我们经常需要处理页面之间的切换。</strong>以<code>THUInfo</code>为例，主页、动态、计划之间的切换就是基本操作。幸而，Google于2018年推出<code>Android Jetpack</code>，其中的<code>Navigation</code>模块可以帮助开发者<strong>使用少量代码轻松地实现这一需求</strong>。</p>
-<p><strong>此外，我们的需求往往不止于三四个根页面之间的切换。</strong>例如，在主页页面之下，我们还要有教室资源、消费查询等子页面。<strong>并且，我们还希望，在这些子页面中，返回键能够得到正确的处理（即回到上级页面），屏幕左上角也要相应地设置一个虚拟的返回按钮。</strong>而这些需求，借助<code>Navigation</code>，均可轻松得到实现。</p>
-<p>那么，<code>Navigation</code>到底是怎么一回事呢？<code>Navigation</code>最基本的思路就是，<strong>设定一个容器<code>fragment</code><strong>（注：新版<code>Navigation</code>推荐使用<code>FragmentContainerView</code>，不过我还没研究），</strong>将其标记为宿主（<code>NavHostFragment</code>），由<code>NavController</code>进行管理。实际运用时如要切换页面，只需替换掉该<code>fragment</code>填充的内容即可。</strong>此外，<code>NavController</code>切换页面时，会自动维护返回栈，从而可进一步实现返回键的处理。</p>
+<p><strong>我们经常需要处理页面之间的切换。<strong>以<code>THUInfo</code>为例，主页、动态、计划之间的切换就是基本操作。幸而，Google于2018年推出<code>Android Jetpack</code>，其中的<code>Navigation</code>模块可以帮助开发者</strong>使用少量代码轻松地实现这一需求</strong>。</p>
+<p>**此外，我们的需求往往不止于三四个根页面之间的切换。**例如，在主页页面之下，我们还要有教室资源、消费查询等子页面。**并且，我们还希望，在这些子页面中，返回键能够得到正确的处理（即回到上级页面），屏幕左上角也要相应地设置一个虚拟的返回按钮。**而这些需求，借助<code>Navigation</code>，均可轻松得到实现。</p>
+<p>那么，<code>Navigation</code>到底是怎么一回事呢？<code>Navigation</code>最基本的思路就是，<strong>设定一个容器<code>fragment</code></strong>（注：新版<code>Navigation</code>推荐使用<code>FragmentContainerView</code>，不过我还没研究），**将其标记为宿主（<code>NavHostFragment</code>），由<code>NavController</code>进行管理。实际运用时如要切换页面，只需替换掉该<code>fragment</code>填充的内容即可。**此外，<code>NavController</code>切换页面时，会自动维护返回栈，从而可进一步实现返回键的处理。</p>
 <p>从设计理念上讲，通过<code>Navigation</code>可以将不同的页面借助<code>fragment</code>进行关联，而无需创建更多的<code>activity</code>——这也符合了“一个APP只用一个<code>activity</code>”的理念。</p>
 <hr>
 <h1 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h1><h2 id="懒人模式"><a href="#懒人模式" class="headerlink" title="懒人模式"></a>懒人模式</h2><p>在<code>New Project</code>中选择<code>Bottom Navigation Activity</code>作为模板就可以了。</p>
@@ -338,7 +338,7 @@
 <p>当然，这有点暴力修改的意味在里面。因此，要想显得不那么暴力，需要考虑一些问题。最主要的，就是设置<code>navigationIcon</code>的过程是一瞬间完成的，中间的过渡动画就没有了。</p>
 <p>还有两个小问题。</p>
 <ol>
-<li><p>每30秒重新获取一次未读邮件情况，相应地也要刷新一下左上角的图标。然而，**我忘了还要判断当前页面是否为<code>top level destiniation</code>**，导致的结果是，明明左上角应该是一个返回键，突然就变成带小红点的三道杠了。<br>看一下修改之后的代码片段：</p>
+<li><p>每30秒重新获取一次未读邮件情况，相应地也要刷新一下左上角的图标。然而，<strong>我忘了还要判断当前页面是否为<code>top level destiniation</code></strong>，导致的结果是，明明左上角应该是一个返回键，突然就变成带小红点的三道杠了。<br>看一下修改之后的代码片段：</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (navController.currentDestination?.id <span class="keyword">in</span> topLevelDestinationIds) &#123;</span><br><span class="line">    <span class="comment">// Update badge</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>然而，仅仅每30秒刷新一次显然不够——当用户重新来到<code>top level destination</code>时，也应刷新一次。这时，我们就要监听<code>NavController</code>的目标变化了：</p>

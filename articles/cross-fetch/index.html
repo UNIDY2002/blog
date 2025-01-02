@@ -32,14 +32,14 @@
 <meta property="og:description" content="JavaScript与其说是一门语言，不如说是一套协议。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-26T00:00:00.000Z">
-<meta property="article:modified_time" content="2024-12-15T13:10:29.173Z">
+<meta property="article:modified_time" content="2025-01-02T11:27:49.508Z">
 <meta property="article:author" content="UNIDY">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
 
   
   <meta property="article:published_time" content="Tue Jan 26 2021 00:00:00 GMT+0000">
-  <meta property="article:modified_time" content="Sun Dec 15 2024 13:10:29 GMT+0000">
+  <meta property="article:modified_time" content="Thu Jan 02 2025 11:27:49 GMT+0000">
   
 
   
@@ -201,7 +201,7 @@
     </header>
 	
     <div class="mdui-card-content mdui-typo">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>JavaScript与其说是一门语言，不如说是一套协议。<strong>只是各大宿主平台恰好都按照这一协议实现了对应的接口。</strong>至于怎么实现，ECMA委员会并不管，也管不了。所以JavaScript没有标准库。如果某个平台上的某个实现有问题，那也绝对是平台的特性，绝不可能甩锅给JavaScript。</p>
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>JavaScript与其说是一门语言，不如说是一套协议。**只是各大宿主平台恰好都按照这一协议实现了对应的接口。**至于怎么实现，ECMA委员会并不管，也管不了。所以JavaScript没有标准库。如果某个平台上的某个实现有问题，那也绝对是平台的特性，绝不可能甩锅给JavaScript。</p>
 <p>这与Java的跨平台属性有着显著的不同。JVM提供了一个完全抽象的层次，开发者理论上不必关心同一段代码在不同平台上的表现问题。<strong>JavaScript则将这一责任移交给开发人员</strong>，各大宿主平台仿佛只是读代码的机器，读到一半很任性地抛给你一个<code>xxx is not implemented</code>都是意料之中的（没错，<a href="https://github.com/facebook/react-native/blob/master/Libraries/Blob/FileReader.js#L83">说的就是你</a>）。开发者需要自己进行兼容与缝合。</p>
 <p>网络库就是一大坑——它天然与宿主平台相关。<strong>尽管有统一的<code>Fetch API</code>接口规范，但各大平台对<code>fetch</code>的实现情况都不尽理想。</strong><a href="https://www.npmjs.com/package/cross-fetch"><code>cross-fetch</code></a>是一个很优秀的库，它基本实现了node、browser和react-native三端统一的<code>fetch</code>功能，可惜它对不同字符集编码解析的跨平台支持有些无能为力。</p>
 <p>针对这一问题，我在项目中基于<code>cross-fetch</code>定制了一个更加通用的<code>uFetch</code>，并在此加以记录。</p>
