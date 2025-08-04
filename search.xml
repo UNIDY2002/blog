@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>博二下学期小结</title>
+      <link href="/articles/summary-d2-2/"/>
+      <url>/articles/summary-d2-2/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>想拥有看清正确路线的视野。</p><span id="more"></span><p>这一学期，最好的消息是我的论文中 OSDI 了，我也美国游了一次。</p><p>但正向的事件总是平平无奇，负向的探索才有说道的意义。</p><hr><h2 id="THU-Info-APP-接入-DeepSeek"><a href="#THU-Info-APP-接入-DeepSeek" class="headerlink" title="THU Info APP 接入 DeepSeek"></a>THU Info APP 接入 DeepSeek</h2><p>DeepSeek 的爆火带来了一波 AI 热，我们组也在第一时间（2.28）搭建了给清华大学师生免费使用的 DeepSeek 服务。这给 THU Info APP 提供了很好的 AI 赋能的机会——我们可以在 APP 里免费调用 DeepSeek 接口，从而提升 APP 的智能性。在当下这个 AI 时代，接入 DeepSeek 也有很重要的战略意义。</p><p>Xyi 为我提议了两个模块：标准的 AI 对话模块，以及利用 APP 集成校内资讯的优势而定制的 RAG 模块。在这一规划下，我展开了 APP 的开发。此处还要感谢社区伙伴 SunnyCloudYang 为我们贡献了很重要的 UI 代码，加速了功能上线的进度。</p><p>遗憾的是，由于我的咕咕咕，这一功能直到 6 月 12 日才正式面向用户，那时 AI 热早已消退。就统计数据来看，DeepSeek 的使用量也远不及预期。我将其归因于我们做得不够快，Xyi 则认为是我产品打磨得不够好。总之，这次不太成功的探索留下了一些经验和教训。</p><h2 id="新科研课题的探索"><a href="#新科研课题的探索" class="headerlink" title="新科研课题的探索"></a>新科研课题的探索</h2><p>上半学期，在老师的指导下，我开启了一个新的科研题目的研究。本着之前获得的“快速实现原型系统”的经验，我将注意力集中在课题最核心的部分，前期开发也还算顺利。不过随着测试的深入，我们发现系统设计存在问题，需要重构。</p><p>就在这时，我的前一篇论文的录用通知来了。与此同时，我需要参与一个项目。所以，我选择暂时搁置这个新课题，简单整理了现有问题后，将这个课题移交给老师了。</p><p>虽然我没有从这个新课题里获得直接的成果，但我也加深了一些工作经验的理解——开展任何课题或者项目，先围绕核心点做出 PoC，而将附属性的部分放到后面，既能快速获得正反馈，也能把时间集中到最有价值的部分。</p><h2 id="弹性-EP-项目"><a href="#弹性-EP-项目" class="headerlink" title="弹性 EP 项目"></a>弹性 EP 项目</h2><p>下半学期，我在章老师的带领下，为 SGLang 新增弹性 EP 推理的支持。但实话说，五月到六月的工作基本上在试错，真正产出有价值内容是到了暑假。虽说实际项目里试错总是不可避免，但减少试错时间也是提高效率的重要手段。</p><p>我认为这段时间缺少正面成果的主要原因是没有把握项目整体的目标。从实现弹性 EP 的角度而言，相比于我一开始做的底层通信逻辑的探索，直接从 SGLang 上层进行改动的效率更高。也就是说，正确的工作规划方法应该是，就着 SGLang 增加弹性 EP 的总目标，先分析出需要做哪些宏观改动，然后再进入微观，看看每一个部分已经有什么、还要做什么，从而可以筛选出真正必须优先实现的小模块，并避开我无本需在前期完成的通信逻辑细节，最后再向上搭建。这是一个先自顶向下分析评估、再自底向上逐步实现的思路，而我只顾着自底向上实现，忽视了总体大局的视角，这是一个需要重视的经验教训。</p><h2 id="其他暂不公开的工作"><a href="#其他暂不公开的工作" class="headerlink" title="其他暂不公开的工作"></a>其他暂不公开的工作</h2><p>还有一项工作，我规划了一学期，但真正有价值的 PoC 也是到了暑假才完成。我同样将学期内的止步不前归纳为重心偏移——没有从顶层设计出发，从而错过了工作最关键的要点。得益于 Xyi 的及时提醒，我才终于在暑假走到了正确的路线上。</p><p>综合上述经历，我觉得高效推进项目的关键因素在于找准正确的工作路线。这也许真的离不开大量经验积累和积极反思。不过至少，也期待我获得了新方法论的指导后，之前由于方向不清而滞后的各个项目可以快速推进吧。</p><h2 id="实习与社会实践"><a href="#实习与社会实践" class="headerlink" title="实习与社会实践"></a>实习与社会实践</h2><p>从 2024 年 9 月到 2025 年 6 月，我在商汤科技实习，工作内容是智能笔记产品 SenseNote 的研发。我对这段实习经历非常感激，因为它让我获得了 AI 产品落地的一手经验，也开阔了我的视野，让我看到了 AI 能力居然可以这样用。</p><p>从 2025 年 6 月到 2025 年 8 月，我跟学校的博士生社会实践课程，前往古联公司实习，提供了技术咨询服务。我觉得在众多实践项目中，我选择这个项目是非常成功的决策。它不仅不要求全天到岗，工作内容也相对轻松，还让我获得了出版编校行业内对于编辑软件需求的一手信息。</p><p>顺便吐槽一下学校的社会实践宣讲。宣讲会上提到的关于京外实践的信息，并不一定落实，却给我带来了误导：</p><ul><li>实践出发时，整个支队必须一同离京——事实上，很多基地允许学生自行从北京前往实践地。</li><li>实践时，学生必须住在指定的住宿地点，不得私自在外留宿——事实上，对于上海等城市里的基地，这一点并不怎么管。</li></ul><p>不过我本来也没打算寻找京外的实践基地，所以这两点对我来说没有影响。在此记录一下，以供读者参考。</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>虽然这个学期的各项工作都缺乏正向的产出，但也给了我宝贵的经验教训。此外，这学期我在工作生活平衡方面取得了进步，这一点可以从我 GitHub 主页绿板子周末的空行看出。</p><p>希望下学期再接再厉！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 碎碎念 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 随想 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>博二上学期小结</title>
       <link href="/articles/summary-d2-1/"/>
       <url>/articles/summary-d2-1/</url>
@@ -894,22 +919,22 @@
     
     
     <entry>
-      <title>教程资料</title>
-      <link href="/downloads/tutorials/index.html"/>
-      <url>/downloads/tutorials/index.html</url>
+      <title>主题与配置</title>
+      <link href="/downloads/themes/index.html"/>
+      <url>/downloads/themes/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="全部资源"><a href="#全部资源" class="headerlink" title="全部资源"></a>全部资源</h2><ul><li><a href="cpp/">C++快速入门（实验版）</a></li></ul>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="全部资源"><a href="#全部资源" class="headerlink" title="全部资源"></a>全部资源</h2><ul><li><p><a href="Splendid-CLion.icls">Splendid-CLion.icls</a></p><p>一款适用于CLion的主题配色方案。</p></li><li><p><a href="Splendid-Idea.icls">Splendid-Idea.icls</a></p><p>一款适用于Idea的主题配色方案。</p></li><li><p><a href="Splendid-PyCharm.icls">Splendid-PyCharm.icls</a></p><p>一款适用于PyCharm的主题配色方案。</p></li></ul>]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>主题与配置</title>
-      <link href="/downloads/themes/index.html"/>
-      <url>/downloads/themes/index.html</url>
+      <title>教程资料</title>
+      <link href="/downloads/tutorials/index.html"/>
+      <url>/downloads/tutorials/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="全部资源"><a href="#全部资源" class="headerlink" title="全部资源"></a>全部资源</h2><ul><li><p><a href="Splendid-CLion.icls">Splendid-CLion.icls</a></p><p>一款适用于CLion的主题配色方案。</p></li><li><p><a href="Splendid-Idea.icls">Splendid-Idea.icls</a></p><p>一款适用于Idea的主题配色方案。</p></li><li><p><a href="Splendid-PyCharm.icls">Splendid-PyCharm.icls</a></p><p>一款适用于PyCharm的主题配色方案。</p></li></ul>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="全部资源"><a href="#全部资源" class="headerlink" title="全部资源"></a>全部资源</h2><ul><li><a href="cpp/">C++快速入门（实验版）</a></li></ul>]]></content>
       
     </entry>
     
