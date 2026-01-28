@@ -7,6 +7,6 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "github-webhook-handler": "1.0.0"
+    "github-webhook-handler": "2.1.0"
   }
 }
